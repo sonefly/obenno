@@ -1,7 +1,0 @@
-# 金身莲台 · 梵音殿｜The Golden Lotus Throne
-# 允许所有搜索引擎收录；素材目录与备份目录不抓取。
-User-agent: *
-Allow: /
-Disallow: /_backup/
-
-Sitemap: https://www.obenno.com/sitemap.xml
