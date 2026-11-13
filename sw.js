@@ -1,4 +1,4 @@
-﻿const CACHE = 'fxy-v17';
+﻿const CACHE = 'fxy-v18';
 const FILES = [
   './',
   './index.html',
@@ -51,4 +51,5 @@ self.addEventListener('fetch', function(e){
     })
   );
 });
+
 
