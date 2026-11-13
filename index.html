@@ -2107,8 +2107,8 @@ button.book:focus-visible{outline:2px solid rgba(255,214,150,.5);outline-offset:
 .gate .doorleaf{
   position:absolute;inset:0;
   background:#050302 url(assets/gate_door.webp) center center/cover no-repeat;
-  transition:transform 2s cubic-bezier(.42,.06,.36,1);
-  will-change:transform;
+  transition:transform 1.15s cubic-bezier(.22,.61,.2,1), opacity .5s ease .5s;
+  will-change:transform,opacity;
 }
 .gate .doorleaf.dl{clip-path:inset(0 50% 0 0);}
 .gate .doorleaf.dr{clip-path:inset(0 0 0 50%);}
@@ -2120,6 +2120,8 @@ button.book:focus-visible{outline:2px solid rgba(255,214,150,.5);outline-offset:
 }
 .stage.opening .gate .doorleaf.dl{transform:translateX(-52%);}
 .stage.opening .gate .doorleaf.dr{transform:translateX(52%);}
+/* 红墙随门一同退去：不让半幅朱墙在殿内多留一瞬，避免看起来像一块红色贴片 */
+.stage.opening .gate .doorleaf{opacity:0;}
 .stage.opening .gate .glow{width:66%;opacity:.85;}
 /* 门一开，灯笼属于门景：随门一起隐去，不留漂浮在殿内的残影（手机端尤其明显） */
 .stage.opening .gate .lamp-sway{opacity:0;animation-play-state:paused;transition:opacity .12s linear;}
@@ -2130,7 +2132,7 @@ button.book:focus-visible{outline:2px solid rgba(255,214,150,.5);outline-offset:
 .stage.open .curtain.l,.stage.open .curtain.r{transition-duration:1.5s;}
 
 @media (max-width:760px){
-  .gate .doorleaf{transition-duration:1.2s;}
+  .gate .doorleaf{transition:transform .9s cubic-bezier(.22,.61,.2,1), opacity .42s ease .4s;}
   .stage.opening .gate .doorleaf.dl{transform:translateX(-58%);}
   .stage.opening .gate .doorleaf.dr{transform:translateX(58%);}
   .stage.open .curtain.l,.stage.open .curtain.r{transition-duration:1.15s;}
@@ -3089,6 +3091,22 @@ button.book:focus-visible{outline:2px solid rgba(255,214,150,.5);outline-offset:
     </header>
     <div class="leaf-body">
       <div class="temple-wrap">
+        <div class="vm-card" id="vmCard">
+          <div class="vm-head">
+            <h3>十方来朝 · 寰宇图</h3><span class="en">Where the pilgrims come from</span>
+            <span class="vm-tally" id="vmTally">累计 <b>—</b> 次 · 遍及 <b>—</b> 处<em> · — VISITS</em></span>
+          </div>
+          <div class="vm-figure">
+            <svg class="vm-globe" id="vmGlobe" viewBox="0 0 760 278" preserveAspectRatio="xMidYMid meet" aria-label="全球来访分布点阵图">
+              <defs><filter id="vmSoft" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="3.2"/></filter></defs>
+              <g id="vmLand"></g><g id="vmDots"></g>
+            </svg>
+          </div>
+          <p class="vm-empty" id="vmEmpty">星野已绘，来处待人<em>The land is drawn — the visits await the count</em></p>
+          <ul class="vm-list" id="vmList" hidden></ul>
+          <p class="vm-note">每一点即一处来处，省市各有其光；光亮随来朝人次渐盛，同一浏览器每日只计一次，不记个人资料。<em>One point per province or city of origin; the light grows with the visits. Counted once per browser per day, no profiles kept.</em></p>
+        </div>
+
         <div class="temple-grid">
           <div class="temple-card">
             <h3>殿堂之制</h3><span class="en">THE HALL</span>
@@ -3121,22 +3139,6 @@ button.book:focus-visible{outline:2px solid rgba(255,214,150,.5);outline-offset:
           </dl>
         </div>
         <p class="alm-note">页面所写为汉传佛教通行的殿堂形制与称谓常识，不指某一具体寺院；礼佛细节以当地寺院的规矩为准。<br>These notes describe common Chinese Buddhist conventions, not any particular temple.</p>
-
-        <div class="vm-card" id="vmCard">
-          <div class="vm-head">
-            <h3>十方来朝 · 寰宇图</h3><span class="en">Where the pilgrims come from</span>
-            <span class="vm-tally" id="vmTally">累计 <b>—</b> 次 · 遍及 <b>—</b> 处<em> · — VISITS</em></span>
-          </div>
-          <div class="vm-figure">
-            <svg class="vm-globe" id="vmGlobe" viewBox="0 0 760 278" preserveAspectRatio="xMidYMid meet" aria-label="全球来访分布点阵图">
-              <defs><filter id="vmSoft" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="3.2"/></filter></defs>
-              <g id="vmLand"></g><g id="vmDots"></g>
-            </svg>
-          </div>
-          <p class="vm-empty" id="vmEmpty">星野已绘，来处待人<em>The land is drawn — the visits await the count</em></p>
-          <ul class="vm-list" id="vmList" hidden></ul>
-          <p class="vm-note">每一点即一处来处，省市各有其光；光亮随来朝人次渐盛，同一浏览器每日只计一次，不记个人资料。<em>One point per province or city of origin; the light grows with the visits. Counted once per browser per day, no profiles kept.</em></p>
-        </div>
 
         <div class="temple-sign">
           <p class="ts-label"><span>缘起 · 联络</span><em>Colophon &amp; Contact</em></p>
@@ -3927,8 +3929,13 @@ button.book:focus-visible{outline:2px solid rgba(255,214,150,.5);outline-offset:
       var ct = String(p[2] || '').trim();
       var z = ZH[cc] || EN[cc] || cc;
       var e = EN[cc] || cc;
-      if (rg){ z += ' · ' + (PRG[rg] || rg); e += ' · ' + rg.toUpperCase(); }
-      if (ct){ z += ' · ' + (CTN[ct] || ct); e += ' · ' + ct.toUpperCase(); }
+      var rz = rg ? (PRG[rg] || rg) : '';
+      var cz = ct ? (CTN[ct] || ct) : '';
+      // 省名、市名与国名相同（台湾·台湾、北京·北京）时只留一处，避免同名重复
+      if (rz && (rz === z || rz.toUpperCase() === e.toUpperCase())) rz = '';
+      if (cz && (cz === z || cz.toUpperCase() === e.toUpperCase() || cz === rz)) cz = '';
+      if (rz){ z += ' · ' + rz; e += ' · ' + rg.toUpperCase(); }
+      if (cz){ z += ' · ' + cz; e += ' · ' + ct.toUpperCase(); }
       return { cc: cc, rg: rg, ct: ct, n: n, z: z, e: e };
     }
     window.__fxyPlace = { PRG: PRG, CTN: CTN };
