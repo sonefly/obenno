@@ -406,8 +406,9 @@ body{
   cursor:pointer;
   --qr-w:clamp(200px,23.5vw,300px);
 }
-.qr-modal.open{display:flex;flex-direction:column;align-items:center;justify-content:center;}
-.qr-row{display:flex;flex-wrap:wrap;align-items:stretch;justify-content:center;gap:clamp(12px,2vw,26px);cursor:default;}
+.qr-modal.open{display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:clamp(24px,6dvh,64px) 3vw clamp(84px,15dvh,140px);overflow:auto;}
+.qr-row{display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:center;gap:clamp(12px,2vw,26px);cursor:default;}
 .qr-sheet{
   display:none;margin:0;width:var(--qr-w);
   box-shadow:0 22px 54px rgba(0,0,0,.66), 0 0 0 1px rgba(216,178,120,.16);
@@ -432,16 +433,15 @@ body{
   color:rgba(238,212,172,.72);
 }
 .qr-note{
-  position:absolute;left:50%;transform:translateX(-50%);
-  bottom:calc(4dvh + 58px);
-  width:min(90vw,820px);margin:0;text-align:center;
+  position:static;left:auto;transform:none;
+  width:min(92vw,760px);margin:clamp(16px,2.4dvh,28px) auto 0;padding:0 2px;text-align:center;
   font-size:11px;line-height:1.9;letter-spacing:.04em;
-  color:rgba(232,206,168,.62);cursor:default;
+  color:rgba(238,214,178,.8);cursor:default;
 }
 .qr-note .en{
   display:block;margin-top:5px;
   font-size:11px;line-height:1.75;letter-spacing:.02em;
-  color:rgba(224,198,160,.4);
+  color:rgba(230,206,170,.58);
 }
 .qr-note .sign{
   display:block;margin-top:12px;padding-top:10px;
@@ -460,8 +460,12 @@ body{
 }
 .qr-bank .qr-cap{
   margin:0;padding:0 8px 11px;text-align:center;
-  font-size:11px;letter-spacing:.26em;text-indent:.26em;
+  font-size:11px;letter-spacing:.2em;text-indent:.2em;
   color:rgba(238,212,172,.72);
+}
+.qr-bank .qr-cap .en{
+  display:block;margin-top:5px;font-size:10px;letter-spacing:.12em;text-indent:.12em;
+  color:rgba(238,212,172,.52);
 }
 .qr-bank dl{
   flex:1 1 auto;margin:0;padding:10px 16px 12px;
@@ -590,14 +594,17 @@ body{
 /* ===== 访客问候（左上） ===== */
 .welcome{
   position:absolute;left:clamp(18px,3.6vw,48px);top:19dvh;
-  display:flex;flex-direction:column;gap:clamp(2px,.4vh,5px);
-  padding-left:14px;
-  z-index:1;
+  display:flex;flex-direction:column;gap:clamp(3px,.55vh,7px);
+  padding:12px 20px 14px 18px;
+  border-radius:16px;
+  background:
+    radial-gradient(130% 120% at 0% 40%, rgba(8,4,1,.66) 0%, rgba(8,4,1,.42) 46%, rgba(8,4,1,.14) 72%, rgba(8,4,1,0) 100%);
+  z-index:2;
   opacity:0;transform:translateY(-10px);
   transition:opacity 1.5s ease 2s, transform 1.5s ease 2s;
 }
 .welcome::before{
-  content:"";position:absolute;left:0;top:1px;bottom:1px;width:1px;
+  content:"";position:absolute;left:6px;top:14px;bottom:14px;width:1px;
   background:linear-gradient(180deg, rgba(216,178,120,.66), rgba(216,178,120,.08));
 }
 .stage.open .welcome.ready{opacity:1;transform:translateY(0);}
@@ -627,9 +634,9 @@ body{
   -webkit-text-stroke:.35px rgba(20,10,4,.5);
 }
 .welcome .en{
-  font-size:clamp(8.5px,.78vw,10px);
-  letter-spacing:.2em;text-indent:.2em;
-  margin:-1px 0 6px;color:rgba(238,220,192,.85);
+  font-size:clamp(10px,.86vw,11px);
+  letter-spacing:.16em;text-indent:.16em;
+  margin:0 0 4px;color:rgba(244,226,198,.9);
   text-shadow:0 0 2px rgba(8,4,1,.95), 0 1px 3px rgba(8,4,1,.9), 0 0 10px rgba(8,4,1,.8);
   -webkit-text-stroke:.3px rgba(20,10,4,.45);
 }
@@ -764,8 +771,11 @@ body{
 
 /* ===== 静坐 · 一炷香 ===== */
 .sit-panel{
-  position:absolute;left:clamp(18px,3.6vw,48px);top:44dvh;z-index:3;
+  position:absolute;left:clamp(14px,3.2vw,44px);top:44dvh;z-index:3;
   display:flex;align-items:flex-start;gap:clamp(10px,1.1vw,16px);
+  padding:12px 18px 14px 12px;border-radius:16px;
+  background:
+    radial-gradient(128% 122% at 0% 42%, rgba(8,4,1,.66) 0%, rgba(8,4,1,.4) 48%, rgba(8,4,1,.12) 74%, rgba(8,4,1,0) 100%);
   pointer-events:auto;
   opacity:0;visibility:hidden;transform:translateY(8px);
   transition:opacity .6s ease, transform .6s ease, visibility .6s;
@@ -801,8 +811,8 @@ body{
   text-shadow:0 0 2px rgba(8,4,1,.95), 0 1px 3px rgba(8,4,1,.9);
 }
 .sit-cap .en{
-  display:block;font-size:8.5px;letter-spacing:.16em;text-indent:.16em;margin-top:2px;
-  color:rgba(234,212,180,.7);
+  display:block;font-size:10px;letter-spacing:.12em;text-indent:.12em;margin-top:3px;
+  color:rgba(240,220,190,.82);
   text-shadow:0 0 2px rgba(8,4,1,.95), 0 1px 2px rgba(8,4,1,.85);
 }
 .sit-stop{
@@ -882,7 +892,13 @@ body.lang-en .leaf-body p,body.lang-en .leaf-body li,body.lang-en .leaf-body dd{
   color:var(--gold);
   transition:opacity 1.2s ease, visibility 1.2s;
 }
-.intro .inner{text-align:center;transform:translateY(0);animation:introFloat 6s ease-in-out infinite;}
+.intro .inner{position:relative;z-index:2;text-align:center;transform:translateY(0);animation:introFloat 6s ease-in-out infinite;}
+.intro .inner::before{
+  content:"";position:absolute;left:50%;top:54%;width:min(82vw,660px);height:132%;
+  transform:translate(-50%,-50%);z-index:-1;pointer-events:none;border-radius:50%;
+  background:radial-gradient(closest-side, rgba(9,4,2,.72), rgba(9,4,2,.44) 58%, rgba(9,4,2,.06) 86%, rgba(9,4,2,0) 100%);
+  filter:blur(9px);
+}
 @keyframes introFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
 .intro .seal{
   width:64px;height:64px;margin:0 auto 26px;
@@ -898,16 +914,16 @@ body.lang-en .leaf-body p,body.lang-en .leaf-body li,body.lang-en .leaf-body dd{
   color:#f0d6a8;
 }
 .intro .hint{
-  margin:0;font-size:12px;letter-spacing:.3em;color:rgba(216,178,120,.6);
+  margin:0;font-size:12px;letter-spacing:.3em;color:rgba(228,196,150,.78);
   text-indent:.3em;
 }
 .intro .enter-en{
   margin:-6px 0 15px;font-size:clamp(10px,.86vw,12px);
-  letter-spacing:.34em;text-indent:.34em;color:rgba(232,208,170,.66);
+  letter-spacing:.34em;text-indent:.34em;color:rgba(240,218,182,.82);
 }
 .intro .hint-en{
   margin:7px 0 0;font-size:11px;letter-spacing:.24em;text-indent:.24em;
-  color:rgba(216,178,120,.44);
+  color:rgba(228,200,162,.64);
 }
 .stage.open .intro{opacity:0;visibility:hidden;pointer-events:none;}
 
@@ -1142,7 +1158,10 @@ body.lang-en .leaf-body p,body.lang-en .leaf-body li,body.lang-en .leaf-body dd{
 }
 .bead-num b{font-size:clamp(30px,4vw,42px);font-weight:300;letter-spacing:.04em;color:#ffe8c0;
   font-variant-numeric:tabular-nums;line-height:1;}
-.bead-num span{font-size:11px;letter-spacing:.26em;color:rgba(226,200,164,.52);margin-top:8px;}
+.bead-num span{font-size:10.5px;letter-spacing:.18em;text-indent:.18em;line-height:1.5;
+  max-width:76%;margin:9px auto 0;text-align:center;color:rgba(230,204,168,.6);}
+html[lang="en"] .bead-num b{font-size:clamp(26px,3.4vw,36px);}
+html[lang="en"] .bead-num span{font-size:10px;letter-spacing:.06em;text-indent:0;line-height:1.45;max-width:82%;}
 .bead-tap{
   appearance:none;cursor:pointer;font-family:var(--serif);
   font-size:12px;letter-spacing:.26em;color:rgba(255,236,204,.92);
@@ -2161,11 +2180,12 @@ button.book:focus-visible{outline:2px solid rgba(255,214,150,.5);outline-offset:
   color:rgba(216,178,120,.34);
 }
 .intro .silent{
-  margin:22px 0 0;font-size:11px;letter-spacing:.2em;color:rgba(216,178,120,.36);
-  text-indent:.2em;
+  margin:14px 0 0;font-size:11.5px;letter-spacing:.2em;color:rgba(232,206,168,.72);
+  text-indent:.2em;text-shadow:0 0 2px rgba(8,4,1,.95),0 1px 3px rgba(8,4,1,.9);
 }
 .intro .silent-en{
-  margin:5px 0 0;font-size:8.5px;letter-spacing:.12em;color:rgba(216,178,120,.28);
+  margin:5px 0 0;font-size:10px;letter-spacing:.12em;color:rgba(230,206,172,.5);
+  text-shadow:0 0 2px rgba(8,4,1,.95),0 1px 3px rgba(8,4,1,.85);
 }
 @media (max-width:760px){
   .intro .koan{margin-top:22px;padding-top:15px;}
@@ -3348,13 +3368,13 @@ button.book:focus-visible{outline:2px solid rgba(255,214,150,.5);outline-offset:
       <p class="hint-en en">The Great Compassion Mantra greets you inside</p>
       <p class="hint hint-rooms">殿内有：藏经 · 功课 · 仪轨 · 次第 · 寺院 · 供养 · 历数 · 检索</p>
       <p class="hint-en en">Inside: Canon · Practice · Ritual · Path · Temple · Offerings · Almanac · Search</p>
+      <p class="silent">可静音入殿 · 声音随时可关</p>
+      <p class="silent-en en">You can enter silently; the sound can be switched off anytime</p>
       <div class="koan">
         <p class="koan-txt" id="introKoan">「诸恶莫作，众善奉行，自净其意，是诸佛教。」</p>
         <p class="koan-src" id="introKoanSrc">《法句经》</p>
         <p class="koan-en en" id="introKoanEn">Do no evil, do all good, purify the mind: this is the teaching of all Buddhas.</p>
       </div>
-      <p class="silent">可静音入殿 · 声音随时可关</p>
-      <p class="silent-en en">You can enter silently; the sound can be switched off anytime</p>
     </span>
   </button>
 
@@ -3363,7 +3383,7 @@ button.book:focus-visible{outline:2px solid rgba(255,214,150,.5);outline-offset:
     <figure class="qr-sheet" data-kind="alipay"><figcaption class="qr-cap">支付宝 · Alipay</figcaption><p class="qr-tip">长按识别，或截图后扫 · long-press to recognise, or screenshot and scan</p><img src="assets/qr_alipay.webp" alt="支付宝功德二维码 Alipay merit QR code" loading="lazy" decoding="async"></figure>
     <figure class="qr-sheet" data-kind="wechat"><figcaption class="qr-cap">微信 · WeChat</figcaption><p class="qr-tip">长按识别，或截图后扫 · long-press to recognise, or screenshot and scan</p><img src="assets/qr_wechat.webp" alt="微信功德二维码 WeChat merit QR code" loading="lazy" decoding="async"></figure>
     <aside class="qr-bank" aria-label="国际汇款 International transfer">
-      <p class="qr-cap">国际汇款 · International Transfer</p>
+      <p class="qr-cap">国际汇款<span class="en">International Transfer</span></p>
       <dl>
         <dt>账户名称 · Account name</dt><dd>Fei Song</dd>
         <dt>IBAN</dt><dd>GB03EZYR04000100371583</dd>
@@ -3455,7 +3475,7 @@ button.book:focus-visible{outline:2px solid rgba(255,214,150,.5);outline-offset:
   function ambHold(){
     if (!amb.paused){ ambWasPlaying = true; amb.pause(); }
     var pb = document.getElementById('sutraPlay');
-    if (pb) pb.textContent = '梵唱 · 起';
+    if (pb) pb.textContent = L('梵唱 · 起','Chant · start');
   }
   function ambContinue(){
     if (!ambWasPlaying) return;
@@ -3463,7 +3483,7 @@ button.book:focus-visible{outline:2px solid rgba(255,214,150,.5);outline-offset:
     var pr = amb.play();
     if (pr && pr.catch){ pr.catch(function(){}); }
     var pb = document.getElementById('sutraPlay');
-    if (pb) pb.textContent = '梵唱 · 止';
+    if (pb) pb.textContent = L('梵唱 · 止','Chant · stop');
   }
   document.addEventListener('visibilitychange', function(){
     if (document.hidden) ambHold(); else ambContinue();
@@ -4864,7 +4884,7 @@ var SUTRAS = {
     '七月':7, '八月':8, '九月':9, '十月':10, '冬月':11, '十一月':11, '腊月':12, '十二月':12 };
   var MON_NAME = ['', '正月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '冬月', '腊月'];
   var OBSERVANCES = [
-    { m: 1, d: 8,  zh: '释迦牟尼佛成道', en: 'BUDDHA\'S ENLIGHTENMENT' },
+    { m: 2, d: 8,  zh: '释迦牟尼佛出家', en: 'BUDDHA\'S RENUNCIATION' },
     { m: 2, d: 19, zh: '观音菩萨圣诞',   en: 'GUANYIN\'S BIRTHDAY' },
     { m: 4, d: 4,  zh: '文殊菩萨圣诞',   en: 'MANJUSHRI\'S BIRTHDAY' },
     { m: 4, d: 8,  zh: '释迦牟尼佛圣诞', en: 'BUDDHA\'S BIRTHDAY' },
@@ -5980,7 +6000,7 @@ var SUTRAS = {
     if (name === 'almanac') initAlmanac();
     if (name === 'sutra'){
       var pb = document.getElementById('sutraPlay');
-      if (pb) pb.textContent = amb.paused ? '梵唱 · 起' : '梵唱 · 止';
+      if (pb) pb.textContent = amb.paused ? L('梵唱 · 起','Chant · start') : L('梵唱 · 止','Chant · stop');
     }
     if (!currentLeaf){
       var act = document.activeElement;
