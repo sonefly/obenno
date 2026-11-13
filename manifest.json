@@ -1,0 +1,31 @@
+{
+  "name": "梵音殿 · Obenno",
+  "short_name": "梵音殿",
+  "description": "金碧大殿、莲台金身；藏经诵读、功课、供灯、历数与名相。A golden hall of the seated Buddha with scripture, practice and offerings — Obenno.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0b0705",
+  "theme_color": "#0b0705",
+  "lang": "zh-Hans",
+  "icons": [
+    {
+      "src": "assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
