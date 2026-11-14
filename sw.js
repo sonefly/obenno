@@ -1,4 +1,4 @@
-﻿const CACHE = 'fxy-v18';
+﻿const CACHE = 'fxy-v19';
 const FILES = [
   './',
   './index.html',
@@ -13,12 +13,10 @@ const FILES = [
   './assets/gate_door.webp',
   './assets/qr_alipay.webp',
   './assets/qr_wechat.webp',
-  './assets/dabei.mp3',
   './manifest.json',
   './assets/icon-192.png',
   './assets/icon-512.png',
   './assets/apple-touch-icon.png',
-  './assets/bell.mp3',
   './assets/notoserifsc-subset.woff2'
 ];
 

@@ -31,7 +31,6 @@
 <link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png"><link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png">
 <link rel="preload" as="image" href="assets/hall_gold_1280.webp" type="image/webp" fetchpriority="high">
 <link rel="preload" as="image" href="assets/buddha_seated.webp" type="image/webp" fetchpriority="high">
-<link rel="preload" as="font" href="assets/notoserifsc-subset.woff2" type="font/woff2" crossorigin>
 <!-- 字体：思源宋体子集自托管（4322 字，300–600 可变字重），不再依赖外部字体 CDN -->
 <script type="application/ld+json">
 {
@@ -2469,6 +2468,7 @@ button.book:focus-visible{outline:2px solid rgba(255,214,150,.5);outline-offset:
 .vm-figure{position:relative;width:100%;max-width:min(100%,760px);margin:0 auto;aspect-ratio:760 / 278;}
 .vm-globe{width:100%;height:auto;display:block;}
 .vm-dot{fill:rgba(220,182,124,.25);}
+.vm-land{fill:rgba(220,182,124,.25);}
 .vm-sea-line{fill:none;stroke:rgba(216,178,120,.12);stroke-width:.6;}
 .vm-dot-lit{fill:#ffdcaa;opacity:.9;}
 .vm-dot-glow{fill:#ffcf92;opacity:.3;}
@@ -3458,16 +3458,23 @@ button.book:focus-visible{outline:2px solid rgba(255,214,150,.5);outline-offset:
   /* 背景梵唱《大悲咒》，循环不断；钟声各自独立发声，可与梵唱、上一次钟声叠加 */
   var amb  = new Audio('assets/dabei.mp3');
   amb.loop = true;
-  amb.preload = 'auto';
+  // 不预取：970KB 的梵唱若在首屏抢带宽，山门与佛像会明显变慢；第一次播放（用户手势）时才取
+  amb.preload = 'none';
   amb.volume = 0;
 
   var bellVoices = [];
   for (var vi = 0; vi < 3; vi++){
     var vb = new Audio('assets/bell.mp3');
-    vb.preload = 'auto';
+    vb.preload = 'auto';            // 钟声仅 96KB 且三音源共用同一文件，预取不影响首屏
     vb.volume = 0.52;
     bellVoices.push(vb);
   }
+  // 梵唱排在首屏之后：空闲或入殿后再取，既不抢山门与佛像的带宽，也不至于入殿听不到
+  function warmChant(){
+    try{ if (amb.readyState === 0) amb.load(); }catch(e){}
+  }
+  if (window.requestIdleCallback) requestIdleCallback(warmChant, { timeout: 4000 });
+  else setTimeout(warmChant, 2400);
   var bellIdx = 0;
 
   /* 离开本页（切标签页、最小化、焦点移走）就暂停梵唱；回到本页若原本在放，则续上 */
@@ -3915,22 +3922,30 @@ button.book:focus-visible{outline:2px solid rgba(255,214,150,.5);outline-offset:
       var q=p[1].split(','); if(q.length!==2) return;
       C[p[0]]={lon:parseFloat(q[0]),lat:parseFloat(q[1])};
     });
-    (function drawLand(){
-      // 窄屏下隔格取点并放大点径，保证 320 像素宽的世界仍可辨出大陆轮廓
+    // 大陆点阵：整块拼成一条 <path>，一个节点代替 1500–2000 个 circle；并且推迟到页面空闲再建，
+    // 首屏（山门/主殿）不再为看不见的寰宇图付出建树与重排成本
+    var landBuilt = false;
+    function buildLand(){
+      if (landBuilt) return;
+      landBuilt = true;
       var narrow = (window.matchMedia && window.matchMedia('(max-width:560px)').matches);
-      var step = narrow ? 2 : 1, rad = narrow ? 3.2 : 1.9;
-      var frag=document.createDocumentFragment();
+      var step = narrow ? 2 : 1, size = narrow ? 5.4 : 3.4;
+      var d = '';
       for(var r=0;r<MASK.length;r+=step){
         var row=MASK[r];
         for(var c=0;c<row.length;c+=step){
           if(row.charAt(c)!=='#') continue;
-          var dot=document.createElementNS(NS,'circle');
-          dot.setAttribute('cx',(c+0.5)*10); dot.setAttribute('cy',(r+0.5)*10);
-          dot.setAttribute('r',String(rad)); dot.setAttribute('class','vm-dot');
-          frag.appendChild(dot);
+          var x=(c+0.5)*10-size/2, y=(r+0.5)*10-size/2;
+          d += 'M' + x.toFixed(1) + ' ' + y.toFixed(1) + 'h' + size + 'v' + size + 'h-' + size + 'z';
         }
       }
-      gL.appendChild(frag);
+      var p=document.createElementNS(NS,'path');
+      p.setAttribute('d', d); p.setAttribute('class','vm-land');
+      gL.appendChild(p);
+    }
+    (function scheduleLand(){
+      if (window.requestIdleCallback) requestIdleCallback(buildLand, { timeout: 2200 });
+      else setTimeout(buildLand, 1600);
     })();
     function zhOf(cc){ return ZH[cc]||EN[cc]||cc; }
     function enOf(cc){ return EN[cc]||cc; }
@@ -3959,6 +3974,7 @@ button.book:focus-visible{outline:2px solid rgba(255,214,150,.5);outline-offset:
       return { cc: cc, rg: rg, ct: ct, n: n, z: z, e: e };
     }
     window.__fxyPlace = { PRG: PRG, CTN: CTN };
+    window.__fxyNames = { ZH: ZH, EN: EN };   // 完整国名表，供欢迎块兜底（与寰宇图同一套译名）
     window.__fxyMap=function(rows, regions, total){
       if(!rows || !rows.length){
         gD.textContent='';
@@ -4056,23 +4072,32 @@ button.book:focus-visible{outline:2px solid rgba(255,214,150,.5);outline-offset:
       }
       showWelcome(region, regionEn);
     }
-    // 首次取到就存 7 天，避免每次刷新都变
+    // 缓存只作「先显示、后校正」：上次在境外或开着 VPN 时留下的旧地名，不再锁死 7 天
+    var painted = false;
     try{
       var cached = localStorage.getItem('fxy-region2');
       if (cached){
         var o = JSON.parse(cached);
-        if (o && o.r && Date.now() - o.t < 7 * 86400000){ finish(o.r, o.e || ''); return; }
+        if (o && o.r && Date.now() - o.t < 6 * 3600000){
+          showWelcome(o.r, o.e || '');
+          painted = true;
+        }
       }
     }catch(e){}
     window.__fxySetRegion = function(geo){
-      if (done || !geo) return;
+      if (!geo) return;
       var code = String(geo.c || '').toUpperCase();
+      if (!code || code.length !== 2) return;
+      // 国家名不再只认 37 国白名单：表外国家（芬兰、波兰等）用寰宇图的完整国名表兜底
       var pair = CTY[code];
-      if (!pair) return;
+      if (!pair){
+        var NM = window.__fxyNames || {};
+        pair = [ (NM.ZH && NM.ZH[code]) || code, (NM.EN && NM.EN[code]) || code ];
+      }
       // 省市粒度的地名：中国访客直接显示「省 · 市」，国外显示「国 · 省/州」，译不出时保留原名
       var tab = window.__fxyPlace || {}, PRG = tab.PRG || {}, CTN = tab.CTN || {};
       var rg = String(geo.r || '').trim(), ct = String(geo.t || '').trim();
-      var rz = PRG[rg] || '';
+      var rz = PRG[rg] || rg;          // 译不出时保留原省名，绝不因译名缺失把省一级丢掉
       var cz = CTN[ct] || '';
       var uz = ct ? ct.toUpperCase() : '', ug = rg ? rg.toUpperCase() : '';
       var z = pair[0], e = pair[1];
@@ -4090,7 +4115,7 @@ button.book:focus-visible{outline:2px solid rgba(255,214,150,.5);outline-offset:
       }
       finish(z, e);
     };
-    timer = setTimeout(function(){ finish(''); }, 7000);
+    timer = setTimeout(function(){ if (!painted) finish(''); }, 7000);
   })();
 
   /* ================= 入场 ================= */
