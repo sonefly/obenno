@@ -4129,7 +4129,9 @@ button.book:focus-visible{outline:2px solid rgba(255,214,150,.5);outline-offset:
         pair = [ (NM.ZH && NM.ZH[code]) || code, (NM.EN && NM.EN[code]) || code ];
       }
       // 省市粒度的地名：中国访客直接显示「省 · 市」，国外显示「国 · 省/州」，译不出时保留原名
+      // 精度以 Worker 的 geo.p 为准：只有 city 才显示城市；定不下城市就只到省，绝不拿省会顶替
       var rg = String(geo.r || '').trim(), ct = String(geo.t || '').trim();
+      if (String(geo.p || 'city') !== 'city') ct = '';
       var nm = (typeof window.__fxyName === 'function') ? window.__fxyName(rg, ct) : null;
       var rz = nm ? nm.rz : rg;         // 译不出时保留原省名，绝不因译名缺失把省一级丢掉
       var cz = nm ? nm.cz : ct;
