@@ -1,4 +1,4 @@
-const CACHE = 'fxy-v20';
+const CACHE = 'fxy-v21';
 const FILES = [
   './',
   './index.html',

@@ -2200,6 +2200,7 @@ button.book:focus-visible{outline:2px solid rgba(255,214,150,.5);outline-offset:
   background:rgba(4,2,1,.72);backdrop-filter:blur(2px);opacity:0;pointer-events:none;transition:opacity .32s ease;}
 .share-panel.open{opacity:1;pointer-events:auto;}
 .sp-card{width:min(90vw,440px);padding:clamp(20px,4vw,30px);border:1px solid rgba(216,178,120,.4);
+  max-height:86vh;overflow-y:auto;-webkit-overflow-scrolling:touch;
   background:linear-gradient(180deg,#1a1108,#0c0704);box-shadow:0 24px 60px rgba(0,0,0,.7);}
 .sp-h{margin:0;font-family:var(--serif);font-size:19px;letter-spacing:.18em;color:#ffe8c0;}
 .sp-h i{display:block;font-style:normal;font-size:11px;letter-spacing:.24em;color:rgba(226,200,164,.45);margin-top:6px;}
@@ -2211,6 +2212,16 @@ button.book:focus-visible{outline:2px solid rgba(255,214,150,.5);outline-offset:
 .sp-row b{font-weight:400;font-size:13.5px;letter-spacing:.1em;}
 .sp-row span{font-size:11px;letter-spacing:.1em;color:rgba(226,200,164,.44);}
 .sp-row:hover,.sp-row:focus-visible{border-color:rgba(255,220,170,.6);background:rgba(216,178,120,.12);}
+.sp-row[hidden]{display:none;}
+.sp-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:2px;}
+.sp-pill{display:flex;flex-direction:column;gap:3px;padding:10px 12px;text-align:left;cursor:pointer;
+  font:inherit;color:#f6e4c2;background:rgba(216,178,120,.05);border:1px solid rgba(216,178,120,.22);border-radius:2px;}
+.sp-pill b{font-weight:400;font-size:12.5px;letter-spacing:.08em;color:#ffe8c0;}
+.sp-pill span{font-size:10.5px;letter-spacing:.08em;color:rgba(226,200,164,.42);}
+.sp-pill:hover,.sp-pill:focus-visible{border-color:rgba(255,220,170,.6);background:rgba(216,178,120,.14);}
+.sp-note{margin:10px 0 0;font-size:10.5px;line-height:1.8;letter-spacing:.06em;color:rgba(214,190,158,.44);}
+.sp-note em{display:block;font-style:normal;color:rgba(214,190,158,.32);margin-top:2px;}
+@media (max-width:420px){.sp-grid{grid-template-columns:1fr;}}
 .sp-close{margin-top:14px;width:100%;padding:9px;cursor:pointer;font:inherit;font-size:11px;letter-spacing:.16em;
   color:rgba(240,214,170,.7);background:none;border:1px solid rgba(216,178,120,.22);border-radius:2px;}
 .sp-fallback{margin-top:12px;width:100%;padding:9px 10px;font:inherit;font-size:11.5px;letter-spacing:.04em;
@@ -6148,6 +6159,15 @@ var SUTRAS = {
         '<p class="sp-sub">免费页面，不设账号、不留个人资料；只记十方来朝的总人次。<em>No account, no profiles — only a running count of visits.</em></p>' +
         '<div class="sp-rows">' +
         '<button type="button" class="sp-row" data-sp="link"><b>复制本页链接</b><span>Copy the page link</span></button>' +
+        '<div class="sp-grid">' +
+        '<button type="button" class="sp-pill" data-sp="wx"><b>分享到微信</b><span>Share on WeChat</span></button>' +
+        '<button type="button" class="sp-pill" data-sp="wb"><b>分享到微博</b><span>Share on Weibo</span></button>' +
+        '<button type="button" class="sp-pill" data-sp="x"><b>分享到 X（推特）</b><span>Share on X</span></button>' +
+        '<button type="button" class="sp-pill" data-sp="fb"><b>分享到 Facebook</b><span>Share on Facebook</span></button>' +
+        '<button type="button" class="sp-pill" data-sp="wa"><b>分享到 WhatsApp</b><span>Send in WhatsApp</span></button>' +
+        '<button type="button" class="sp-pill" data-sp="tg"><b>分享到 Telegram</b><span>Send in Telegram</span></button>' +
+        '</div>' +
+        '<p class="sp-note">微信、微博境内畅通；X、Facebook、WhatsApp、Telegram 需自备可通达的网络。<em>WeChat and Weibo work at home; X, Facebook, WhatsApp and Telegram need a network that reaches them.</em></p>' +
         '<button type="button" class="sp-row" data-sp="book" hidden><b>复制当前经书链接</b><span>Link to the sutra on screen</span></button>' +
         '<button type="button" class="sp-row" data-sp="card"><b>存一张今日偈语卡</b><span>Save today\'s verse card</span></button>' +
         '<button type="button" class="sp-row" data-sp="mail"><b>写信给编者</b><span>Write to the keeper</span></button>' +
@@ -6157,8 +6177,8 @@ var SUTRAS = {
       document.body.appendChild(panel);
 
       function closeShare(){ panel.classList.remove('open'); }
-      function copyLink(u){
-        var ok = function(){ closeShare(); toast('链接已复制 · Link copied'); };
+      function copyLink(u, keep){
+        var ok = function(){ if (!keep) closeShare(); toast('链接已复制 · Link copied'); };
         var fallback = function(){
           var box = panel.querySelector('.sp-fallback');
           if (!box){
@@ -6183,6 +6203,31 @@ var SUTRAS = {
         var k = t.getAttribute('data-sp');
         if (k === 'close'){ closeShare(); return; }
         if (k === 'link'){ copyLink(location.href); return; }
+        // 分享到各平台：X / Facebook / 微博 / WhatsApp / Telegram 走官方分享页（新窗口即拉起客户端）；
+        // 微信没有网页分享接口，复制链接后尝试用 weixin:// 唤起手机上的微信
+        var su = location.origin + location.pathname + (window.__curBook ? ('?b=' + window.__curBook) : '');
+        var st = (document.title || '梵音殿 · OBENNO').replace(/\s*\|\s*/g, ' ｜ ');
+        var popup = function(u){
+          // 用真实链接点击打开，比 window.open 更不容易被拦；rel=noopener 断掉 window.opener
+          var a = document.createElement('a');
+          a.href = u; a.target = '_blank'; a.rel = 'noopener noreferrer';
+          a.style.display = 'none';
+          document.body.appendChild(a);
+          a.click();
+          setTimeout(function(){ if (a.parentNode) a.parentNode.removeChild(a); }, 0);
+        };
+        if (k === 'x'){ popup('https://twitter.com/intent/tweet?text=' + encodeURIComponent(st) + '&url=' + encodeURIComponent(su)); return; }
+        if (k === 'fb'){ popup('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(su)); return; }
+        if (k === 'wb'){ popup('https://service.weibo.com/share/share.php?url=' + encodeURIComponent(su) + '&title=' + encodeURIComponent(st)); return; }
+        if (k === 'wa'){ popup('https://wa.me/?text=' + encodeURIComponent(st + ' ' + su)); return; }
+        if (k === 'tg'){ popup('https://t.me/share/url?url=' + encodeURIComponent(su) + '&text=' + encodeURIComponent(st)); return; }
+        if (k === 'wx'){
+          copyLink(su, true);
+          if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)){
+            setTimeout(function(){ try{ location.href = 'weixin://'; }catch(e){} }, 240);
+          }
+          return;
+        }
         if (k === 'book'){
           if (!window.__curBook) return;
           var base = location.href.split('?')[0].split('#')[0];
