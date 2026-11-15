@@ -6,7 +6,7 @@
 <title>梵音殿 · Obenno｜The Golden Lotus Throne</title>
 <meta name="description" content="金碧大殿、莲台金身，大悲咒梵唱与钟声；藏经诵读、经咒跟读、描红抄经、每日功课、功德回向、灯花水供养、农历斋期与圣诞，并附名相小词典与学佛次第。A golden hall with the seated Buddha: the Great Compassion Mantra, sutra recitation, tracing, daily practice, dedication of merit, offerings, the lunar almanac, a glossary of Buddhist terms and a graded path of study.">
 <meta property="og:title" content="梵音殿 · Obenno｜The Golden Lotus Throne">
-<meta property="og:description" content="金殿一炷香，莲台半卷经。A hall of gold, incense, bell and scripture — free to visit, no account needed.">
+<meta property="og:description" content="金殿一炷香，莲台半卷经。梵音殿 · OBENNO：金身莲台、大悲咒梵唱、藏经诵读、每日功课、灯花水供养，皆可静阅；免费、无账号、无广告。A hall of gold, incense, bell and scripture — free, no account, no ads.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="梵音殿 · Obenno">
 <meta property="og:url" content="https://www.obenno.com/">
@@ -2221,6 +2221,13 @@ button.book:focus-visible{outline:2px solid rgba(255,214,150,.5);outline-offset:
 .sp-pill:hover,.sp-pill:focus-visible{border-color:rgba(255,220,170,.6);background:rgba(216,178,120,.14);}
 .sp-note{margin:10px 0 0;font-size:10.5px;line-height:1.8;letter-spacing:.06em;color:rgba(214,190,158,.44);}
 .sp-note em{display:block;font-style:normal;color:rgba(214,190,158,.32);margin-top:2px;}
+.sp-blurb{margin:14px 0 2px;padding:11px 13px;border-left:2px solid rgba(216,178,120,.5);background:rgba(216,178,120,.05);}
+.sp-blurb .k{display:block;font-size:10px;letter-spacing:.2em;color:rgba(226,200,164,.4);margin-bottom:7px;}
+.sp-blurb p{margin:0;font-family:var(--serif);font-size:12.5px;line-height:1.95;letter-spacing:.06em;color:#f9ecd2;}
+.sp-blurb em{display:block;font-style:normal;font-size:10.5px;line-height:1.8;letter-spacing:.05em;color:rgba(226,200,164,.46);margin-top:5px;}
+.sp-blurb button{margin-top:9px;width:100%;padding:8px;cursor:pointer;font:inherit;font-size:11px;letter-spacing:.1em;
+  color:rgba(240,214,170,.8);background:none;border:1px solid rgba(216,178,120,.26);border-radius:2px;}
+.sp-blurb button:hover,.sp-blurb button:focus-visible{color:#fff2d4;border-color:rgba(255,220,170,.6);background:rgba(216,178,120,.1);}
 @media (max-width:420px){.sp-grid{grid-template-columns:1fr;}}
 .sp-close{margin-top:14px;width:100%;padding:9px;cursor:pointer;font:inherit;font-size:11px;letter-spacing:.16em;
   color:rgba(240,214,170,.7);background:none;border:1px solid rgba(216,178,120,.22);border-radius:2px;}
@@ -6154,6 +6161,9 @@ var SUTRAS = {
       panel.className = 'share-panel';
       panel.setAttribute('role', 'dialog');
       panel.setAttribute('aria-modal', 'false');
+      // 分享出去时附带的宣传语：一句中文在前，一句英文在后，各平台共用同一段
+      var BLURB = '金殿一炷香，莲台半卷经。梵音殿 · OBENNO：金身莲台、大悲咒梵唱、藏经诵读、每日功课、灯花水供养，皆可静阅；免费、无账号、无广告。';
+      var BLURB_EN = 'A hall of gold, incense, bell and scripture — sutras, daily practice, offerings and the lunar almanac; free, no account, no ads.';
       panel.innerHTML = '<div class="sp-card">' +
         '<p class="sp-h">分享此页<i>SHARE THIS PAGE</i></p>' +
         '<p class="sp-sub">免费页面，不设账号、不留个人资料；只记十方来朝的总人次。<em>No account, no profiles — only a running count of visits.</em></p>' +
@@ -6168,6 +6178,12 @@ var SUTRAS = {
         '<button type="button" class="sp-pill" data-sp="tg"><b>分享到 Telegram</b><span>Send in Telegram</span></button>' +
         '</div>' +
         '<p class="sp-note">微信、微博境内畅通；X、Facebook、WhatsApp、Telegram 需自备可通达的网络。<em>WeChat and Weibo work at home; X, Facebook, WhatsApp and Telegram need a network that reaches them.</em></p>' +
+        '<div class="sp-blurb">' +
+        '<span class="k">分享语 · BLURB</span>' +
+        '<p>' + BLURB + '</p>' +
+        '<em>' + BLURB_EN + '</em>' +
+        '<button type="button" data-sp="blurb">复制这段分享语 · Copy the blurb</button>' +
+        '</div>' +
         '<button type="button" class="sp-row" data-sp="book" hidden><b>复制当前经书链接</b><span>Link to the sutra on screen</span></button>' +
         '<button type="button" class="sp-row" data-sp="card"><b>存一张今日偈语卡</b><span>Save today\'s verse card</span></button>' +
         '<button type="button" class="sp-row" data-sp="mail"><b>写信给编者</b><span>Write to the keeper</span></button>' +
@@ -6177,8 +6193,8 @@ var SUTRAS = {
       document.body.appendChild(panel);
 
       function closeShare(){ panel.classList.remove('open'); }
-      function copyLink(u, keep){
-        var ok = function(){ if (!keep) closeShare(); toast('链接已复制 · Link copied'); };
+      function copyLink(u, keep, msg){
+        var ok = function(){ if (!keep) closeShare(); toast(msg || '链接已复制 · Link copied'); };
         var fallback = function(){
           var box = panel.querySelector('.sp-fallback');
           if (!box){
@@ -6203,10 +6219,11 @@ var SUTRAS = {
         var k = t.getAttribute('data-sp');
         if (k === 'close'){ closeShare(); return; }
         if (k === 'link'){ copyLink(location.href); return; }
+        if (k === 'blurb'){ copyLink(BLURB + '\n' + BLURB_EN + '\n' + (location.origin + location.pathname), false, '分享语已复制 · Blurb copied'); return; }
         // 分享到各平台：X / Facebook / 微博 / WhatsApp / Telegram 走官方分享页（新窗口即拉起客户端）；
-        // 微信没有网页分享接口，复制链接后尝试用 weixin:// 唤起手机上的微信
+        // 微信没有网页分享接口，复制「分享语 + 链接」后尝试用 weixin:// 唤起手机上的微信
         var su = location.origin + location.pathname + (window.__curBook ? ('?b=' + window.__curBook) : '');
-        var st = (document.title || '梵音殿 · OBENNO').replace(/\s*\|\s*/g, ' ｜ ');
+        var st = BLURB + ' ' + BLURB_EN;
         var popup = function(u){
           // 用真实链接点击打开，比 window.open 更不容易被拦；rel=noopener 断掉 window.opener
           var a = document.createElement('a');
@@ -6219,10 +6236,10 @@ var SUTRAS = {
         if (k === 'x'){ popup('https://twitter.com/intent/tweet?text=' + encodeURIComponent(st) + '&url=' + encodeURIComponent(su)); return; }
         if (k === 'fb'){ popup('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(su)); return; }
         if (k === 'wb'){ popup('https://service.weibo.com/share/share.php?url=' + encodeURIComponent(su) + '&title=' + encodeURIComponent(st)); return; }
-        if (k === 'wa'){ popup('https://wa.me/?text=' + encodeURIComponent(st + ' ' + su)); return; }
-        if (k === 'tg'){ popup('https://t.me/share/url?url=' + encodeURIComponent(su) + '&text=' + encodeURIComponent(st)); return; }
+        if (k === 'wa'){ popup('https://wa.me/?text=' + encodeURIComponent(BLURB + ' ' + su)); return; }
+        if (k === 'tg'){ popup('https://t.me/share/url?url=' + encodeURIComponent(su) + '&text=' + encodeURIComponent(BLURB + ' ' + BLURB_EN)); return; }
         if (k === 'wx'){
-          copyLink(su, true);
+          copyLink(BLURB + '\n' + su, true, '分享语与链接已复制，可到微信粘贴 · Blurb and link copied');
           if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)){
             setTimeout(function(){ try{ location.href = 'weixin://'; }catch(e){} }, 240);
           }
