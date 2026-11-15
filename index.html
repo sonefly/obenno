@@ -6222,7 +6222,7 @@ var SUTRAS = {
         if (k === 'blurb'){ copyLink(BLURB + '\n' + BLURB_EN + '\n' + (location.origin + location.pathname), false, '分享语已复制 · Blurb copied'); return; }
         // 分享到各平台：X / Facebook / 微博 / WhatsApp / Telegram 走官方分享页（新窗口即拉起客户端）；
         // 微信没有网页分享接口，复制「分享语 + 链接」后尝试用 weixin:// 唤起手机上的微信
-        var su = location.origin + location.pathname + (window.__curBook ? ('?b=' + window.__curBook) : '');
+        var su = location.origin + ((location.pathname === '/index.html' || location.pathname === '/') ? '/' : location.pathname) + (window.__curBook ? ('?b=' + window.__curBook) : '');
         var st = BLURB + ' ' + BLURB_EN;
         var popup = function(u){
           // 用真实链接点击打开，比 window.open 更不容易被拦；rel=noopener 断掉 window.opener
