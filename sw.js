@@ -1,17 +1,16 @@
 /* 梵音殿 · Obenno — service worker
    策略：
-   1) 页面（导航请求）走「网络优先 + 缓存兜底」，线上更新立即可见，离线仍可打开；
-   2) 静态资源走「缓存优先 + 后台静默更新」，不重复下载、换版自动刷新；
-   3) 安装时只预缓存极小的外壳，不再预下载 index.html / 字体 / 大图（首访少下约 4.5 MB）。
+   1) 页面：有缓存就「先给缓存、后台静默更新」（首屏最快，下一次访问即最新）；无缓存才走网络；
+   2) 静态资源：缓存优先 + 后台静默更新；
+   3) 安装只预缓存极小的外壳，不再预下载 index.html / 字体 / 大图（首访少下约 4.5 MB）。
 */
-const CACHE = 'fxy-v26';
+const CACHE = 'fxy-v27';
 const SHELL = [
   './404.html',
   './manifest.json',
   './assets/icon-192.png',
   './assets/apple-touch-icon.png'
 ];
-const NAV_TIMEOUT = 4000;
 
 self.addEventListener('install', function (e) {
   e.waitUntil(caches.open(CACHE).then(function (c) {
@@ -46,25 +45,18 @@ self.addEventListener('fetch', function (e) {
   if (url.pathname.indexOf('/cdn-cgi/') === 0) return;
 
   if (isNavigation(req)) {
-    e.respondWith((function () {
-      var cached = caches.match(req, { ignoreSearch: true });
+    e.respondWith(caches.match(req, { ignoreSearch: true }).then(function (hit) {
       var network = fetch(req).then(function (res) { put(req, res); return res; });
-      return Promise.race([
-        network,
-        cached.then(function (hit) {
-          if (!hit) return network;
-          return new Promise(function (resolve) {
-            setTimeout(function () { resolve(hit); }, NAV_TIMEOUT);
-          });
-        })
-      ]).catch(function () {
-        return cached.then(function (hit) {
-          return hit || caches.match('./404.html').then(function (p) {
-            return p || new Response('离线，且本页尚未缓存。', { status: 503, headers: { 'Content-Type': 'text/plain; charset=utf-8' } });
-          });
+      if (hit) {
+        network.catch(function () {});
+        return hit;
+      }
+      return network.catch(function () {
+        return caches.match('./404.html').then(function (p) {
+          return p || new Response('离线，且本页尚未缓存。', { status: 503, headers: { 'Content-Type': 'text/plain; charset=utf-8' } });
         });
       });
-    })());
+    }));
     return;
   }
 
