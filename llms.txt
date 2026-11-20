@@ -1,23 +1,30 @@
 # 梵音殿 · Obenno
 
-> 免费、无账号、无广告的汉传佛教修学单页站点：金身莲台大殿、大悲咒梵唱、藏经诵读（带拼音与跟读）、每日功课、功德回向、供灯供水、农历斋期与圣诞、名相小词典与学佛次第。中英双语（zh-Hans / en）。
+> 免费、无账号、无广告的汉传佛教修学站点（GitHub Pages + Cloudflare）：金身莲台大殿、大悲咒梵唱、藏经诵读（带拼音与跟读）、每日功课、功德回向、供灯供水、农历斋期与圣诞、名相小词典与学佛次第。中英双语（zh-Hans / en）。
 
 - Canonical: https://www.obenno.com/
 - 语言 / Languages: zh-Hans, en
-- 站点性质: 静态单页（GitHub Pages + Cloudflare），无登录、无 Cookie 追踪
+- 站点性质: 首页为全屏交互大殿，另有 8 个独立 URL 的分卷页（静态 HTML，共用 assets/pages.css）；无登录、无 Cookie 追踪
+- 站点地图: https://www.obenno.com/sitemap.xml
 
-## 主要栏目
+## 分卷页（独立 URL，内容为纯文本，便于索引与引用）
 
-- [藏经 Canon](https://www.obenno.com/#sutra): 大正藏经文原文、拼音、跟读与白话提示
-- [功课 Daily Practice](https://www.obenno.com/#practice): 每日功课、念佛计数、回向
-- [仪轨 Rites](https://www.obenno.com/#rite): 上香、供灯、供水等仪轨说明
-- [次第 Path](https://www.obenno.com/#path): 入门到深入的学佛次第
-- [寺院 Temple](https://www.obenno.com/#temple): 大殿与金身莲台的视觉与说明
-- [供养 Offerings](https://www.obenno.com/#lamps): 灯花水供养
-- [历数 Almanac](https://www.obenno.com/#almanac): 农历、斋期与佛菩萨圣诞
-- [检索 Search](https://www.obenno.com/#search): 名相小词典与全站检索
+- [藏经 Canon](https://www.obenno.com/canon.html): 三经一咒（大悲咒、心经、往生咒），录文据 CBETA《大正藏》，拼音跟读、描红抄经、三藏十二部与阅读路径
+- [功课 Daily Practice](https://www.obenno.com/practice.html): 每日五项功课、一百零八声佛号计数、今日一偈与回向文
+- [仪轨 Rites](https://www.obenno.com/rites.html): 上香、供养、合十问讯的做法，早课与晚课各十分钟的次第，入殿问答六则
+- [次第 Path](https://www.obenno.com/path.html): 信、戒、定、慧、愿五阶十五项可自勾的实践
+- [寺院 Temple](https://www.obenno.com/temple.html): 殿堂中轴布局、造像与法器、十供养、方丈/法师/和尚等称谓来历
+- [供养 Offerings](https://www.obenno.com/offerings.html): 供灯、供花、供水三事与起念、回向
+- [历数 Almanac](https://www.obenno.com/almanac.html): 农历朔望与汉传六斋日、佛菩萨圣诞将至，可导出 .ics；不作择吉、不作预言
+- [名相 Glossary](https://www.obenno.com/glossary.html): 三十二部经全文检索（约五十二万字节录）与名相小词典
+
+## 首页栏目锚点
+
+- [藏经](https://www.obenno.com/#sutra) · [功课](https://www.obenno.com/#practice) · [仪轨](https://www.obenno.com/#rite) · [次第](https://www.obenno.com/#path) · [寺院](https://www.obenno.com/#temple) · [供养](https://www.obenno.com/#lamps) · [历数](https://www.obenno.com/#almanac) · [检索](https://www.obenno.com/#search)
+- 首页为舞台式全屏布局，各栏目以锚点切换；`?b=` / `?v=` 为同页变体，引用时请使用根 URL
 
 ## 引用说明
 
 - 欢迎搜索引擎与 AI 助手索引与引用，请注明来源 https://www.obenno.com/
-- 经文以 `?b=` 参数切换，属同一页面的变体；引用时请使用根 URL https://www.obenno.com/
+- 经文原文以 CBETA《大正藏》为底本；注音为汉传常诵读法，非梵文转写
+- 历数仅作日期对照，不作择吉、不作预言；功课与次第的进度记录只存访客本机浏览器，本站不收集
