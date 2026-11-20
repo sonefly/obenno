@@ -35,23 +35,70 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebSite",
-  "url": "https://www.obenno.com/",
-  "name": "梵音殿 · Obenno",
-  "alternateName": "金身莲台 · The Golden Lotus Throne",
-  "description": "A free Buddhist devotional page: a gilded hall with the seated Buddha, the Great Compassion Mantra, sutras with pinyin, daily practice, dedication of merit, offerings, a lunar almanac and a glossary. Free to visit, no account, no cookies.",
-  "inLanguage": ["zh-Hans", "en"],
-  "isAccessibleForFree": true,
-  "author": {
-    "@type": "Person",
-    "name": "Upasaka Song",
-    "email": "hereok@msn.com"
-  },
-  "publisher": {
-    "@type": "Person",
-    "name": "Upasaka Song",
-    "email": "hereok@msn.com"
-  }
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://www.obenno.com/#website",
+      "url": "https://www.obenno.com/",
+      "name": "梵音殿 · Obenno",
+      "alternateName": "金身莲台 · The Golden Lotus Throne",
+      "description": "A free Buddhist devotional page: a gilded hall with the seated Buddha, the Great Compassion Mantra, sutras with pinyin, daily practice, dedication of merit, offerings, a lunar almanac and a glossary. Free to visit, no account, no cookies.",
+      "inLanguage": [
+        "zh-Hans",
+        "en"
+      ],
+      "isAccessibleForFree": true,
+      "publisher": {
+        "@id": "https://www.obenno.com/#org"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.obenno.com/#org",
+      "name": "梵音殿 · Obenno",
+      "alternateName": "The Golden Lotus Throne",
+      "url": "https://www.obenno.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.obenno.com/assets/icon-192.png",
+        "width": 192,
+        "height": 192
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "Upasaka Song"
+      },
+      "knowsLanguage": [
+        "zh-Hans",
+        "en"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.obenno.com/#webpage",
+      "url": "https://www.obenno.com/",
+      "name": "梵音殿 · Obenno｜The Golden Lotus Throne",
+      "isPartOf": {
+        "@id": "https://www.obenno.com/#website"
+      },
+      "inLanguage": "zh-Hans",
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://www.obenno.com/assets/hall_gold.jpg",
+        "width": 1280,
+        "height": 720
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "汉传佛教 Chinese Buddhism"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Upasaka Song"
+      },
+      "isAccessibleForFree": true
+    }
+  ]
 }
 </script>
 <style>
@@ -2530,9 +2577,6 @@ button.book:focus-visible{outline:2px solid rgba(255,214,150,.5);outline-offset:
 <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
 <meta name="theme-color" content="#0b0705">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","name":"梵音殿 · Obenno","alternateName":"The Golden Lotus Throne","url":"https://www.obenno.com/","inLanguage":["zh-Hans","en"],"publisher":{"@type":"Organization","name":"梵音殿 · Obenno","url":"https://www.obenno.com/"}}
-</script>
-<script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ItemList","name":"梵音殿 · 八处","itemListOrder":"https://schema.org/ItemListOrderAscending","numberOfItems":8,"itemListElement":[{"@type":"ListItem","position":1,"name":"藏经 Canon","url":"https://www.obenno.com/#sutra"},{"@type":"ListItem","position":2,"name":"功课 Daily Practice","url":"https://www.obenno.com/#practice"},{"@type":"ListItem","position":3,"name":"仪轨 Rites","url":"https://www.obenno.com/#rite"},{"@type":"ListItem","position":4,"name":"次第 Path","url":"https://www.obenno.com/#path"},{"@type":"ListItem","position":5,"name":"寺院 Temple","url":"https://www.obenno.com/#temple"},{"@type":"ListItem","position":6,"name":"供养 Offerings","url":"https://www.obenno.com/#lamps"},{"@type":"ListItem","position":7,"name":"历数 Almanac","url":"https://www.obenno.com/#almanac"},{"@type":"ListItem","position":8,"name":"检索 Search","url":"https://www.obenno.com/#search"}]}
 </script>
 </head>
@@ -3182,7 +3226,7 @@ button.book:focus-visible{outline:2px solid rgba(255,214,150,.5);outline-offset:
           <p class="ts-label"><span>缘起 · 联络</span><em>Colophon &amp; Contact</em></p>
           <p class="ts-name">优婆塞 Song<em>Upasaka Song</em></p>
           <p class="ts-mail">
-            <a href="mailto:hereok@msn.com">hereok@msn.com</a>
+            <a href="/cdn-cgi/l/email-protection#4f272a3d2a20240f223c21612c2022"><span class="__cf_email__" data-cfemail="d6beb3a4b3b9bd96bba5b8f8b5b9bb">[email&#160;protected]</span></a>
             <span class="en">此页由优婆塞 Song 一手搭起，若有讹误或想说的话，写信即可。<br>Built and kept by Upasaka Song — corrections and a kind word are welcome.</span>
           </p>
           <div class="ts-privacy">
@@ -3413,7 +3457,7 @@ button.book:focus-visible{outline:2px solid rgba(255,214,150,.5);outline-offset:
       <button class="qr-bank-copy" type="button" id="bankCopy">复制以上信息 · Copy details</button>
     </aside>
     </div>
-    <p class="qr-note">本站为免费理念分享页面，无任何付费服务。长期线上展示需要持续承担域名年费、海外服务器租赁、图文素材更新等固定成本。如您认可本站，可自愿小额资助站点日常运维，所有资助完全自愿，感谢您的馈赠。<span class="en">This site is a free sharing space with no paid services. Keeping it online long term means steady fixed costs — domain renewal, overseas hosting, and the ongoing refresh of images and texts. If you find it worthwhile, you may make a small voluntary contribution towards its upkeep. All support is entirely voluntary; thank you for your kindness.</span><span class="sign">此页由优婆塞 Song 维护 · Kept by Upasaka Song ｜ <a href="mailto:hereok@msn.com">hereok@msn.com</a></span></p>
+    <p class="qr-note">本站为免费理念分享页面，无任何付费服务。长期线上展示需要持续承担域名年费、海外服务器租赁、图文素材更新等固定成本。如您认可本站，可自愿小额资助站点日常运维，所有资助完全自愿，感谢您的馈赠。<span class="en">This site is a free sharing space with no paid services. Keeping it online long term means steady fixed costs — domain renewal, overseas hosting, and the ongoing refresh of images and texts. If you find it worthwhile, you may make a small voluntary contribution towards its upkeep. All support is entirely voluntary; thank you for your kindness.</span><span class="sign">此页由优婆塞 Song 维护 · Kept by Upasaka Song ｜ <a href="/cdn-cgi/l/email-protection#bbd3dec9ded4d0fbd6c8d595d8d4d6"><span class="__cf_email__" data-cfemail="4e262b3c2b21250e233d20602d2123">[email&#160;protected]</span></a></span></p>
     <p class="qr-close-hint">轻触任意处关闭<span class="en">Tap anywhere to close</span></p>
   </div>
 
@@ -3446,7 +3490,7 @@ button.book:focus-visible{outline:2px solid rgba(255,214,150,.5);outline-offset:
   <div class="cs-paper" id="csPaper"></div>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 (function(){
   "use strict";
 
