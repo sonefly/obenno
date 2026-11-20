@@ -2572,6 +2572,32 @@ button.book:focus-visible{outline:2px solid rgba(255,214,150,.5);outline-offset:
   .vm-row{grid-template-columns:1em 1fr auto;font-size:10.5px;}
   .vm-note{font-size:9.5px;}
 }
+/* ===== 分卷索引：指向独立分卷页的内链（SEO） ===== */
+.vol-nav{
+  position:absolute;left:14px;bottom:14px;z-index:16;
+  display:grid;grid-template-columns:repeat(2,auto);gap:2px 16px;
+  margin:0;padding:11px 13px 12px;
+  border:1px solid rgba(216,178,120,.16);
+  background:linear-gradient(180deg,rgba(10,7,5,.5),rgba(5,4,3,.68));
+  -webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);
+  pointer-events:none;
+  font-size:11px;line-height:1.75;letter-spacing:.08em;
+  opacity:.58;transition:opacity .3s ease,border-color .3s ease;
+}
+.vol-nav:hover{opacity:1;border-color:rgba(216,178,120,.34)}
+.vol-nav .vol-cap{
+  grid-column:1/-1;margin:0 0 3px;
+  font-size:9px;letter-spacing:.26em;color:rgba(140,100,37,.98);
+}
+.vol-nav a{
+  pointer-events:auto;color:rgba(216,178,120,.88);text-decoration:none;
+  white-space:nowrap;
+}
+.vol-nav a:hover,.vol-nav a:focus-visible{color:#f0d3a2}
+@media (max-width:560px){
+  .vol-nav{left:9px;bottom:9px;gap:1px 11px;padding:9px 10px;font-size:10px;letter-spacing:.04em}
+  .vol-nav .vol-cap{font-size:8.5px}
+}
 </style>
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
@@ -2583,6 +2609,19 @@ button.book:focus-visible{outline:2px solid rgba(255,214,150,.5);outline-offset:
 <body>
 <noscript><div class="noscript-note"><p>本站的经文阅读、功课与供灯需要浏览器脚本。请开启 JavaScript，或换用现代浏览器后再入殿。</p><p>This hall needs JavaScript for the scripture reader, practice log and offering lamps. Please enable it, or open the site in a modern browser.</p></div></noscript>
 <div class="stage" id="stage">
+  <!-- 分卷索引（独立 URL，便于搜索引擎与访客直达） -->
+  <nav class="vol-nav" aria-label="分卷目录 Volumes">
+    <p class="vol-cap">分卷 · VOLUMES</p>
+    <a href="/canon.html">藏经 Canon</a>
+    <a href="/practice.html">功课 Practice</a>
+    <a href="/rites.html">仪轨 Rites</a>
+    <a href="/path.html">次第 Path</a>
+    <a href="/temple.html">寺院 Temple</a>
+    <a href="/offerings.html">供养 Offerings</a>
+    <a href="/almanac.html">历数 Almanac</a>
+    <a href="/glossary.html">名相 Glossary</a>
+  </nav>
+
 
   <div class="hall" aria-hidden="true"></div>
   <div class="vignette" aria-hidden="true"></div>
