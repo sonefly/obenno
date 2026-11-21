@@ -2795,7 +2795,7 @@ var SUTRAS = {
         };
         if (k === 'x'){ popup('https://twitter.com/intent/tweet?text=' + encodeURIComponent(st) + '&url=' + encodeURIComponent(su)); return; }
         if (k === 'fb'){ popup('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(su)); return; }
-        if (k === 'wb'){ popup('https://service.weibo.com/share/share.php?url=' + encodeURIComponent(su) + '&title=' + encodeURIComponent(st)); return; }
+        if (k === 'wb'){ popup('https://service.weibo.com/share/share.php?url=' + encodeURIComponent(su) + '&title=' + encodeURIComponent(BLURB)); return; }
         if (k === 'wa'){ popup('https://wa.me/?text=' + encodeURIComponent(BLURB + ' ' + su)); return; }
         if (k === 'tg'){ popup('https://t.me/share/url?url=' + encodeURIComponent(su) + '&text=' + encodeURIComponent(BLURB + ' ' + BLURB_EN)); return; }
         if (k === 'wx'){
