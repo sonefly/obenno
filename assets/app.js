@@ -2744,6 +2744,7 @@ var SUTRAS = {
         '<em>' + BLURB_EN + '</em>' +
         '<button type="button" data-sp="blurb">复制这段分享语 · Copy the blurb</button>' +
         '</div>' +
+        '<button type="button" class="sp-row" data-sp="wbblurb"><b>复制微博短分享语</b><span>Short blurb that fits Weibo\'s 140-character box</span></button>' +
         '<button type="button" class="sp-row" data-sp="book" hidden><b>复制当前经书链接</b><span>Link to the sutra on screen</span></button>' +
         '<button type="button" class="sp-row" data-sp="card"><b>存一张今日偈语卡</b><span>Save today\'s verse card</span></button>' +
         '<button type="button" class="sp-row" data-sp="mail"><b>写信给编者</b><span>Write to the keeper</span></button>' +
@@ -2795,6 +2796,8 @@ var SUTRAS = {
         };
         if (k === 'x'){ popup('https://twitter.com/intent/tweet?text=' + encodeURIComponent(st) + '&url=' + encodeURIComponent(su)); return; }
         if (k === 'fb'){ popup('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(su)); return; }
+        // 微博 140 字预算（汉字 1、半角 0.5）：只给中文分享语 + 完整网址，合计约 80 字
+        if (k === 'wbblurb'){ copyLink(BLURB + '\n' + su, false, '微博短分享语已复制，含完整网址 · Short blurb copied'); return; }
         if (k === 'wb'){ popup('https://service.weibo.com/share/share.php?url=' + encodeURIComponent(su) + '&title=' + encodeURIComponent(BLURB)); return; }
         if (k === 'wa'){ popup('https://wa.me/?text=' + encodeURIComponent(BLURB + ' ' + su)); return; }
         if (k === 'tg'){ popup('https://t.me/share/url?url=' + encodeURIComponent(su) + '&text=' + encodeURIComponent(BLURB + ' ' + BLURB_EN)); return; }
