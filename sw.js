@@ -4,7 +4,7 @@
    2) 静态资源：缓存优先 + 后台静默更新；
    3) 安装只预缓存极小的外壳，不再预下载 index.html / 字体 / 大图（首访少下约 4.5 MB）。
 */
-const CACHE = 'fxy-v27';
+const CACHE = 'fxy-v28';
 const SHELL = [
   './404.html',
   './manifest.json',
