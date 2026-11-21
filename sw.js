@@ -1,10 +1,10 @@
 /* 梵音殿 · Obenno — service worker
    策略：
-   1) 页面：有缓存就「先给缓存、后台静默更新」（首屏最快，下一次访问即最新）；无缓存才走网络；
+   1) 页面：网络优先（拿到最新 HTML），断网或请求失败才回落缓存；
    2) 静态资源：缓存优先 + 后台静默更新；
    3) 安装只预缓存极小的外壳，不再预下载 index.html / 字体 / 大图（首访少下约 4.5 MB）。
 */
-const CACHE = 'fxy-v28';
+const CACHE = 'fxy-v29';
 const SHELL = [
   './404.html',
   './manifest.json',
@@ -45,14 +45,9 @@ self.addEventListener('fetch', function (e) {
   if (url.pathname.indexOf('/cdn-cgi/') === 0) return;
 
   if (isNavigation(req)) {
-    e.respondWith(caches.match(req, { ignoreSearch: true }).then(function (hit) {
-      var network = fetch(req).then(function (res) { put(req, res); return res; });
-      if (hit) {
-        network.catch(function () {});
-        return hit;
-      }
-      return network.catch(function () {
-        return caches.match('./404.html').then(function (p) {
+    e.respondWith(fetch(req).then(function (res) { put(req, res); return res; }).catch(function () {
+      return caches.match(req, { ignoreSearch: true }).then(function (hit) {
+        return hit || caches.match('./404.html').then(function (p) {
           return p || new Response('离线，且本页尚未缓存。', { status: 503, headers: { 'Content-Type': 'text/plain; charset=utf-8' } });
         });
       });

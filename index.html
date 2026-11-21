@@ -29,9 +29,11 @@
 <meta name="theme-color" content="#0b0705">
 <meta name="color-scheme" content="dark">
 <link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png"><link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png">
-<link rel="preload" as="image" href="assets/hall_gold_1280.webp" type="image/webp" fetchpriority="high">
-<link rel="preload" as="image" href="assets/buddha_seated.webp" type="image/webp" fetchpriority="high">
-<!-- 字体：思源宋体子集自托管（4322 字，300–600 可变字重），不再依赖外部字体 CDN -->
+<link rel="preload" as="image" href="assets/hall_gold_1280.webp" type="image/webp" media="(min-width:1025px)" fetchpriority="high">
+<link rel="preload" as="image" href="assets/hall_gold_720.webp" type="image/webp" media="(min-width:641px) and (max-width:1024px)" fetchpriority="high">
+<link rel="preload" as="image" href="assets/hall_gold_480.webp" type="image/webp" media="(max-width:640px)" fetchpriority="high">
+<link rel="preload" as="image" href="assets/buddha_seated.webp" imagesrcset="assets/buddha_seated_360.webp 360w, assets/buddha_seated_480.webp 480w, assets/buddha_seated_600.webp 600w, assets/buddha_seated.webp 765w" imagesizes="(max-width:900px) 46vw, 500px" type="image/webp" fetchpriority="high">
+<!-- 字体：思源宋体自托管，按 常用/生僻 两档分片，600 字重另存只含标题字，按需下载 -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -101,7 +103,7 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/site.css?v=29">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
 <meta name="theme-color" content="#0b0705">
@@ -142,7 +144,7 @@
 
   <div class="halo" aria-hidden="true"></div>
   <div class="base-glow" aria-hidden="true"></div>
-  <img class="buddha" src="assets/buddha_seated.webp" alt="居中结跏趺坐于莲台的金身佛像 The gilded Buddha seated in meditation on a lotus throne" fetchpriority="high" decoding="async">
+  <img class="buddha" src="assets/buddha_seated.webp" srcset="assets/buddha_seated_360.webp 360w, assets/buddha_seated_480.webp 480w, assets/buddha_seated_600.webp 600w, assets/buddha_seated.webp 765w" sizes="(max-width:900px) 46vw, 500px" alt="居中结跏趺坐于莲台的金身佛像 The gilded Buddha seated in meditation on a lotus throne" fetchpriority="high" decoding="async">
 
   <img class="altar" src="assets/table.webp" alt="供桌 The offering table" decoding="async">
 
@@ -1035,7 +1037,7 @@
   <div class="cs-paper" id="csPaper"></div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="/assets/app.js?v=28"></script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="/assets/app.js?v=29"></script>
 
 <script>
 /* 山门灯笼：按封面图映射算出灯笼中心与吊绳原点，遮罩层随窗口变化重算 */
