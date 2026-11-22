@@ -6,7 +6,7 @@ A quiet Chinese Buddhist devotional site — a gilded hall with the seated Buddh
 
 ## 目录结构
 
-```
+``
 index.html          首页（全屏交互大殿，含藏经/功课/仪轨/次第/寺院/供养/历数/名相/纲要/史略十个锚点）
 canon.html          藏经栏目页（三经一咒 + 二十九部全文经页索引）
 practice.html       功课
@@ -23,14 +23,14 @@ about.html          关于本站（底本与文本处理原则、编辑原则、
 privacy.html        隐私与 Cookie（无账号无画像、localStorage、Clarity 统计与关闭方式）
 LICENSE             授权说明（CBETA 录文 + 本站自撰内容 CC BY-NC 4.0 + 代码 MIT）
 sw.js               Service Worker（页面网络优先、静态资源精确匹配缓存）
-sitemap.xml         站点地图（42 条）
+sitemap.xml         站点地图（43 条）
 robots.txt          抓取规则（仅屏蔽 /_backup/）
 llms.txt            AI 助手用的站点说明
 manifest.json       Web App 清单
 0712f55fa04b0f28d66c1b84bb6ababf.txt   IndexNow 公钥文件
 sutra/*.html        29 部经文独立全文页（静态，共用 assets/sutra.css）
 assets/             样式、脚本、字体、图片、分片经卷 JSON
-```
+``
 
 ## assets 说明
 
@@ -48,7 +48,9 @@ assets/             样式、脚本、字体、图片、分片经卷 JSON
 - `about.html`（关于本站 · About）：站点性质、底本与文本处理六项（底本 / 标点 / 字形 / 注音 / 校勘从略 / 卷品目录）、编辑与发布原则、已知局限、技术与无障碍、更正与联系、授权摘要。
 - `privacy.html`（隐私与 Cookie · Privacy）：不设账号与画像；本机 localStorage（`fxy-*` 前缀：语言、字号、拼音开关、今日功课、阅读位置）；Microsoft Clarity 匿名统计与关闭方式；第三方请求与托管方日志；变更与联系。
 - 全站 41 个页面统一使用 `footer.site-foot`：四栏链接（关于/隐私/授权/地图）+ 底本说明 + 版权行，取代原先两条不同文案的纯文字页脚；`404.html` 内联样式中补了「关于」「隐私」两链。
-- 所有页面 `<html lang>` 由 `zh-CN` 统一为 `zh-Hans`，与 hreflang、JSON-LD 的 `inLanguage` 一致。
+- 所有页面 `<html lang>` 由 `zh-CN` 统一为 `zh-Hans`，与 hreflang、JSON-LD 的 `inLanguage` 一致；`en/index.html` 为 `lang="en"`。
+- 页脚四栏之后统一加「English / EN」入口指向 `/en/`；`about.html`、`privacy.html` 声明 `hreflang="en"` 且 `x-default` 指向 `/en/`（与英文页的 `zh-Hans` 互指）。
+- 首页右上角 `.corner-seal`（圆形「关于」小印）常驻，避开底部控件与滚动条；`ts` 刊记段另加 关于 / 隐私 / 授权 / English 四链，并把原「不写 cookie」口径改为「除匿名统计 Cookie（Clarity）外不写 Cookie」，与隐私页一致。
 
 ## 经文页的卷品目录
 
@@ -88,5 +90,6 @@ assets/             样式、脚本、字体、图片、分片经卷 JSON
 - 首屏搜一次经（如「因缘」）：应为**零个 `texts.json` 请求、约 32 个 `texts/` 分片请求**，结果数逐批增长后稳定。
 - 中论/楞严页：`#toc` 链接数与 `.anc` 锚点数一致（31 / 10）；点任一品，`anchor.getBoundingClientRect().top` 应为 76，不被顶栏遮挡。
 - 首页「名相」面板的计数应为 `83 / 83`；若仍是 48，说明 Service Worker 还缓存着旧 `app.js`，重载一次或检查 `sw.js` 是否用了 `ignoreSearch`。
-- `sitemap.xml` 的 `lastmod` 与本次改动日期一致，条数（42）不变。
-- 任取一个栏目页或经页，页脚应出现四栏链接与版权行；`about.html`、`privacy.html`、`LICENSE` 三者互链且可打开。
+- `sitemap.xml` 的 `lastmod` 与本次改动日期一致，条数（43）不变。
+- 任取一个栏目页或经页，页脚应有四栏链接 + English 入口与版权行；`about.html`、`privacy.html`、`LICENSE`、`en/` 四者互链且可打开。
+- 首页右上角应有「关于」小印，且不与底部控件或滚动条重叠。
