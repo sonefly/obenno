@@ -4,7 +4,7 @@
 
 - Canonical: https://www.obenno.com/
 - 语言 / Languages: zh-Hans（正文中英对照，英文不单独成页）
-- 站点性质: 首页为全屏交互大殿，另有 8 个分卷页与 29 个全文经页，共 37 个独立 URL（静态 HTML，分别共用 assets/pages.css 与 assets/sutra.css）；无登录、无 Cookie 追踪
+- 站点性质: 首页为全屏交互大殿，另有 8 个分卷页与 29 个全文经页，共 37 个独立 URL（静态 HTML，分别共用 assets/pages.css 与 assets/sutra.css）；无登录；仅用 Microsoft Clarity 做匿名访问统计（会写入统计 Cookie），不做画像、不做广告投放
 - 站点地图: https://www.obenno.com/sitemap.xml
 
 ## 分卷页与栏目页（独立 URL，内容为纯文本，便于索引与引用）
