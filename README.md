@@ -1,23 +1,25 @@
 # 梵音殿 · OBENNO
 
-A quiet Chinese Buddhist devotional site — a gilded hall with the seated Buddha, the Great Compassion Mantra chant, sutras in full text with pinyin, a daily practice, offerings, a lunar almanac and a glossary. Free to visit, no account, no ads.
+A quiet Chinese Buddhist devotional site — a gilded hall with the seated Buddha, the Great Compassion Mantra chant, sutras in full text with pinyin, a daily practice, offerings, a lunar almanac, a glossary, plus an outline of the teaching and a short history of Buddhism. Free to visit, no account, no ads.
 
 线上地址：https://www.obenno.com/ ｜ 托管：GitHub Pages + Cloudflare ｜ 主分支：`main`
 
 ## 目录结构
 
 ```
-index.html          首页（全屏交互大殿，含藏经/功课/仪轨/次第/寺院/供养/历数/检索八个锚点）
+index.html          首页（全屏交互大殿，含藏经/功课/仪轨/次第/寺院/供养/历数/名相/纲要/史略十个锚点）
 canon.html          藏经栏目页（三经一咒 + 二十九部全文经页索引）
 practice.html       功课
 rites.html          仪轨
 path.html           次第
-temple.html         寺院
+temple.html          寺院
 offerings.html      供养
 almanac.html        历数（农历朔望、六斋日、圣诞）
-glossary.html       名相（全站检索与词典）
+glossary.html       名相（全站检索与八十三条小词典）
+basics.html        纲要（十门教理：三宝、四谛、八正道、十二因缘、五蕴、三法印、六度四摄、三十七道品、业与六道、涅槃与菩提心、戒定慧与止观、读经门径）
+history.html        史略（佛陀与僧团、结集与部派、中观唯识、密教与印度佛教衰亡、汉地译经、隋唐八宗、宋元明清、近现代、南传与藏传、本站底本）
 404.html            错误页
-sitemap.xml         站点地图（38 条）
+sitemap.xml         站点地图（40 条）
 robots.txt          抓取规则（仅屏蔽 /_backup/）
 llms.txt            AI 助手用的站点说明
 manifest.json       Web App 清单
@@ -29,7 +31,7 @@ assets/             样式、脚本、字体、图片、分片经卷 JSON
 ## assets 说明
 
 - `site.css` / `sutra.css` / `pages.css`：三套样式，分别服务首页、经文页、栏目页。
-- `app.js`：首页交互与阅读器。按经加载：`loadText(id)` 逐部拉取 `/assets/texts/<id>.json`；全量 `texts.json` 只在搜索模块启用时加载。
+- `app.js`：首页交互与阅读器。按经加载：`loadText(id)` 逐部拉取 `/assets/texts/<id>.json`；全量 `texts.json` 只在搜索模块启用时加载。名相词条在 `var TERMS` 中，现为八十三条（中文/英文/中文释义/英文释义四元组）。
 - `texts.json`（约 1.5MB）：30 部经全文的合并副本，仅供检索索引使用。
 - `texts/*.json`：30 个分片（一部一文件），阅读器实际加载的就是它们。
 - `noto-a0.woff2` / `noto-a1.woff2` / `noto-b0.woff2`：正文字体三切片（300 字重常用字、300 字重生僻字、600 字重标题数字）。生僻字面只在经文正文处经字体族回退链启用。
@@ -40,7 +42,7 @@ assets/             样式、脚本、字体、图片、分片经卷 JSON
 ## 部署与缓存
 
 1. 提交到 `main` 即由 GitHub Pages 发布，Cloudflare 在前。
-2. GitHub Pages 对静态资源默认 `cache-control: max-age=86400`，因此**改 CSS/JS/字体时必须换版本号**（如 `site.css?v=30`、`app.js?v=29`），HTML 不能长缓存。
+2. GitHub Pages 对静态资源默认 `cache-control: max-age=86400`，因此**改 CSS/JS/字体时必须换版本号**（如 `site.css?v=30`、`app.js?v=30`），HTML 不能长缓存。
 3. 改动上线后按需清 Cloudflare 缓存：`POST /client/v4/zones/<zone>/purge_cache`，body `{"files":[...]}`，单次不超过 30 条。
 4. `sw.js` 的 `CACHE` 版本号（当前 `fxy-v29`）决定 Service Worker 缓存失效；导航请求走「网络优先、失败回落缓存」。
 
@@ -55,10 +57,11 @@ assets/             样式、脚本、字体、图片、分片经卷 JSON
 - 原字体缺「寰」「哈」两字（全站各出现一次），这两处走系统字体回退。
 - 静态资源未设「一年 immutable」缓存头：该设置属 Cloudflare Browser Cache TTL，会牵连 HTML，改用版本号代替。
 - 经文页正文为按节分段的纯文本，未做多级标题；章节导航依赖上下篇与总目。
+- 纲要与史略只作教理与史实陈述，不引经文原文长句，异说处只记主流一说。
 
 ## 改版自检清单
 
 - `curl -sI` 或浏览器核对改动文件的字节数、`?v=` 版本号是否同步。
 - 看 `document.fonts` 里三个字体面的 `loaded / unloaded` 是否符合预期（首页不应加载生僻字面）。
 - 点开一部经，确认 `texts/<id>.json` 有请求、节数与页面标注一致。
-- `sitemap.xml` 的 `lastmod` 与本次改动日期一致，条数（38）不变。
+- `sitemap.xml` 的 `lastmod` 与本次改动日期一致，条数（40）不变。
