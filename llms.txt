@@ -4,7 +4,7 @@
 
 - Canonical: https://www.obenno.com/
 - 语言 / Languages: zh-Hans（正文中英对照，英文不单独成页）
-- 站点性质: 首页为全屏交互大殿，另有 10 个分卷页与 29 个全文经页，共 42 个独立 URL（静态 HTML，分别共用 assets/pages.css 与 assets/sutra.css）；无登录；仅用 Microsoft Clarity 做匿名访问统计（会写入统计 Cookie），不做画像、不做广告投放
+- 站点性质: 首页为全屏交互大殿，另有 10 个分卷页与 29 个全文经页，共 43 个独立 URL（静态 HTML，分别共用 assets/pages.css 与 assets/sutra.css）；无登录；仅用 Microsoft Clarity 做匿名访问统计（会写入统计 Cookie），不做画像、不做广告投放
 - 站点地图: https://www.obenno.com/sitemap.xml
 
 ## 分卷页与栏目页（独立 URL，内容为纯文本，便于索引与引用）
@@ -60,6 +60,7 @@
 ## 英文入口（English entry）
 
 - [About this site / English](https://www.obenno.com/en/): 面向非中文访客的英文说明页——站点性质、底本与文本处理、编辑规则、授权、隐私摘要、更正渠道与阅读起点（不提供经文英译，只作导读）
+- [The Canon / English index](https://www.obenno.com/en/canon.html): 29 部全文的英文目录——英文经名、所属藏、卷数节数、大正藏编号与一句话提要，链接指向中文全文
 
 ## 站点信息页（About / Privacy / License）
 
