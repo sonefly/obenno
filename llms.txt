@@ -1,22 +1,54 @@
 # 梵音殿 · Obenno
 
-> 免费、无账号、无广告的汉传佛教修学站点（GitHub Pages + Cloudflare）：金身莲台大殿、大悲咒梵唱、藏经诵读（带拼音与跟读）、每日功课、功德回向、供灯供水、农历斋期与圣诞、名相小词典与学佛次第。中英双语（zh-Hans / en）。
+> 免费、无账号、无广告的汉传佛教修学站点（GitHub Pages + Cloudflare）：金身莲台大殿、大悲咒梵唱、藏经诵读（带拼音与跟读）、每日功课、功德回向、供灯供水、农历斋期与圣诞、名相小词典与学佛次第。中英对照（zh-Hans 为主，英文为辅；无独立英文 URL）。
 
 - Canonical: https://www.obenno.com/
-- 语言 / Languages: zh-Hans, en
-- 站点性质: 首页为全屏交互大殿，另有 8 个独立 URL 的分卷页（静态 HTML，共用 assets/pages.css）；无登录、无 Cookie 追踪
+- 语言 / Languages: zh-Hans（正文中英对照，英文不单独成页）
+- 站点性质: 首页为全屏交互大殿，另有 8 个分卷页与 29 个全文经页，共 37 个独立 URL（静态 HTML，分别共用 assets/pages.css 与 assets/sutra.css）；无登录、无 Cookie 追踪
 - 站点地图: https://www.obenno.com/sitemap.xml
 
-## 分卷页（独立 URL，内容为纯文本，便于索引与引用）
+## 分卷页与栏目页（独立 URL，内容为纯文本，便于索引与引用）
 
-- [藏经 Canon](https://www.obenno.com/canon.html): 三经一咒（大悲咒、心经、往生咒），录文据 CBETA《大正藏》，拼音跟读、描红抄经、三藏十二部与阅读路径
+- [藏经 Canon](https://www.obenno.com/canon.html): 三经一咒（大悲咒、心经、往生咒）与二十九部全文经页索引，录文据 CBETA《大正藏》，拼音跟读、描红抄经、三藏十二部与阅读路径
 - [功课 Daily Practice](https://www.obenno.com/practice.html): 每日五项功课、一百零八声佛号计数、今日一偈与回向文
 - [仪轨 Rites](https://www.obenno.com/rites.html): 上香、供养、合十问讯的做法，早课与晚课各十分钟的次第，入殿问答六则
 - [次第 Path](https://www.obenno.com/path.html): 信、戒、定、慧、愿五阶十五项可自勾的实践
 - [寺院 Temple](https://www.obenno.com/temple.html): 殿堂中轴布局、造像与法器、十供养、方丈/法师/和尚等称谓来历
 - [供养 Offerings](https://www.obenno.com/offerings.html): 供灯、供花、供水三事与起念、回向
 - [历数 Almanac](https://www.obenno.com/almanac.html): 农历朔望与汉传六斋日、佛菩萨圣诞将至，可导出 .ics；不作择吉、不作预言
-- [名相 Glossary](https://www.obenno.com/glossary.html): 三十二部经全文检索（约五十二万字节录）与名相小词典
+- [名相 Glossary](https://www.obenno.com/glossary.html): 三十部经全文检索（约五十二万字符录文）与名相小词典
+
+## 全文经页（/sutra/，29 部）
+
+- [金刚经](https://www.obenno.com/sutra/jg.html): Diamond Sutra · 共 40 节 · 经藏
+- [佛说阿弥陀经](https://www.obenno.com/sutra/amt.html): Amitabha Sutra · 共 20 节 · 经藏
+- [观无量寿佛经](https://www.obenno.com/sutra/gj.html): Contemplation Sutra · 共 56 节 · 经藏
+- [无量寿经](https://www.obenno.com/sutra/wls.html): Larger Sukhavati-vyuha Sutra · 共 148 节 · 经藏
+- [药师经](https://www.obenno.com/sutra/ys.html): Medicine Buddha Sutra · 共 46 节 · 经藏
+- [地藏菩萨本愿经](https://www.obenno.com/sutra/dz.html): Ksitigarbha Sutra · 共 138 节 · 经藏
+- [维摩诘所说经](https://www.obenno.com/sutra/wmj.html): Vimalakirti Sutra · 共 175 节 · 经藏
+- [圆觉经](https://www.obenno.com/sutra/yj.html): Sutra of Perfect Enlightenment · 共 91 节 · 经藏
+- [胜鬘经](https://www.obenno.com/sutra/sm.html): Shrimala Sutra · 共 71 节 · 经藏
+- [解深密经](https://www.obenno.com/sutra/jsm.html): Samdhinirmocana Sutra · 共 271 节 · 经藏
+- [佛说四十二章经](https://www.obenno.com/sutra/sse.html): Sutra of Forty-two Chapters · 共 15 节 · 经藏
+- [佛说八大人觉经](https://www.obenno.com/sutra/bd.html): Sutra of the Eight Realizations · 共 4 节 · 经藏
+- [佛遗教经](https://www.obenno.com/sutra/yjiao.html): Sutra of the Buddhas Bequest · 共 20 节 · 经藏
+- [百喻经](https://www.obenno.com/sutra/by.html): Sutra of a Hundred Parables · 共 129 节 · 经藏
+- [法句经](https://www.obenno.com/sutra/fjy.html): Dhammapada (Chinese) · 共 142 节 · 经藏
+- [楞严经](https://www.obenno.com/sutra/lyj.html): Surangama Sutra · 共 485 节 · 经藏
+- [盂兰盆经](https://www.obenno.com/sutra/ylp.html): Ullambana Sutra · 共 5 节 · 经藏
+- [十善业道经](https://www.obenno.com/sutra/ssyd.html): Sutra of the Ten Wholesome Ways · 共 22 节 · 经藏
+- [观世音菩萨普门品](https://www.obenno.com/sutra/pm.html): Universal Gateway Chapter · 共 14 节 · 经藏
+- [普贤行愿品](https://www.obenno.com/sutra/xyy.html): Bhadracarya-pranidhana · 共 13 节 · 经藏
+- [优婆塞戒经](https://www.obenno.com/sutra/usj.html): Upasaka Precepts Sutra · 共 538 节 · 律藏
+- [梵网经](https://www.obenno.com/sutra/fw.html): Brahma Net Sutra · 共 145 节 · 律藏
+- [中论](https://www.obenno.com/sutra/zl.html): Mulamadhyamaka-karika · 共 332 节 · 论藏
+- [十二门论](https://www.obenno.com/sutra/sem.html): Twelve Gate Treatise · 共 90 节 · 论藏
+- [百论](https://www.obenno.com/sutra/bl.html): Hundred Verses Treatise · 共 168 节 · 论藏
+- [大乘起信论](https://www.obenno.com/sutra/qx.html): Awakening of Faith · 共 100 节 · 论藏
+- [六祖坛经](https://www.obenno.com/sutra/lz.html): Platform Sutra · 共 176 节 · 中国撰述
+- [信心铭](https://www.obenno.com/sutra/xxm.html): Inscription on Faith in Mind · 共 6 节 · 中国撰述
+- [永嘉证道歌](https://www.obenno.com/sutra/zdg.html): Song of Enlightenment · 共 19 节 · 中国撰述
 
 ## 首页栏目锚点
 
