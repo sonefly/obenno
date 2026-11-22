@@ -19,9 +19,11 @@ glossary.html       名相（全站检索与八十三条小词典）
 basics.html        纲要（十门教理：三宝、四谛、八正道、十二因缘、五蕴、三法印、六度四摄、三十七道品、业与六道、涅槃与菩提心、戒定慧与止观、读经门径）
 history.html        史略（佛陀与僧团、结集与部派、中观唯识、密教与印度佛教衰亡、汉地译经、隋唐八宗、宋元明清、近现代、南传与藏传、本站底本）
 404.html            错误页
+about.html          关于本站（底本与文本处理原则、编辑原则、已知局限、技术无障碍、更正渠道）
+privacy.html        隐私与 Cookie（无账号无画像、localStorage、Clarity 统计与关闭方式）
 LICENSE             授权说明（CBETA 录文 + 本站自撰内容 CC BY-NC 4.0 + 代码 MIT）
 sw.js               Service Worker（页面网络优先、静态资源精确匹配缓存）
-sitemap.xml         站点地图（40 条）
+sitemap.xml         站点地图（42 条）
 robots.txt          抓取规则（仅屏蔽 /_backup/）
 llms.txt            AI 助手用的站点说明
 manifest.json       Web App 清单
@@ -32,7 +34,7 @@ assets/             样式、脚本、字体、图片、分片经卷 JSON
 
 ## assets 说明
 
-- `site.css` / `sutra.css` / `pages.css`：三套样式，分别服务首页、经文页、栏目页。
+- `site.css` / `sutra.css` / `pages.css`：三套样式，分别服务首页、经文页、栏目页；栏目页与经页的页脚样式统一收在 `pages.css` 与 `sutra.css` 的 `footer.site-foot` 段。
 - `app.js`：首页交互与阅读器。按经加载：`loadText(id)` 逐部拉取 `/assets/texts/<id>.json`；检索索引改为**分片渐进加载**——首次搜索时按 6 部一批并发拉取分片，每批完成立即重绘结果（命中数由少到多逐批刷新），末批置完成态，不再整包下载。名相词条在 `var TERMS` 中，现为八十三条（中文/英文/中文释义/英文释义四元组）。
 - `texts.json`：已于 2026-11-22 删除（原 1,581,504 B，检索改分片后零引用）。
 - `texts/*.json`：30 个分片（一部一文件），阅读器与检索索引都只加载它们。
@@ -40,6 +42,13 @@ assets/             样式、脚本、字体、图片、分片经卷 JSON
 - 旧版单文件字体 `notoserifsc-subset.woff2`：已于 2026-11-22 删除（815,316 B，全站零引用）。
 - `hall_gold_480/720/960/1280.webp`：殿门背景，按屏幕宽度分档加载。
 - `buddha_seated.webp` 及 `_360/_480/_600`：佛像，配 `srcset`。
+
+## 站点信息页与统一页脚
+
+- `about.html`（关于本站 · About）：站点性质、底本与文本处理六项（底本 / 标点 / 字形 / 注音 / 校勘从略 / 卷品目录）、编辑与发布原则、已知局限、技术与无障碍、更正与联系、授权摘要。
+- `privacy.html`（隐私与 Cookie · Privacy）：不设账号与画像；本机 localStorage（`fxy-*` 前缀：语言、字号、拼音开关、今日功课、阅读位置）；Microsoft Clarity 匿名统计与关闭方式；第三方请求与托管方日志；变更与联系。
+- 全站 41 个页面统一使用 `footer.site-foot`：四栏链接（关于/隐私/授权/地图）+ 底本说明 + 版权行，取代原先两条不同文案的纯文字页脚；`404.html` 内联样式中补了「关于」「隐私」两链。
+- 所有页面 `<html lang>` 由 `zh-CN` 统一为 `zh-Hans`，与 hreflang、JSON-LD 的 `inLanguage` 一致。
 
 ## 经文页的卷品目录
 
@@ -51,7 +60,7 @@ assets/             样式、脚本、字体、图片、分片经卷 JSON
 ## 部署与缓存
 
 1. 提交到 `main` 即由 GitHub Pages 发布，Cloudflare 在前。
-2. GitHub Pages 对静态资源默认 `cache-control: max-age=86400`，因此**改 CSS/JS/字体时必须换版本号**（当前 `site.css?v=30`、`app.js?v=32`、`sutra.css?v=34`；经文页引用 v=34）。HTML 不能长缓存。
+2. GitHub Pages 对静态资源默认 `cache-control: max-age=86400`，因此**改 CSS/JS/字体时必须换版本号**（当前 `site.css?v=30`、`app.js?v=32`、`pages.css?v=2`、`sutra.css?v=35`）。HTML 不能长缓存。
 3. 改动上线后按需清 Cloudflare 缓存：`POST /client/v4/zones/<zone>/purge_cache`，body `{"files":[...]}`，单次不超过 30 条。
 4. `sw.js` 的 `CACHE`（当前 `fxy-v30`）决定 Service Worker 缓存失效；导航请求走「网络优先、失败回落缓存」，静态资源「精确匹配缓存优先 + 后台更新」。
 5. 注意：静态资源缓存必须用**精确匹配**（`caches.match(req)`，不可加 `ignoreSearch`），否则 `?v=` 版本号会被旧缓存吞掉，JS 改了也不生效；这一坑已修，勿回退。
@@ -79,4 +88,5 @@ assets/             样式、脚本、字体、图片、分片经卷 JSON
 - 首屏搜一次经（如「因缘」）：应为**零个 `texts.json` 请求、约 32 个 `texts/` 分片请求**，结果数逐批增长后稳定。
 - 中论/楞严页：`#toc` 链接数与 `.anc` 锚点数一致（31 / 10）；点任一品，`anchor.getBoundingClientRect().top` 应为 76，不被顶栏遮挡。
 - 首页「名相」面板的计数应为 `83 / 83`；若仍是 48，说明 Service Worker 还缓存着旧 `app.js`，重载一次或检查 `sw.js` 是否用了 `ignoreSearch`。
-- `sitemap.xml` 的 `lastmod` 与本次改动日期一致，条数（40）不变。
+- `sitemap.xml` 的 `lastmod` 与本次改动日期一致，条数（42）不变。
+- 任取一个栏目页或经页，页脚应出现四栏链接与版权行；`about.html`、`privacy.html`、`LICENSE` 三者互链且可打开。
