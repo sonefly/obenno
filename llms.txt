@@ -4,7 +4,7 @@
 
 - Canonical: https://www.obenno.com/
 - 语言 / Languages: zh-Hans（正文中英对照，英文不单独成页）
-- 站点性质: 首页为全屏交互大殿，另有 8 个分卷页与 29 个全文经页，共 37 个独立 URL（静态 HTML，分别共用 assets/pages.css 与 assets/sutra.css）；无登录；仅用 Microsoft Clarity 做匿名访问统计（会写入统计 Cookie），不做画像、不做广告投放
+- 站点性质: 首页为全屏交互大殿，另有 10 个分卷页与 29 个全文经页，共 39 个独立 URL（静态 HTML，分别共用 assets/pages.css 与 assets/sutra.css）；无登录；仅用 Microsoft Clarity 做匿名访问统计（会写入统计 Cookie），不做画像、不做广告投放
 - 站点地图: https://www.obenno.com/sitemap.xml
 
 ## 分卷页与栏目页（独立 URL，内容为纯文本，便于索引与引用）
@@ -16,7 +16,9 @@
 - [寺院 Temple](https://www.obenno.com/temple.html): 殿堂中轴布局、造像与法器、十供养、方丈/法师/和尚等称谓来历
 - [供养 Offerings](https://www.obenno.com/offerings.html): 供灯、供花、供水三事与起念、回向
 - [历数 Almanac](https://www.obenno.com/almanac.html): 农历朔望与汉传六斋日、佛菩萨圣诞将至，可导出 .ics；不作择吉、不作预言
-- [名相 Glossary](https://www.obenno.com/glossary.html): 三十部经全文检索（约五十二万字符录文）与名相小词典
+- [纲要 The Ground](https://www.obenno.com/basics.html): 三宝、四谛、八正道、十二因缘、五蕴、三法印、六度四摄、三十七道品、业与六道、涅槃与菩提心、戒定慧与止观、读经门径
+- [史略 History](https://www.obenno.com/history.html): 佛陀与僧团、结集与部派、中观唯识、密教与印度佛教衰亡、汉地译经、隋唐八宗、宋元明清、近现代、南传与藏传、本站底本
+- [名相 Glossary](https://www.obenno.com/glossary.html): 三十部经全文检索（约五十二万字符录文）与名相小词典（八十三条）
 
 ## 全文经页（/sutra/，29 部）
 
