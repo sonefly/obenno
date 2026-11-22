@@ -19,6 +19,7 @@ glossary.html       名相（全站检索与八十三条小词典）
 basics.html        纲要（十门教理：三宝、四谛、八正道、十二因缘、五蕴、三法印、六度四摄、三十七道品、业与六道、涅槃与菩提心、戒定慧与止观、读经门径）
 history.html        史略（佛陀与僧团、结集与部派、中观唯识、密教与印度佛教衰亡、汉地译经、隋唐八宗、宋元明清、近现代、南传与藏传、本站底本）
 404.html            错误页
+sw.js               Service Worker（页面网络优先、静态资源精确匹配缓存）
 sitemap.xml         站点地图（40 条）
 robots.txt          抓取规则（仅屏蔽 /_backup/）
 llms.txt            AI 助手用的站点说明
@@ -42,9 +43,10 @@ assets/             样式、脚本、字体、图片、分片经卷 JSON
 ## 部署与缓存
 
 1. 提交到 `main` 即由 GitHub Pages 发布，Cloudflare 在前。
-2. GitHub Pages 对静态资源默认 `cache-control: max-age=86400`，因此**改 CSS/JS/字体时必须换版本号**（如 `site.css?v=30`、`app.js?v=30`），HTML 不能长缓存。
+2. GitHub Pages 对静态资源默认 `cache-control: max-age=86400`，因此**改 CSS/JS/字体时必须换版本号**（当前 `site.css?v=30`、`app.js?v=31`），HTML 不能长缓存。
 3. 改动上线后按需清 Cloudflare 缓存：`POST /client/v4/zones/<zone>/purge_cache`，body `{"files":[...]}`，单次不超过 30 条。
-4. `sw.js` 的 `CACHE` 版本号（当前 `fxy-v29`）决定 Service Worker 缓存失效；导航请求走「网络优先、失败回落缓存」。
+4. `sw.js` 的 `CACHE`（当前 `fxy-v30`）决定 Service Worker 缓存失效；导航请求走「网络优先、失败回落缓存」，静态资源「精确匹配缓存优先 + 后台更新」。
+5. 注意：静态资源缓存必须用**精确匹配**（`caches.match(req)`，不可加 `ignoreSearch`），否则 `?v=` 版本号会被旧缓存吞掉，JS 改了也不生效；这一坑已修，勿回退。
 
 ## 收录推送
 
@@ -64,4 +66,5 @@ assets/             样式、脚本、字体、图片、分片经卷 JSON
 - `curl -sI` 或浏览器核对改动文件的字节数、`?v=` 版本号是否同步。
 - 看 `document.fonts` 里三个字体面的 `loaded / unloaded` 是否符合预期（首页不应加载生僻字面）。
 - 点开一部经，确认 `texts/<id>.json` 有请求、节数与页面标注一致。
+- 首页「名相」面板的计数应为 `83 / 83`；若仍是 48，说明 Service Worker 还缓存着旧 `app.js`，重载一次或检查 `sw.js` 是否用了 `ignoreSearch`。
 - `sitemap.xml` 的 `lastmod` 与本次改动日期一致，条数（40）不变。
