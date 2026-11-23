@@ -1,7 +1,7 @@
 {
-  "name": "梵音殿 · Obenno",
+  "name": "梵音殿 OBENNO",
   "short_name": "梵音殿",
-  "description": "金碧大殿、莲台金身；藏经诵读、功课、供灯、历数与名相。A golden hall of the seated Buddha with scripture, practice and offerings — Obenno.",
+  "description": "汉传佛典全文阅读：29 部经文依 CBETA《大正藏》，带拼音与跟读；每日功课、供灯回向、农历斋期与名相词典，另设英文目录。免费、无账号、无广告。",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

@@ -1,10 +1,10 @@
 # 梵音殿 OBENNO
 
-> 免费、无账号、无广告的汉传佛教修学站点（GitHub Pages + Cloudflare）：金身莲台大殿、大悲咒梵唱、藏经诵读（带拼音与跟读）、每日功课、功德回向、供灯供水、农历斋期与圣诞、名相小词典与学佛次第。中英对照（zh-Hans 为主，英文为辅；无独立英文 URL）。
+> 免费、无账号、无广告的汉传佛教修学站点（GitHub Pages + Cloudflare）：金身莲台大殿、大悲咒梵唱、藏经诵读（带拼音与跟读）、每日功课、功德回向、供灯供水、农历斋期与圣诞、名相小词典与学佛次第。中文为主，另设英文入口 https://www.obenno.com/en/ 与英文经藏目录 https://www.obenno.com/en/canon.html。
 
 - Canonical: https://www.obenno.com/
-- 语言 / Languages: zh-Hans（正文中英对照，英文不单独成页）
-- 站点性质: 首页为全屏交互大殿，另有 10 个分卷页与 29 个全文经页，共 43 个独立 URL（静态 HTML，分别共用 assets/pages.css 与 assets/sutra.css）；无登录；仅用 Microsoft Clarity 做匿名访问统计（会写入统计 Cookie），不做画像、不做广告投放
+- 语言 / Languages: zh-Hans 为主站语言；英文另设两页（/en/ 与 /en/canon.html），与中文对应页以 hreflang 互指
+- 站点性质: 首页为全屏交互大殿，另有 10 个分卷页与 29 个全文经页，共 44 个独立 URL（静态 HTML，分别共用 assets/pages.css 与 assets/sutra.css）；无登录；仅用 Microsoft Clarity 做匿名访问统计（会写入统计 Cookie），不做画像、不做广告投放
 - 站点地图: https://www.obenno.com/sitemap.xml
 
 ## 分卷页与栏目页（独立 URL，内容为纯文本，便于索引与引用）
@@ -73,6 +73,7 @@
 - 欢迎搜索引擎与 AI 助手索引与引用，请注明来源 https://www.obenno.com/
 - 经文原文以 CBETA《大正藏》为底本；注音为汉传常诵读法，非梵文转写
 - 历数仅作日期对照，不作择吉、不作预言；功课与次第的进度记录只存访客本机浏览器，本站不收集
+- 更正与联系：https://github.com/sonefly/obenno/issues 或 hello@obenno.com（请注明页面 URL 与所在段落；涉及经文者附 CBETA 册号与经号）
 
 ## 授权 License
 
@@ -80,4 +81,4 @@
 - 经文录文以 CBETA《大正藏》为底本；CBETA 的校勘、标点、分段成果权利归 CBETA，依其授权可免费流通、引用，**不得用于商业用途**；引用请注明 CBETA 与册号（如 `CBETA, T30, no. 1564`）
 - 本站自撰文字（纲要、史略、名相释义、栏目说明）为 CC BY-NC 4.0：可转载改编，须署名「梵音殿 OBENNO」并链回原页，不得商用
 - `app.js`、`sw.js`、各 CSS 代码为 MIT 许可；佛像、殿门等图像与大悲咒录音仅授权在本站及镜像内浏览播放
-- 本站不设账号、不募捐、不售卖任何物品
+- 本站不设账号，也无付费墙：无订阅、无会员、无广告、无商品、无付费收录；殿内一只功德箱为自愿随喜，不设金额梯度、无对价，不供亦可照常阅读全部经文
