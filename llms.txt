@@ -4,11 +4,12 @@
 
 - Canonical: https://www.obenno.com/
 - 语言 / Languages: zh-Hans 为主站语言；英文另设两页（/en/ 与 /en/canon.html），与中文对应页以 hreflang 互指
-- 站点性质: 首页为全屏交互大殿，另有 10 个分卷页与 29 个全文经页，共 44 个独立 URL（静态 HTML，分别共用 assets/pages.css 与 assets/sutra.css）；无登录；仅用 Microsoft Clarity 做匿名访问统计（会写入统计 Cookie），不做画像、不做广告投放
+- 站点性质: 首页为全屏交互大殿，另有 10 个分卷页、1 个图录页与 29 个全文经页，共 45 个独立 URL（静态 HTML，分别共用 assets/pages.css 与 assets/sutra.css）；无登录；仅用 Microsoft Clarity 做匿名访问统计（会写入统计 Cookie），不做画像、不做广告投放
 - 站点地图: https://www.obenno.com/sitemap.xml
 
 ## 分卷页与栏目页（独立 URL，内容为纯文本，便于索引与引用）
 
+- [图录 Gallery](https://www.obenno.com/gallery.html): 六帧 AI 生成的示意图像（香篆、灯明、梵钟、经卷、莲华、菩提叶），每帧附「殿里做什么／被借来比喻什么」两段说明，并声明非文物摄影、不作造像形制依据
 - [藏经 Canon](https://www.obenno.com/canon.html): 三经一咒（大悲咒、心经、往生咒）与二十九部全文经页索引，录文据 CBETA《大正藏》，拼音跟读、描红抄经、三藏十二部与阅读路径
 - [功课 Daily Practice](https://www.obenno.com/practice.html): 每日五项功课、一百零八声佛号计数、今日一偈与回向文
 - [仪轨 Rites](https://www.obenno.com/rites.html): 上香、供养、合十问讯的做法，早课与晚课各十分钟的次第，入殿问答六则
