@@ -33,3 +33,6 @@ footer.site-foot .foot-copy{margin:0;font-size:11px;letter-spacing:.1em;opacity:
 @media (prefers-reduced-motion: reduce){
   *{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
 }
+
+/* 选中文字：淡金属光（2026-11-23） */
+::selection{background:rgba(216,178,120,.30);color:#fff8ec}

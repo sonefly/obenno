@@ -4,3 +4,6 @@
 .corner-seal{position:fixed;top:18px;right:18px;z-index:8;width:40px;height:40px;border:1px solid rgba(216,178,120,.34);border-radius:50%;display:grid;place-items:center;color:#d8b276;font-size:11px;letter-spacing:.1em;text-decoration:none;opacity:.62;background:rgba(6,4,3,.34);-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px);transition:opacity .3s,border-color .3s}
 .corner-seal:hover,.corner-seal:focus-visible{opacity:1;border-color:#d8b276;outline:none}
 @media(max-width:520px){.corner-seal{width:34px;height:34px;font-size:10px;top:12px;right:12px}}
+
+/* 选中文字：淡金属光（2026-11-23） */
+::selection{background:rgba(216,178,120,.30);color:#fff8ec}
