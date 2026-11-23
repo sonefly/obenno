@@ -1,0 +1,14 @@
+# 梵音殿 OBENNO · 安全联系（RFC 9116）
+# 本站为静态站点（GitHub Pages + Cloudflare），无登录、无数据库、无后端接口。
+# 如发现页面注入、响应头配置、第三方统计或内容安全方面的问题，请按下列方式告知。
+
+Contact: mailto:hello@obenno.com
+Contact: https://github.com/sonefly/obenno/issues
+Expires: 2027-11-23T00:00:00.000Z
+Preferred-Languages: zh-Hans, en
+Canonical: https://www.obenno.com/.well-known/security.txt
+Policy: https://www.obenno.com/about.html
+
+# 报告时请附：受影响页面 URL、复现步骤、浏览器与时间；涉及响应头或 CDN 配置的请注明。
+# 本站无赏金计划，但会逐一核查并回复；核实的问题在修复后于关于页记下更正日期。
+# 请勿对站点进行压力测试、爬取限速绕过或任何影响他人访问的测试。
