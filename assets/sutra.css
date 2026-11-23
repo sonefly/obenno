@@ -36,3 +36,11 @@ footer.site-foot .foot-copy{margin:0;font-size:11px;letter-spacing:.1em;opacity:
 
 /* 选中文字：淡金属光（2026-11-23） */
 ::selection{background:rgba(216,178,120,.30);color:#fff8ec}
+
+/* 经文排版精修（2026-11-23）：首行缩进两字、段距放宽、字距微松 */
+article.text p{text-indent:2em;margin:0 0 .85em;letter-spacing:.015em}
+article.text p.first{text-indent:0}
+article.text p.first:first-letter{font-size:1.1em;color:#f0dcb4}
+h2.sec{padding-left:11px;border-left:2px solid var(--gold-deep)}
+blockquote.cite{padding:16px 20px;line-height:1.95}
+nav.pn a:hover{border-color:var(--gold);background:#d8b27810;opacity:1}
