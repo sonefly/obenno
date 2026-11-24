@@ -10,7 +10,7 @@
 ## 分卷页与栏目页（独立 URL，内容为纯文本，便于索引与引用）
 
 - [图录 Gallery](https://www.obenno.com/gallery.html): 六帧 AI 生成的示意图像（香篆、灯明、梵钟、经卷、莲华、菩提叶），每帧附「殿里做什么／被借来比喻什么」两段说明，六帧以极缓推近与光气微动代替视频（页面不加载 mp4，系统开启减少动态效果时静止），并声明非文物摄影、不作造像形制依据
-- [藏经 Canon](https://www.obenno.com/canon.html): 三经一咒（大悲咒、心经、往生咒）与二十九部全文经页索引，录文据 CBETA《大正藏》，拼音跟读、描红抄经、三藏十二部与阅读路径
+- [藏经 Canon](https://www.obenno.com/canon.html): 三经一咒（大悲咒、心经、往生咒）与二十九部经律论全文页索引，录文据 CBETA《大正藏》，拼音跟读、描红抄经、三藏十二部与阅读路径
 - [功课 Daily Practice](https://www.obenno.com/practice.html): 每日五项功课、一百零八声佛号计数、今日一偈与回向文
 - [仪轨 Rites](https://www.obenno.com/rites.html): 上香、供养、合十问讯的做法，早课与晚课各十分钟的次第，入殿问答六则
 - [次第 Path](https://www.obenno.com/path.html): 信、戒、定、慧、愿五阶十五项可自勾的实践
@@ -19,9 +19,9 @@
 - [历数 Almanac](https://www.obenno.com/almanac.html): 农历朔望与汉传六斋日、佛菩萨圣诞将至，可导出 .ics；不作择吉、不作预言
 - [纲要 The Ground](https://www.obenno.com/basics.html): 三宝、四谛、八正道、十二因缘、五蕴、三法印、六度四摄、三十七道品、业与六道、涅槃与菩提心、戒定慧与止观、读经门径
 - [史略 History](https://www.obenno.com/history.html): 佛陀与僧团、结集与部派、中观唯识、密教与印度佛教衰亡、汉地译经、隋唐八宗、宋元明清、近现代、南传与藏传、本站底本
-- [名相 Glossary](https://www.obenno.com/glossary.html): 三十二部经全文检索（约五十二万字符录文）与名相小词典（八十三条）
+- [名相 Glossary](https://www.obenno.com/glossary.html): 三十二篇经咒全文检索（约四十三万五千字符录文）与名相小词典（八十三条）
 
-## 全文经页（/sutra/，29 部经律论 + 心经、大悲咒、往生咒三种常诵之典）
+## 全文经页（/sutra/，共 32 篇：29 部经律论 + 心经、大悲咒、往生咒）
 
 - [般若波罗蜜多心经](https://www.obenno.com/sutra/xj.html): The Heart Sutra · 1 卷 260 字 · 玄奘译 · 经藏
   - [大悲咒](https://www.obenno.com/sutra/dbz.html): The Great Compassion Mantra · 84 句 415 字 · 伽梵达摩译 · 咒藏
@@ -64,7 +64,7 @@
 ## 英文入口（English entry）
 
 - [About this site / English](https://www.obenno.com/en/): 面向非中文访客的英文说明页——站点性质、底本与文本处理、编辑规则、授权、隐私摘要、更正渠道与阅读起点（不提供经文英译，只作导读）
-- [The Canon / English index](https://www.obenno.com/en/canon.html): 29 部全文的英文目录——英文经名、所属藏、卷数节数、大正藏编号与一句话提要，链接指向中文全文
+- [The Canon / English index](https://www.obenno.com/en/canon.html): 29 部经律论的英文目录——英文经名、所属藏、卷数节数、大正藏编号与一句话提要，链接指向中文全文
 
 ## 站点信息页（About / Privacy / License）
 
