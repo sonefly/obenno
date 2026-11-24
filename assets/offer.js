@@ -118,6 +118,22 @@
     });
   }
 
+  var wallEl = document.getElementById("lampWall");
+  if (wallEl && window.MutationObserver) {
+    var lastN = wallEl.children.length;
+    new MutationObserver(function () {
+      var n = wallEl.children.length;
+      if (n > lastN) {
+        var fresh = wallEl.firstElementChild;
+        if (fresh && fresh.classList && fresh.classList.contains("lamp")) {
+          fresh.classList.add("just-lit");
+          setTimeout(function () { fresh.classList.remove("just-lit"); }, 1900);
+        }
+      }
+      lastN = n;
+    }).observe(wallEl, { childList: true });
+  }
+
   setKind(kind);
   paintSteps();
 })();

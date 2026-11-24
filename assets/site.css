@@ -39,18 +39,48 @@
 .off-steps-now{margin:10px 0 0;font-size:11px;line-height:1.9;letter-spacing:.05em;color:#ecd6b4a6}
 .lamp{min-height:148px;padding:clamp(14px,1.8vw,20px);transition:border-color .5s ease,transform .5s ease,box-shadow .5s ease}
 .lamp:hover{border-color:rgba(255,206,140,.42);transform:translateY(-2px);box-shadow:0 20px 36px -24px rgba(0,0,0,.92)}
-.lamp .flame{position:relative;align-self:center;width:48px;height:56px;margin:2px 0 6px;border-radius:0;background:none;box-shadow:none}
-.lamp .flame::before{content:"";position:absolute;left:50%;top:4px;width:26px;height:40px;transform:translateX(-50%);clip-path:polygon(50% 0,71% 24%,80% 50%,68% 82%,44% 96%,23% 78%,18% 48%,31% 20%);background:radial-gradient(ellipse at 50% 86%,#ffeab6 0%,#ffcf68 24%,#ff9a1e 60%,#ff7a08 84%,rgba(255,96,6,.92) 100%);filter:drop-shadow(0 0 13px rgba(255,146,52,.78));animation:flameLick 3.4s ease-in-out infinite}
-.lamp .flame::after{content:"";position:absolute;left:50%;top:50%;width:104px;height:104px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(255,158,66,.30),rgba(255,130,40,.10) 44%,transparent 70%);animation:flameHalo 5.2s ease-in-out infinite}
-@keyframes flameLick{0%,100%{transform:translateX(-50%) scale(1);opacity:.94}35%{transform:translateX(-51%) scale(1.05,.94) rotate(-3deg);opacity:1}70%{transform:translateX(-49%) scale(.96,1.06) rotate(2deg);opacity:.9}}
-@keyframes flameHalo{0%,100%{opacity:.5}50%{opacity:.86}}
+.lamp .flame{position:relative;align-self:center;width:48px;height:56px;margin:2px 0 6px;border-radius:0;background:none;box-shadow:none;animation:none}
+.lamp .flame::before{content:"";position:absolute;left:50%;top:4px;width:26px;height:40px;transform:translateX(-50%);clip-path:polygon(50% 0,71% 24%,80% 50%,68% 82%,44% 96%,23% 78%,18% 48%,31% 20%);background:radial-gradient(ellipse at 50% 86%,#ffeab6 0%,#ffcf68 24%,#ff9a1e 60%,#ff7a08 84%,rgba(255,96,6,.92) 100%);filter:drop-shadow(0 0 13px rgba(255,146,52,.78));transform-origin:50% 100%;animation:flameBody 2.7s cubic-bezier(.42,0,.58,1) infinite}
+.lamp .flame::after{content:"";position:absolute;left:50%;top:50%;width:104px;height:104px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(255,158,66,.30),rgba(255,130,40,.10) 44%,transparent 70%);animation:flameHalo 2.1s ease-in-out infinite}
+@keyframes flameBody{0%{transform:translateX(-50%) scale(1,1) rotate(0deg);opacity:.96}
+12%{transform:translateX(-51.8%) scale(.96,1.07) rotate(-3.4deg);opacity:1}
+28%{transform:translateX(-48.6%) scale(1.04,.95) rotate(2.8deg);opacity:.94}
+44%{transform:translateX(-50.4%) scale(.97,1.05) rotate(-2.2deg);opacity:1}
+58%{transform:translateX(-49.4%) scale(1.05,.94) rotate(3.1deg);opacity:.92}
+72%{transform:translateX(-50.8%) scale(.98,1.06) rotate(-1.8deg);opacity:1}
+86%{transform:translateX(-49.6%) scale(1.02,.97) rotate(1.4deg);opacity:.95}
+100%{transform:translateX(-50%) scale(1,1) rotate(0deg);opacity:.96}}
+@keyframes flameHalo{0%{opacity:.52;transform:translate(-50%,-50%) scale(.94)}38%{opacity:.9;transform:translate(-50%,-50%) scale(1.07)}64%{opacity:.62;transform:translate(-50%,-50%) scale(.99)}100%{opacity:.52;transform:translate(-50%,-50%) scale(.94)}}
 .lamp--flower .bloom svg{width:62px;height:54px}
-.lamp--flower .bloom{margin:4px 0 6px;filter:drop-shadow(0 0 18px rgba(255,172,202,.5))}
-.lamp--water .bowl{width:68px;height:32px;margin:4px 0 8px;border-radius:0 0 34px 34px}
-.lamp--water .bowl::after{content:"";position:absolute;left:4px;right:4px;top:-3px;height:5px;border-radius:50%;border:1px solid rgba(210,232,252,.5);background:linear-gradient(180deg,rgba(234,246,255,.55),rgba(168,204,240,.22));box-shadow:0 0 16px rgba(150,200,255,.35)}
+.lamp--flower .bloom{margin:4px 0 6px;filter:drop-shadow(0 0 18px rgba(255,172,202,.5));transform-origin:50% 96%;animation:bloomSway 6.8s ease-in-out infinite}
+.lamp--flower .bloom svg path{transform-origin:50% 74%;animation:petalSway 4.6s ease-in-out infinite}
+.lamp--flower .bloom svg path:nth-child(2){animation-delay:-.6s;animation-duration:5.2s}
+.lamp--flower .bloom svg path:nth-child(3){animation-delay:-1.3s;animation-duration:4.9s}
+.lamp--flower .bloom svg path:nth-child(4){animation-delay:-2.1s;animation-duration:5.5s}
+.lamp--flower .bloom svg path:nth-child(5){animation-delay:-2.8s;animation-duration:5.1s}
+@keyframes bloomSway{0%,100%{transform:rotate(0deg) translateY(0)}30%{transform:rotate(-2.4deg) translateY(-1px)}62%{transform:rotate(1.9deg) translateY(0)}82%{transform:rotate(-1deg) translateY(-.5px)}}
+@keyframes petalSway{0%,100%{transform:rotate(0deg) scale(1)}35%{transform:rotate(-2.6deg) scale(1.02,.99)}70%{transform:rotate(2.2deg) scale(.99,1.02)}}
+.lamp--water .bowl{width:72px;height:34px;margin:4px 0 8px;border-radius:0 0 36px 36px;animation:bowlBreath 5.6s ease-in-out infinite}
+.lamp--water .bowl::after{content:"";position:absolute;left:2px;right:2px;top:-4px;height:8px;border-radius:50%;border:1px solid rgba(210,232,252,.42);background:
+radial-gradient(ellipse 34% 100% at 50% 50%,rgba(214,238,255,0) 46%,rgba(214,238,255,.55) 52%,rgba(214,238,255,0) 60%),
+radial-gradient(ellipse 62% 100% at 50% 50%,rgba(196,226,255,0) 44%,rgba(196,226,255,.4) 50%,rgba(196,226,255,0) 58%),
+linear-gradient(180deg,rgba(234,246,255,.5),rgba(168,204,240,.2));
+background-size:34% 100%,62% 100%,100% 100%;background-position:50% 0,50% 0,0 0;background-repeat:no-repeat;box-shadow:0 0 16px rgba(150,200,255,.32);animation:waterRipple 4.4s linear infinite}
+@keyframes bowlBreath{0%,100%{transform:scaleY(1)}50%{transform:scaleY(1.04)}}
+@keyframes waterRipple{0%{background-size:18% 100%,40% 100%,100% 100%;background-position:50% 0,50% 0,0 0;opacity:.85}
+55%{background-size:58% 100%,92% 100%,100% 100%;opacity:.95}
+100%{background-size:96% 100%,140% 100%,100% 100%;opacity:.7}}
+.lamp.just-lit{border-color:rgba(255,214,150,.72)!important;animation:cardLit 1.8s ease-out}
+@keyframes cardLit{0%{box-shadow:0 0 0 rgba(255,190,110,0),inset 0 0 0 rgba(255,190,110,0)}
+18%{box-shadow:0 0 42px -6px rgba(255,186,104,.85),inset 0 0 34px -12px rgba(255,196,120,.55);background-color:rgba(255,186,104,.10)}
+100%{box-shadow:0 0 0 rgba(255,190,110,0),inset 0 0 0 rgba(255,190,110,0)}}
 .lamp p{font-size:13px}
 .lamp .by{font-size:11px;letter-spacing:.12em}
 @media (max-width:560px){
   .off-hero{aspect-ratio:4/3}
   .off-steps li{flex:1 1 30%}
+}
+@media (prefers-reduced-motion:reduce){
+  .lamp .flame::before,.lamp .flame::after,.lamp--flower .bloom,.lamp--flower .bloom svg path,.lamp--water .bowl,.lamp--water .bowl::after,.off-hero .pulse,.lamp.just-lit{animation:none!important}
+  .off-hero img{transition:opacity .2s linear!important;transform:none!important}
 }
