@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>全站检索 · 经句与名相｜梵音殿 OBENNO</title>
+<meta name="description" content="在梵音殿全站检索经文原句：三十四篇经咒全文逐节可搜，结果直达原节，可复制引用。免费、无账号、无广告。">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#0b0705">
+<link rel="canonical" href="https://www.obenno.com/search.html">
+<meta property="og:title" content="全站检索 · 经句与名相｜梵音殿 OBENNO">
+<meta property="og:description" content="三十四篇经咒全文逐节可搜，结果直达原节。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.obenno.com/search.html">
+<meta property="og:site_name" content="梵音殿 OBENNO">
+<link rel="icon" href="/favicon.ico">
+<link rel="stylesheet" href="/assets/sutra.css?v=41">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"梵音殿 OBENNO","url":"https://www.obenno.com/","inLanguage":"zh-Hans","potentialAction":{"@type":"SearchAction","target":"https://www.obenno.com/search.html?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="alternate" type="application/rss+xml" title="梵音殿 OBENNO · 更新" href="/feed.xml">
+</head>
+<body>
+<div class="top"><a href="/">← 梵音殿 OBENNO</a><span class="crumb"><a href="/canon.html">藏经总目</a> · 检索</span></div>
+<div class="wrap">
+<header class="hd">
+<h1>全站检索</h1>
+<span class="en">Search the whole canon</span>
+<p class="meta">经句检索 · 三十四篇经咒全文 · 逐节索引</p>
+<p class="meta-en">Verse-level search · 34 texts · section-level index</p>
+<p class="lede">输入一句经文、一个人名或一个名相。索引按「节」建立，命中即直达原节；每节都可复制成带出处的引用。<em style="display:block;font-style:italic;font-size:12.5px;opacity:.6;margin-top:6px">Type a phrase; each hit opens at the exact section.</em></p>
+</header>
+<div class="rule"></div>
+<form class="srch" id="sf" role="search" onsubmit="return false">
+<label class="srch-l" for="q">检索词</label>
+<input class="srch-i" id="q" type="search" name="q" autocomplete="off" placeholder="例如：应无所住 · 观自在 · 一即一切" aria-describedby="srchHint">
+<span class="srch-s" id="srchStat">索引未载入</span>
+</form>
+<p class="srch-hint" id="srchHint">支持空格分词（「色 空」两词同节命中优先）。同音字不替换，异体字依 CBETA 原文。名相释条见 <a href="/glossary.html">名相</a>。</p>
+<div class="srch-out" id="out" aria-live="polite"></div>
+<nav class="pn"><a href="/canon.html">← 藏经总目</a><a href="/">回殿内检索</a><a href="/glossary.html">名相 →</a></nav>
+<footer class="site-foot">
+<nav class="foot-nav" aria-label="站点信息">
+<a href="/search.html">全站检索<span>Search</span></a>
+<a href="/about.html">关于本站<span>About</span></a>
+<a href="/privacy.html">隐私与 Cookie<span>Privacy</span></a>
+<a href="/LICENSE">授权说明<span>License</span></a>
+<a href="/sitemap.xml">网站地图<span>Sitemap</span></a>
+<a href="/en/">English<span>EN</span></a>
+</nav>
+<p class="foot-meta">底本 CBETA《大正藏》· 标点依通行读法，校勘从略</p>
+<p class="foot-copy">© 2026 梵音殿 OBENNO · 免费阅览 · 无账号 · 无广告</p>
+</footer>
+</div>
+<style>
+.srch{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:2px 0 10px}
+.srch-l{font-size:11px;letter-spacing:.18em;opacity:.5}
+.srch-i{flex:1 1 220px;min-width:0;background:rgba(216,178,120,.05);border:1px solid var(--hair);border-radius:999px;color:#eadcc4;font:inherit;font-size:15px;padding:10px 16px;outline:none}
+.srch-i:focus{border-color:rgba(216,178,120,.55);background:rgba(216,178,120,.09)}
+.srch-s{font-size:11.5px;opacity:.5;letter-spacing:.05em}
+.srch-hint{font-size:12px;color:var(--smoke);opacity:.7;line-height:1.9;margin:0 0 22px}
+.srch-out{min-height:120px}
+.hit{border-top:1px solid var(--hair);padding:14px 0 12px}
+.hit:first-child{border-top:0}
+.hit-h{font-size:12px;letter-spacing:.06em;opacity:.62;display:flex;justify-content:space-between;gap:10px}
+.hit-t{font-size:15.5px;line-height:2;color:#e4d7c1;margin:6px 0 0;text-decoration:none;display:block}
+.hit-t:hover{color:#f4e3c2}
+.hit mark{background:rgba(216,178,120,.28);color:#ffe9c0;border-radius:2px}
+.hit-c{appearance:none;background:none;border:0;border-bottom:1px dashed var(--hair);color:var(--gold);font:inherit;font-size:11.5px;padding:0;margin-top:8px;cursor:pointer;opacity:.8}
+.empty{font-size:13px;color:var(--smoke);opacity:.65;padding:18px 0}
+</style>
+<script>
+var IDX=null,LOADING=false,TIMER=null,META={};
+function norm(t){return (t||'').replace(/[\s\u3000]/g,'').toLowerCase()}
+function load(){
+  if(IDX||LOADING) return Promise.resolve();
+  LOADING=true; var st=document.getElementById('srchStat'); st.textContent='载入索引…';
+  return fetch('/assets/search-index.json').then(function(r){return r.json()}).then(function(d){
+    META=d.meta||{}; IDX=d.items.map(function(x){return {u:x[0],s:x[1],t:x[2],n:norm(x[2])}});
+    st.textContent='索引 '+IDX.length+' 节 · 已载入';
+  }).catch(function(){st.textContent='索引载入失败，可稍后再试或回殿内检索';LOADING=false;throw 0});
+}
+function hl(t,qs){
+  var s=t.replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c]});
+  qs.forEach(function(q){ if(!q) return; s=s.split(q).join('<mark>'+q+'</mark>'); });
+  return s;
+}
+function run(q){
+  var out=document.getElementById('out'); q=norm(q);
+  if(!q){out.innerHTML='';document.getElementById('srchStat').textContent='索引 '+(IDX?IDX.length:0)+' 节';return}
+  load().then(function(){
+    var qs=q.split(/[，,。;；、]/).join(' ').split(' ').filter(Boolean);
+    if(!qs.length) qs=[q];
+    var hits=[];
+    for(var i=0;i<IDX.length;i++){
+      var it=IDX[i], ok=true, sc=0;
+      for(var j=0;j<qs.length;j++){ if(it.n.indexOf(qs[j])<0){ok=false;break} sc+=it.n.split(qs[j]).length-1; }
+      if(ok) hits.push({it:it,sc:sc});
+    }
+    hits.sort(function(a,b){return b.sc-a.sc});
+    document.getElementById('srchStat').textContent='命中 '+hits.length+' 节'+(hits.length>60?'（显示前 60）':'');
+    if(!hits.length){out.innerHTML='<p class="empty">此词在三十四篇经咒中未见。可换更短的词，或查 <a href="/glossary.html">名相</a>。</p>';return}
+    var h='';
+    for(var k=0;k<hits.length&&k<60;k++){
+      var hh=hits[k].it;
+      h+='<div class="hit"><div class="hit-h"><span>'+((META[hh.u]||hh.u).replace(/[&<>]/g,''))+' · 第 '+hh.s+' 节</span><span>'+(hh.u.indexOf('hy-')>0?'卷页':'经页')+'</span></div>'+
+         '<a class="hit-t" href="'+hh.u+'#s'+hh.s+'">'+hl(hh.t,qs)+'</a>'+
+         '<button type="button" class="hit-c" data-u="'+hh.u+'" data-s="'+hh.s+'" data-n="'+q+'">复制此节引用</button></div>';
+    }
+    out.innerHTML=h;
+  });
+}
+document.getElementById('sf').addEventListener('submit',function(e){e.preventDefault();run(document.getElementById('q').value)});
+document.getElementById('q').addEventListener('input',function(e){
+  clearTimeout(TIMER); var v=e.target.value; TIMER=setTimeout(function(){run(v)},260);
+});
+document.getElementById('out').addEventListener('click',function(e){
+  var b=e.target.closest('.hit-c'); if(!b) return;
+  var u=b.getAttribute('data-u'), s=b.getAttribute('data-s'), nm=b.getAttribute('data-n');
+  var idx=IDX&&IDX.filter(function(x){return x.u===u&&x.s==+s})[0];
+  var txt='《'+(META[u]||'')+'》第'+s+'节「'+nm+'」：'+(idx?idx.t.slice(0,40)+'…':'')+' https://www.obenno.com'+u+'#'+s;
+  var done=function(){b.textContent='已复制';setTimeout(function(){b.textContent='复制此节引用'},1400)};
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(done,function(){})}
+});
+var init=new URLSearchParams(location.search).get('q');
+if(init){document.getElementById('q').value=init;run(init)}
+</script>
+</body>
+</html>
