@@ -40,8 +40,8 @@
 .lamp{min-height:148px;padding:clamp(14px,1.8vw,20px);transition:border-color .5s ease,transform .5s ease,box-shadow .5s ease}
 .lamp:hover{border-color:rgba(255,206,140,.42);transform:translateY(-2px);box-shadow:0 20px 36px -24px rgba(0,0,0,.92)}
 .lamp .flame{position:relative;align-self:center;width:48px;height:56px;margin:2px 0 6px;border-radius:0;background:none;box-shadow:none}
-.lamp .flame::before{content:"";position:absolute;left:50%;top:4px;width:26px;height:40px;transform:translateX(-50%);clip-path:polygon(50% 0,71% 24%,80% 50%,68% 82%,44% 96%,23% 78%,18% 48%,31% 20%);background:radial-gradient(ellipse at 50% 84%,#fff8e2,#ffd47e 36%,#ff9e2e 68%,rgba(255,126,22,.86) 100%);filter:drop-shadow(0 0 14px rgba(255,180,95,.7));animation:flameLick 3.4s ease-in-out infinite}
-.lamp .flame::after{content:"";position:absolute;left:50%;top:50%;width:104px;height:104px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(255,182,96,.32),rgba(255,150,60,.10) 44%,transparent 70%);animation:flameHalo 5.2s ease-in-out infinite}
+.lamp .flame::before{content:"";position:absolute;left:50%;top:4px;width:26px;height:40px;transform:translateX(-50%);clip-path:polygon(50% 0,71% 24%,80% 50%,68% 82%,44% 96%,23% 78%,18% 48%,31% 20%);background:radial-gradient(ellipse at 50% 86%,#ffeab6 0%,#ffcf68 24%,#ff9a1e 60%,#ff7a08 84%,rgba(255,96,6,.92) 100%);filter:drop-shadow(0 0 13px rgba(255,146,52,.78));animation:flameLick 3.4s ease-in-out infinite}
+.lamp .flame::after{content:"";position:absolute;left:50%;top:50%;width:104px;height:104px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(255,158,66,.30),rgba(255,130,40,.10) 44%,transparent 70%);animation:flameHalo 5.2s ease-in-out infinite}
 @keyframes flameLick{0%,100%{transform:translateX(-50%) scale(1);opacity:.94}35%{transform:translateX(-51%) scale(1.05,.94) rotate(-3deg);opacity:1}70%{transform:translateX(-49%) scale(.96,1.06) rotate(2deg);opacity:.9}}
 @keyframes flameHalo{0%,100%{opacity:.5}50%{opacity:.86}}
 .lamp--flower .bloom svg{width:62px;height:54px}
