@@ -44,3 +44,10 @@ article.text p.first:first-letter{font-size:1.1em;color:#f0dcb4}
 h2.sec{padding-left:11px;border-left:2px solid var(--gold-deep)}
 blockquote.cite{padding:16px 20px;line-height:1.95}
 nav.pn a:hover{border-color:var(--gold);background:#d8b27810;opacity:1}
+
+/* 分卷导航（经页页脚） */
+nav.sb-nav{display:flex;flex-wrap:wrap;gap:2px 12px;align-items:baseline;margin:34px 0 0;padding:0 0 14px;border-bottom:1px solid var(--hair);font-size:12.5px;line-height:1.95;color:var(--smoke)}
+nav.sb-nav span{font-size:10.5px;letter-spacing:.2em;color:var(--gold-deep);margin-right:4px}
+nav.sb-nav a{border:0;color:var(--gold);opacity:.82}
+nav.sb-nav a:hover{opacity:1;border-bottom:1px solid var(--hair)}
+@media print{nav.sb-nav{display:none}}
