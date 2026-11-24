@@ -23,6 +23,7 @@
 
 ## 全文经页（/sutra/，29 部）
 
+- [般若波罗蜜多心经](https://www.obenno.com/sutra/xj.html): The Heart Sutra · 1 卷 260 字 · 玄奘译 · 经藏
 - [金刚经](https://www.obenno.com/sutra/jg.html): Diamond Sutra · 共 40 节 · 经藏
 - [佛说阿弥陀经](https://www.obenno.com/sutra/amt.html): Amitabha Sutra · 共 20 节 · 经藏
 - [观无量寿佛经](https://www.obenno.com/sutra/gj.html): Contemplation Sutra · 共 56 节 · 经藏
