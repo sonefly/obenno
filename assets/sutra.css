@@ -67,3 +67,25 @@ div.chant .cap{display:block;margin:0 0 9px;font-size:11.5px;letter-spacing:.12e
 div.chant audio{width:100%;height:34px}
 @media (max-width:520px){article.mantra li i{min-width:1.9em;font-size:10px}article.mantra li{gap:9px}}
 @media print{nav.tri,div.chant{display:none}article.mantra li span{color:#111}}
+
+/* —— 阅读器 v41：字号、行宽、分节引用、进度 —— */
+article.text p{font-size:var(--rdp,clamp(16px,3.6vw,18.5px));position:relative;cursor:copy}
+article.text p:hover{background:rgba(216,178,120,.07)}
+article.text p.copied{background:rgba(216,178,120,.18)}
+body.rd-wide .wrap{max-width:56rem}
+.rd{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:6px 0 20px;font-size:12px;color:var(--smoke)}
+.rd-n{margin-right:auto;opacity:.55;letter-spacing:.08em}
+.rd-b{appearance:none;-webkit-appearance:none;background:rgba(216,178,120,.06);border:1px solid var(--hair);border-radius:999px;color:var(--gold);padding:5px 12px;font:inherit;font-size:12px;cursor:pointer;line-height:1.4}
+.rd-b:hover{background:rgba(216,178,120,.14)}
+.rd-b.on{background:rgba(216,178,120,.22);border-color:rgba(216,178,120,.6)}
+.rd-chip{appearance:none;background:rgba(216,178,120,.1);border:1px dashed var(--hair);border-radius:999px;color:var(--gold);padding:5px 12px;font:inherit;font-size:12px;cursor:pointer}
+.rd-toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,12px);background:rgba(10,6,3,.92);border:1px solid var(--hair);color:var(--gold);padding:9px 16px;border-radius:999px;font-size:12.5px;letter-spacing:.06em;opacity:0;pointer-events:none;transition:opacity .25s ease,transform .25s ease;z-index:50;box-shadow:0 8px 24px rgba(0,0,0,.5)}
+.rd-toast.on{opacity:1;transform:translate(-50%,0)}
+h2.pin{font-size:clamp(17px,4vw,21px);font-weight:400;letter-spacing:.08em;color:#f0dcb4;margin:38px 0 14px;padding:0 0 10px;border-bottom:1px solid var(--hair)}
+h2.pin i{font-style:normal;font-size:11px;letter-spacing:.14em;opacity:.5;margin-right:10px;vertical-align:2px}
+h3.juan{font-size:13px;letter-spacing:.2em;opacity:.62;font-weight:400;margin:44px 0 6px}
+nav.toc .pin-list .rg{opacity:.45;font-size:11px;margin-left:6px}
+@media print{.rd,.rd-chip,.rd-toast{display:none}article.text p{font-size:12pt}article.text p:hover,article.text p.copied{background:none}}
+
+nav.all a.on{color:#f0d3a2;border-bottom-color:var(--gold-deep)}
+.top a{text-decoration:none}
