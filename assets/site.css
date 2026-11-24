@@ -7,3 +7,50 @@
 
 /* 选中文字：淡金属光（2026-11-23） */
 ::selection{background:rgba(216,178,120,.30);color:#fff8ec}
+
+/* ==== 供台 · 供灯/供花/供水 动态与记数（2026-11-24） ==== */
+.off-hero{position:relative;margin:0 0 clamp(12px,2vh,18px);border:1px solid rgba(216,178,120,.26);background:#0a0705;overflow:hidden;aspect-ratio:16/9;isolation:isolate}
+.off-hero img{position:absolute;inset:0;z-index:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.02);transition:opacity 1.1s ease,transform 26s linear}
+.off-hero img.on{opacity:1;transform:scale(1.07)}
+.off-hero .pulse{position:absolute;inset:0;z-index:1;pointer-events:none;mix-blend-mode:screen}
+.off-hero[data-kind="lamp"] .pulse{background:radial-gradient(circle at 50% 56%,rgba(255,190,110,.34),rgba(255,170,80,.10) 28%,transparent 46%);animation:offBreath 5.4s ease-in-out infinite}
+.off-hero[data-kind="flower"] .pulse{background:radial-gradient(circle at 50% 40%,rgba(255,214,228,.20),transparent 52%);animation:offBreath 7.4s ease-in-out infinite}
+.off-hero[data-kind="water"] .pulse{background:radial-gradient(ellipse at 50% 64%,rgba(168,208,255,.22),transparent 48%);animation:offRipple 8.6s ease-in-out infinite}
+@keyframes offBreath{0%,100%{opacity:.42}50%{opacity:.86}}
+@keyframes offRipple{0%,100%{opacity:.34;transform:scale(.94)}50%{opacity:.62;transform:scale(1.05)}}
+.off-hero::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.52),rgba(0,0,0,0) 30%,rgba(0,0,0,0) 52%,rgba(4,2,1,.86))}
+.off-hero::before{content:"";position:absolute;inset:0;z-index:4;pointer-events:none;opacity:0;background:radial-gradient(circle at 50% 46%,rgba(255,220,160,.55),rgba(255,196,120,.18) 34%,transparent 62%)}
+.off-hero.lit::before{animation:offFlash 1.6s ease-out}
+.off-hero.lit img.on{animation:offLit 1.7s ease-out}
+@keyframes offFlash{0%{opacity:0;transform:scale(.55)}16%{opacity:.92}100%{opacity:0;transform:scale(1.14)}}
+@keyframes offLit{0%{filter:brightness(1)}20%{filter:brightness(1.55) saturate(1.12)}100%{filter:brightness(1)}}
+.off-hero figcaption{position:absolute;left:0;right:0;bottom:0;z-index:3;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;padding:clamp(12px,2vw,18px) clamp(12px,2.2vw,22px);font-family:var(--serif);color:#f4ddb6}
+.off-hero .zh{font-size:clamp(16px,2.2vw,21px);letter-spacing:.2em}
+.off-hero .en{font-size:10.5px;letter-spacing:.22em;color:#ffd69ea8}
+.off-hero .line{flex:1 0 100%;margin-top:2px;font-size:12px;letter-spacing:.1em;color:#e8d0aca6}
+.off-steps{margin:0 0 clamp(12px,2vh,18px);padding:clamp(10px,1.6vw,14px) clamp(12px,1.8vw,16px);border:1px solid rgba(216,178,120,.18);background:linear-gradient(180deg,rgba(216,178,120,.055),rgba(216,178,120,0))}
+.off-steps-h{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin:0 0 10px;font-size:11px;letter-spacing:.18em;color:#ffd69eb3}
+.off-steps ul{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.off-steps li{flex:1 1 84px;min-width:76px;padding:8px 6px;text-align:center;border:1px solid rgba(216,178,120,.16);background:rgba(0,0,0,.28);font-family:var(--serif);color:#e0c6a080}
+.off-steps li b{display:block;font-size:12.5px;font-weight:400;letter-spacing:.14em}
+.off-steps li em{display:block;margin-top:3px;font-style:normal;font-size:10px;letter-spacing:.08em;color:#e0c6a055}
+.off-steps li.on{border-color:rgba(255,206,140,.5);color:#ffe6b8;background:radial-gradient(circle at 50% 0,rgba(255,196,120,.2),rgba(0,0,0,.2) 72%);box-shadow:0 0 20px -10px rgba(255,190,110,.8)}
+.off-steps li.on em{color:#ffd69ea6}
+.off-steps-now{margin:10px 0 0;font-size:11px;line-height:1.9;letter-spacing:.05em;color:#ecd6b4a6}
+.lamp{min-height:148px;padding:clamp(14px,1.8vw,20px);transition:border-color .5s ease,transform .5s ease,box-shadow .5s ease}
+.lamp:hover{border-color:rgba(255,206,140,.42);transform:translateY(-2px);box-shadow:0 20px 36px -24px rgba(0,0,0,.92)}
+.lamp .flame{position:relative;align-self:center;width:48px;height:56px;margin:2px 0 6px;border-radius:0;background:none;box-shadow:none}
+.lamp .flame::before{content:"";position:absolute;left:50%;top:6px;width:24px;height:36px;transform:translateX(-50%);border-radius:50% 50% 46% 46%/62% 62% 38% 38%;background:radial-gradient(ellipse at 50% 82%,#fff8e2,#ffd27a 40%,#ff9c2c 72%,rgba(255,122,26,0) 100%);box-shadow:0 0 22px rgba(255,176,90,.55),0 0 46px rgba(255,150,60,.22);animation:flameLick 3.4s ease-in-out infinite}
+.lamp .flame::after{content:"";position:absolute;left:50%;top:50%;width:104px;height:104px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(255,182,96,.32),rgba(255,150,60,.10) 44%,transparent 70%);animation:flameHalo 5.2s ease-in-out infinite}
+@keyframes flameLick{0%,100%{transform:translateX(-50%) scale(1);opacity:.94}35%{transform:translateX(-51%) scale(1.05,.94) rotate(-3deg);opacity:1}70%{transform:translateX(-49%) scale(.96,1.06) rotate(2deg);opacity:.9}}
+@keyframes flameHalo{0%,100%{opacity:.5}50%{opacity:.86}}
+.lamp--flower .bloom svg{width:62px;height:54px}
+.lamp--flower .bloom{margin:4px 0 6px;filter:drop-shadow(0 0 18px rgba(255,172,202,.5))}
+.lamp--water .bowl{width:68px;height:32px;margin:4px 0 8px;border-radius:0 0 34px 34px}
+.lamp--water .bowl::after{content:"";position:absolute;left:4px;right:4px;top:-3px;height:5px;border-radius:50%;border:1px solid rgba(210,232,252,.5);background:linear-gradient(180deg,rgba(234,246,255,.55),rgba(168,204,240,.22));box-shadow:0 0 16px rgba(150,200,255,.35)}
+.lamp p{font-size:13px}
+.lamp .by{font-size:11px;letter-spacing:.12em}
+@media (max-width:560px){
+  .off-hero{aspect-ratio:4/3}
+  .off-steps li{flex:1 1 30%}
+}
