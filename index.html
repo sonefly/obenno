@@ -106,7 +106,7 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="/assets/site.css?v=33">
+<link rel="stylesheet" href="/assets/site.css?v=34">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
 <meta name="theme-color" content="#0b0705">
@@ -808,6 +808,24 @@
       <div class="lamp-wrap">
       <div class="lamp-top">
         <div class="lamp-main">
+          <figure class="off-hero" id="offHero" data-kind="lamp">
+            <img data-for="lamp" src="/assets/offer_lamp.webp" alt="佛殿供台上的黄铜油灯，灯芯燃着明亮的小焰" width="1280" height="720" loading="lazy" decoding="async">
+            <img data-for="flower" src="/assets/offer_flower.webp" alt="铜瓶中插着白色莲花与青枝的供花" width="1280" height="720" loading="lazy" decoding="async">
+            <img data-for="water" src="/assets/offer_water.webp" alt="石台上铜钵盛满清水，水面映着一小团灯光" width="1280" height="720" loading="lazy" decoding="async">
+            <span class="pulse" aria-hidden="true"></span>
+            <figcaption><span class="zh" id="offHeroZ">供灯</span><span class="en" id="offHeroEn">LAMPS</span><span class="line" id="offHeroLine">愿此灯明，照我心地</span></figcaption>
+          </figure>
+          <div class="off-steps" id="offSteps">
+            <p class="off-steps-h"><span>此处供养 · 自己的记数</span><span>MY RECORD</span></p>
+            <ul>
+              <li data-need="1"><b>初发心</b><em>第一日</em></li>
+              <li data-need="7"><b>七日</b><em>第二至七日</em></li>
+              <li data-need="21"><b>廿一日</b><em>三七日</em></li>
+              <li data-need="49"><b>七七日</b><em>四十九日</em></li>
+              <li data-need="100"><b>百日</b><em>一百日</em></li>
+            </ul>
+            <p class="off-steps-now" id="offStepsNow">还没有开始记数。点一盏、供一枝，这一日就记下了。</p>
+          </div>
           <div class="off-tabs" role="tablist" aria-label="供品 Offerings">
             <button class="off-tab on" type="button" role="tab" data-k="lamp" aria-selected="true">供灯<em>LAMPS</em></button>
             <button class="off-tab" type="button" role="tab" data-k="flower" aria-selected="false">供花<em>FLOWERS</em></button>
@@ -1039,7 +1057,7 @@
   <div class="cs-paper" id="csPaper"></div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="/assets/app.js?v=32"></script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="/assets/app.js?v=32"></script><script src="/assets/offer.js?v=1"></script>
 
 <script>
 /* 山门灯笼：按封面图映射算出灯笼中心与吊绳原点，遮罩层随窗口变化重算 */

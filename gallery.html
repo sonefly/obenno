@@ -48,6 +48,11 @@
 .ga-video{margin:44px 0 0}
 .ga-video video{display:block;width:100%;height:auto;border:1px solid var(--hair);background:#000;aspect-ratio:16/9;object-fit:cover}
 .ga-video figcaption{margin:12px 0 0;font-size:12.5px;letter-spacing:.05em;color:var(--gold-deep)}
+.ga-save{margin:44px 0 0;padding:22px 24px;border:1px solid var(--hair);background:linear-gradient(180deg,rgba(216,178,120,.06),rgba(216,178,120,0));display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px}
+.ga-save .t{font-size:13.5px;line-height:1.9;color:var(--smoke);max-width:34em}
+.ga-save .t b{display:block;font-size:11px;font-weight:400;letter-spacing:.22em;color:var(--gold-deep);margin-bottom:6px}
+.ga-save a{flex:0 0 auto;display:inline-block;padding:11px 20px;border:1px solid rgba(216,178,120,.5);color:#ffe8c0;font-size:13px;letter-spacing:.1em;text-decoration:none;background:rgba(216,178,120,.08);transition:background .4s ease,border-color .4s ease}
+.ga-save a:hover{background:rgba(216,178,120,.18);border-color:rgba(255,214,150,.75)}
 @media(max-width:640px){
   .ga-grid{grid-template-columns:1fr;gap:30px}
   .gallery main{padding-top:36px}
@@ -56,7 +61,7 @@
 @media print{
   .ga-grid{grid-template-columns:1fr 1fr;gap:14px}
   .ga-fig .frame{border-color:#999}
-  .ga-note,.ga-video{display:none}
+  .ga-note,.ga-video,.ga-save{display:none}
 }
 </style>
 <script type="application/ld+json">
@@ -185,6 +190,11 @@
   <h2>关于这些图像</h2>
   <p>六帧与短片均由 AI 生成，经本站调色统一，用于呈现「殿里的东西」的气息；不构成文物摄影、不构成造像图样的依据，也不代表任何寺院或藏品。若需实物图像与尺寸数据，请查博物馆、石窟调查报告或《造像量度经》等专门文献。</p>
   <p>图像不含人物与文字，不设水印与二维码；可随经文页面一同打印，打印稿仅供个人课诵时对照。</p>
+</div>
+
+<div class="ga-save">
+  <p class="t"><b>存一份 · TAKE ONE COPY</b>六帧合成一张竖版长图，1080 × 2561，约 240 KB，带题名与小注。手机长按保存，电脑右键另存；可供个人课诵、分享经文时配图。</p>
+  <a href="assets/gallery/gallery-long.jpg" download="obenno-gallery.jpg" rel="noopener">下载长图 · 1080×2561</a>
 </div>
 
 <div class="more">
