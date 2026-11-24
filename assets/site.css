@@ -30,8 +30,8 @@
 .off-hero .line{flex:1 0 100%;margin-top:2px;font-size:12px;letter-spacing:.1em;color:#e8d0aca6}
 .off-steps{margin:0 0 clamp(12px,2vh,18px);padding:clamp(10px,1.6vw,14px) clamp(12px,1.8vw,16px);border:1px solid rgba(216,178,120,.18);background:linear-gradient(180deg,rgba(216,178,120,.055),rgba(216,178,120,0))}
 .off-steps-h{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin:0 0 10px;font-size:11px;letter-spacing:.18em;color:#ffd69eb3}
-.off-steps ul{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
-.off-steps li{flex:1 1 84px;min-width:76px;padding:8px 6px;text-align:center;border:1px solid rgba(216,178,120,.16);background:rgba(0,0,0,.28);font-family:var(--serif);color:#e0c6a080}
+.off-steps ul{display:flex;flex-wrap:wrap;gap:6px;margin:0;padding:0;list-style:none}
+.off-steps li{flex:1 1 0;min-width:0;padding:8px 4px;text-align:center;border:1px solid rgba(216,178,120,.16);background:rgba(0,0,0,.28);font-family:var(--serif);color:#e0c6a080}
 .off-steps li b{display:block;font-size:12.5px;font-weight:400;letter-spacing:.14em}
 .off-steps li em{display:block;margin-top:3px;font-style:normal;font-size:10px;letter-spacing:.08em;color:#e0c6a055}
 .off-steps li.on{border-color:rgba(255,206,140,.5);color:#ffe6b8;background:radial-gradient(circle at 50% 0,rgba(255,196,120,.2),rgba(0,0,0,.2) 72%);box-shadow:0 0 20px -10px rgba(255,190,110,.8)}
@@ -40,7 +40,7 @@
 .lamp{min-height:148px;padding:clamp(14px,1.8vw,20px);transition:border-color .5s ease,transform .5s ease,box-shadow .5s ease}
 .lamp:hover{border-color:rgba(255,206,140,.42);transform:translateY(-2px);box-shadow:0 20px 36px -24px rgba(0,0,0,.92)}
 .lamp .flame{position:relative;align-self:center;width:48px;height:56px;margin:2px 0 6px;border-radius:0;background:none;box-shadow:none}
-.lamp .flame::before{content:"";position:absolute;left:50%;top:6px;width:24px;height:36px;transform:translateX(-50%);border-radius:50% 50% 46% 46%/62% 62% 38% 38%;background:radial-gradient(ellipse at 50% 82%,#fff8e2,#ffd27a 40%,#ff9c2c 72%,rgba(255,122,26,0) 100%);box-shadow:0 0 22px rgba(255,176,90,.55),0 0 46px rgba(255,150,60,.22);animation:flameLick 3.4s ease-in-out infinite}
+.lamp .flame::before{content:"";position:absolute;left:50%;top:4px;width:26px;height:40px;transform:translateX(-50%);clip-path:polygon(50% 0,71% 24%,80% 50%,68% 82%,44% 96%,23% 78%,18% 48%,31% 20%);background:radial-gradient(ellipse at 50% 84%,#fff8e2,#ffd47e 36%,#ff9e2e 68%,rgba(255,126,22,.86) 100%);filter:drop-shadow(0 0 14px rgba(255,180,95,.7));animation:flameLick 3.4s ease-in-out infinite}
 .lamp .flame::after{content:"";position:absolute;left:50%;top:50%;width:104px;height:104px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(255,182,96,.32),rgba(255,150,60,.10) 44%,transparent 70%);animation:flameHalo 5.2s ease-in-out infinite}
 @keyframes flameLick{0%,100%{transform:translateX(-50%) scale(1);opacity:.94}35%{transform:translateX(-51%) scale(1.05,.94) rotate(-3deg);opacity:1}70%{transform:translateX(-49%) scale(.96,1.06) rotate(2deg);opacity:.9}}
 @keyframes flameHalo{0%,100%{opacity:.5}50%{opacity:.86}}

@@ -99,7 +99,7 @@
       }
     }
     if (nowEl) {
-      if (!n) nowEl.textContent = "还没有开始记数。点一盏、供一枝，这一日就记下了。";
+      if (!n) nowEl.textContent = totals() > 0 ? "此处已有点供；从今日起，点一盏就记下一日。" : "还没有开始记数。点一盏、供一枝，这一日就记下了。";
       else nowEl.textContent = "已供养 " + n + " 日 · 连续 " + streak + " 日。这些记号只是你自己的记数，不是功德簿。";
     }
   }
