@@ -37,6 +37,32 @@
 .ga-fig .frame{position:relative;border:1px solid var(--hair);background:#0d0906;overflow:hidden}
 .ga-fig .frame img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;filter:saturate(.94)}
 .ga-fig .frame:after{content:"";position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 0 1px rgba(216,178,120,.10), inset 0 -40px 60px -30px rgba(0,0,0,.6)}
+/* 静帧动效：极缓推近 + 光气微动，不加载任何视频 */
+.ga-fig[data-fx] .frame img{animation:gaKB 38s ease-in-out infinite alternate;will-change:transform}
+.ga-fig[data-fx] .frame .fx{position:absolute;inset:0;pointer-events:none;mix-blend-mode:screen;opacity:.12;z-index:1}
+.ga-fig[data-fx="smoke"] .frame img{animation-name:gaKBa;animation-duration:46s}
+.ga-fig[data-fx="lamp"] .frame img{animation-name:gaKBb;animation-duration:36s}
+.ga-fig[data-fx="bell"] .frame img{animation-name:gaKBc;animation-duration:42s}
+.ga-fig[data-fx="scroll"] .frame img{animation-name:gaKBd;animation-duration:34s}
+.ga-fig[data-fx="lotus"] .frame img{animation-name:gaKBa;animation-duration:50s}
+.ga-fig[data-fx="leaf"] .frame img{animation-name:gaKBb;animation-duration:48s}
+.ga-fig[data-fx="smoke"] .frame .fx{background:radial-gradient(58% 42% at 42% 26%,rgba(214,224,236,.20),transparent 70%);animation:gaHaze 19s ease-in-out infinite alternate}
+.ga-fig[data-fx="lamp"] .frame .fx{background:radial-gradient(56% 46% at 52% 46%,rgba(255,196,120,.26),transparent 64%);animation:gaGlow 4.8s ease-in-out infinite}
+.ga-fig[data-fx="bell"] .frame .fx{background:linear-gradient(104deg,rgba(216,230,255,.16) 0 16%,rgba(216,230,255,0) 44%);animation:gaShaft 14s ease-in-out infinite alternate}
+.ga-fig[data-fx="scroll"] .frame .fx{background:radial-gradient(70% 50% at 50% 62%,rgba(255,222,172,.18),transparent 72%);animation:gaGlow 22s ease-in-out infinite}
+.ga-fig[data-fx="lotus"] .frame .fx{background:radial-gradient(60% 38% at 50% 66%,rgba(186,220,255,.20),transparent 66%),linear-gradient(92deg,rgba(186,220,255,0) 12%,rgba(210,234,255,.14) 48%,rgba(186,220,255,0) 84%);background-size:100% 100%,240% 100%;background-position:0 0,0 0;animation:gaWater 26s linear infinite,gaGlow 12s ease-in-out infinite}
+.ga-fig[data-fx="leaf"] .frame .fx{background:radial-gradient(52% 42% at 58% 40%,rgba(255,214,150,.18),transparent 68%);animation:gaGlow 16s ease-in-out infinite}
+@keyframes gaKBa{from{transform:scale(1.02) translate3d(0,0,0)}to{transform:scale(1.085) translate3d(-1.6%,-1.4%,0)}}
+@keyframes gaKBb{from{transform:scale(1.03) translate3d(.4%,.6%,0)}to{transform:scale(1.09) translate3d(-1.2%,-1.8%,0)}}
+@keyframes gaKBc{from{transform:scale(1.02) translate3d(0,-.6%,0)}to{transform:scale(1.08) translate3d(1.4%,1.2%,0)}}
+@keyframes gaKBd{from{transform:scale(1.02) translate3d(.6%,0,0)}to{transform:scale(1.075) translate3d(-1%,-.9%,0)}}
+@keyframes gaHaze{from{opacity:.10;transform:translate3d(0,1.2%,0)}to{opacity:.22;transform:translate3d(-1.2%,-2.4%,0)}}
+@keyframes gaGlow{0%,100%{opacity:.14}35%{opacity:.34}62%{opacity:.20}80%{opacity:.30}}
+@keyframes gaShaft{from{opacity:.12;transform:translate3d(-1.4%,0,0)}to{opacity:.26;transform:translate3d(1.6%,.8%,0)}}
+@keyframes gaWater{from{background-position:0 0,0 0}to{background-position:0 0,240% 0}}
+@media (prefers-reduced-motion:reduce){
+  .ga-fig[data-fx] .frame img,.ga-fig[data-fx] .frame .fx{animation:none!important;transform:scale(1.03)!important}
+}
 .ga-fig figcaption{padding:14px 2px 0}
 .ga-fig .ord{display:block;font-size:11px;letter-spacing:.3em;color:var(--gold-deep);margin:0 0 6px}
 .ga-fig .ttl{display:block;font-size:19px;color:#f0dcb4;letter-spacing:.1em;line-height:1.5;margin:0 0 2px}
@@ -124,8 +150,8 @@
 
 <div class="ga-grid">
 
-<figure class="ga-fig">
-  <div class="frame"><img src="assets/gallery/01-xiangzhuan.jpg" width="960" height="1200" loading="lazy" decoding="async" alt="旧铜香篆炉，香灰上压出回旋的篆形纹路，一线青烟上升"></div>
+<figure class="ga-fig" data-fx="smoke">
+  <div class="frame"><img src="assets/gallery/01-xiangzhuan.jpg" width="960" height="1200" loading="lazy" decoding="async" alt="旧铜香篆炉，香灰上压出回旋的篆形纹路，一线青烟上升"><span class="fx" aria-hidden="true"></span></div>
   <figcaption>
     <span class="ord">一</span>
     <span class="ttl">香篆</span>
@@ -134,8 +160,8 @@
   </figcaption>
 </figure>
 
-<figure class="ga-fig">
-  <div class="frame"><img src="assets/gallery/02-dengming.jpg" width="960" height="1200" loading="lazy" decoding="async" alt="暗殿中三盏黄铜油灯，灯焰小而稳，暖金光晕落在陶盘与木台上"></div>
+<figure class="ga-fig" data-fx="lamp">
+  <div class="frame"><img src="assets/gallery/02-dengming.jpg" width="960" height="1200" loading="lazy" decoding="async" alt="暗殿中三盏黄铜油灯，灯焰小而稳，暖金光晕落在陶盘与木台上"><span class="fx" aria-hidden="true"></span></div>
   <figcaption>
     <span class="ord">二</span>
     <span class="ttl">灯明</span>
@@ -144,8 +170,8 @@
   </figcaption>
 </figure>
 
-<figure class="ga-fig">
-  <div class="frame"><img src="assets/gallery/03-fanzhong.jpg" width="960" height="1200" loading="lazy" decoding="async" alt="古铜色佛钟悬于木梁，一束冷白光切过钟身，光柱中尘埃浮动"></div>
+<figure class="ga-fig" data-fx="bell">
+  <div class="frame"><img src="assets/gallery/03-fanzhong.jpg" width="960" height="1200" loading="lazy" decoding="async" alt="古铜色佛钟悬于木梁，一束冷白光切过钟身，光柱中尘埃浮动"><span class="fx" aria-hidden="true"></span></div>
   <figcaption>
     <span class="ord">三</span>
     <span class="ttl">梵钟</span>
@@ -154,8 +180,8 @@
   </figcaption>
 </figure>
 
-<figure class="ga-fig">
-  <div class="frame"><img src="assets/gallery/04-jingjuan.jpg" width="960" height="1200" loading="lazy" decoding="async" alt="深色木案上展开的写经纸，竖行格线留白，铜镇纸压住卷边"></div>
+<figure class="ga-fig" data-fx="scroll">
+  <div class="frame"><img src="assets/gallery/04-jingjuan.jpg" width="960" height="1200" loading="lazy" decoding="async" alt="深色木案上展开的写经纸，竖行格线留白，铜镇纸压住卷边"><span class="fx" aria-hidden="true"></span></div>
   <figcaption>
     <span class="ord">四</span>
     <span class="ttl">经卷</span>
@@ -164,8 +190,8 @@
   </figcaption>
 </figure>
 
-<figure class="ga-fig">
-  <div class="frame"><img src="assets/gallery/05-lianhua.jpg" width="960" height="1200" loading="lazy" decoding="async" alt="极暗水面上半开的白莲，花瓣层次分明，水面有细微涟漪与倒影"></div>
+<figure class="ga-fig" data-fx="lotus">
+  <div class="frame"><img src="assets/gallery/05-lianhua.jpg" width="960" height="1200" loading="lazy" decoding="async" alt="极暗水面上半开的白莲，花瓣层次分明，水面有细微涟漪与倒影"><span class="fx" aria-hidden="true"></span></div>
   <figcaption>
     <span class="ord">五</span>
     <span class="ttl">莲华</span>
@@ -174,8 +200,8 @@
   </figcaption>
 </figure>
 
-<figure class="ga-fig">
-  <div class="frame"><img src="assets/gallery/06-putiye.jpg" width="960" height="1200" loading="lazy" decoding="async" alt="一片菩提叶被背光透照，叶脉如金丝，背景近黑"></div>
+<figure class="ga-fig" data-fx="leaf">
+  <div class="frame"><img src="assets/gallery/06-putiye.jpg" width="960" height="1200" loading="lazy" decoding="async" alt="一片菩提叶被背光透照，叶脉如金丝，背景近黑"><span class="fx" aria-hidden="true"></span></div>
   <figcaption>
     <span class="ord">六</span>
     <span class="ttl">菩提叶</span>
@@ -189,7 +215,7 @@
 <div class="ga-note">
   <h2>关于这些图像</h2>
   <p>六帧与短片均由 AI 生成，经本站调色统一，用于呈现「殿里的东西」的气息；不构成文物摄影、不构成造像图样的依据，也不代表任何寺院或藏品。若需实物图像与尺寸数据，请查博物馆、石窟调查报告或《造像量度经》等专门文献。</p>
-  <p>图像不含人物与文字，不设水印与二维码；可随经文页面一同打印，打印稿仅供个人课诵时对照。</p>
+  <p>六帧以极缓推近与光气微动代替视频：图像本身仍是静物照，页面不额外加载任何视频文件；系统开启「减少动态效果」时会自动静止。图像不含人物与文字，不设水印与二维码；可随经文页面一同打印，打印稿仅供个人课诵时对照。</p>
 </div>
 
 <div class="ga-save">
