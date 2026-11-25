@@ -1,4 +1,4 @@
-/* nav.css · 站点导航统一层 v1（全站分区 / 经文目录 / 目录折叠） */
+/* nav.css · 站点导航统一层 v2（页头面包屑 / 全站分区 / 经文目录 / 目录折叠） */
 nav.sec-nav{margin:34px 0 0;padding:18px 0 16px;border-top:1px solid var(--hair);font-size:12.5px;line-height:1.95;color:var(--smoke)}
 nav.sec-nav p.sec-cap{margin:0 0 10px;font-size:10.5px;letter-spacing:.2em;color:var(--gold-deep);text-transform:uppercase}
 nav.sec-nav div.sec-l{display:flex;flex-wrap:wrap;gap:2px 14px;min-width:0}
@@ -35,3 +35,45 @@ nav.toc details.toc-fold summary span.en{font-size:10px;font-style:italic;letter
 
 /* 窄屏防溢出：经文页三段导航允许换行 */
 nav.pn{flex-wrap:wrap}
+
+
+/* 统一页头 v2：回殿 · 面包屑 · 检索 */
+.top{display:grid!important;grid-template-columns:auto 1fr auto!important;align-items:center;gap:10px;padding:12px 16px}
+.top a.tb-home{flex:0 0 auto;border:0;font-size:12.5px;letter-spacing:.04em;opacity:.9;white-space:nowrap}
+.top a.tb-home:hover{opacity:1}
+.top nav.tb-crumb{flex:1 1 auto;min-width:0;display:flex;align-items:center;justify-content:center!important;gap:6px;font-size:11.5px;letter-spacing:.04em;opacity:.72;white-space:nowrap;overflow:hidden}
+.top nav.tb-crumb a{border:0;opacity:.92}
+.top nav.tb-crumb a:hover{opacity:1;border-bottom:1px solid var(--hair)}
+.top nav.tb-crumb em{font-style:normal;opacity:.95;max-width:16em;overflow:hidden;text-overflow:ellipsis;color:var(--gold)}
+.top nav.tb-crumb i{font-style:normal;opacity:.35;padding:0 1px}
+.top a.tb-search{flex:0 0 auto;border:1px solid var(--hair);border-radius:999px;padding:3px 11px;font-size:11.5px;letter-spacing:.06em;opacity:.85;white-space:nowrap}
+.top a.tb-search:hover{opacity:1;background:#d8b27814;border-color:var(--gold)}
+
+/* 本页目录（长页） */
+nav.pg-toc{display:flex;flex-wrap:wrap;gap:2px 16px;margin:6px 0 28px;padding:12px 15px;border:1px solid var(--hair);border-radius:2px;background:#d8b27808;font-size:12.5px;line-height:1.9}
+nav.pg-toc span{font-size:10.5px;letter-spacing:.2em;color:var(--gold-deep);margin-right:4px;white-space:nowrap}
+nav.pg-toc a{border:0;border-bottom:1px solid transparent;opacity:.86;white-space:nowrap}
+nav.pg-toc a:hover{opacity:1;border-bottom-color:var(--hair)}
+h2[id^="p"]{scroll-margin-top:72px}
+
+/* 404 引导 */
+p.not-found-help{margin:18px 0 0;font-size:13.5px;line-height:1.95;color:var(--smoke);opacity:.9}
+p.not-found-help a{border-bottom:1px solid var(--hair)}
+
+@media(max-width:560px){
+  .top a.tb-home{font-size:11.5px}
+  .top nav.tb-crumb{font-size:11px;gap:4px;justify-content:flex-start;padding-left:2px}
+  .top nav.tb-crumb em{max-width:8.5em}
+  .top a.tb-search{padding:3px 9px;font-size:11px}
+}
+@media print{nav.pg-toc,.top{display:none}}
+
+/* 首页说明行 */
+.hall-note{margin:14px auto 0;max-width:30rem;text-align:center;font-size:12.5px;letter-spacing:.08em;color:var(--gold);opacity:.78;line-height:1.85}
+.hall-note .en{display:block;font-size:10.5px;font-style:italic;letter-spacing:.04em;opacity:.6;margin-top:2px}
+
+/* 关于页使用指南 */
+ul.howto-list{margin:6px 0 28px;padding-left:1.15em;font-size:13.5px;line-height:2;color:var(--smoke)}
+ul.howto-list li{margin:0 0 7px}
+ul.howto-list b{color:var(--gold);font-weight:400}
+ul.howto-list code{font-family:inherit;opacity:.75;border-bottom:1px dotted var(--hair);padding:0 1px}
