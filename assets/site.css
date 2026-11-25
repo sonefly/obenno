@@ -118,3 +118,14 @@ background-size:34% 100%,62% 100%,100% 100%;background-position:50% 0,50% 0,0 0;
 
 /* v54 烟缕图需要显式解除 .censer img 的隐藏 */
 .censer .smoke-img{display:block!important}
+
+/* v55 香烟改为两缕交缠，整体加大加浓 */
+.censer .smoke-img{width:122%!important;bottom:88%!important;filter:blur(.4px) drop-shadow(0 0 4px rgba(255,238,205,.22)!important}
+.censer.fed .smoke-img{animation:smokeTwin 4.6s ease-out both!important}
+@keyframes smokeTwin{
+0%{opacity:0;transform:translateX(-50%) translateY(6px) scaleY(.42) scaleX(.8)}
+9%{opacity:.98;transform:translateX(-50%) translateY(3px) scaleY(.6) scaleX(.9)}
+50%{opacity:.95;transform:translateX(-50.3%) translateY(-3px) scaleY(.9) scaleX(1) rotate(-.4deg)}
+78%{opacity:.8}
+100%{opacity:0;transform:translateX(-51.4%) translateY(-12px) scaleY(1.18) scaleX(1.06) rotate(1.1deg)}
+}
