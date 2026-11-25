@@ -115,3 +115,6 @@ background-size:34% 100%,62% 100%,100% 100%;background-position:50% 0,50% 0,0 0;
 55%{opacity:.8;transform:translateX(-50.6%) translateY(-4px) scaleY(.85) rotate(.5deg)}
 100%{opacity:0;transform:translateX(-51.6%) translateY(-13px) scaleY(1.16) rotate(1.3deg)}
 }
+
+/* v54 烟缕图需要显式解除 .censer img 的隐藏 */
+.censer .smoke-img{display:block!important}
