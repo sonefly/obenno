@@ -104,3 +104,14 @@ background-size:34% 100%,62% 100%,100% 100%;background-position:50% 0,50% 0,0 0;
 .censer{left:calc(50% - 4.22dvh)!important;bottom:22.8dvh!important;width:6.05dvh!important}
 @media(max-width:900px){.buddha{height:min(36dvh,380px)!important;bottom:34dvh!important}.altar{height:26dvh!important}.censer{left:calc(50% - 3.91dvh)!important;bottom:21.3dvh!important;width:5.62dvh!important}}
 @media(max-width:560px){.buddha{height:min(31dvh,300px)!important;bottom:33dvh!important}.altar{height:22dvh!important;max-width:118vw!important}.censer{left:calc(50% - 3.31dvh)!important;bottom:18.35dvh!important;width:4.75dvh!important}}
+
+/* v53 香烟改用真实烟缕素材：细、随风摆动、无方形边界 */
+#smoke{display:none!important}
+.censer .smoke-img{position:absolute;left:50%;bottom:90%;width:96%;height:auto;transform:translateX(-50%);transform-origin:50% 100%;opacity:0;pointer-events:none;filter:blur(.35px) drop-shadow(0 0 3px rgba(255,236,200,.18));mix-blend-mode:screen}
+.censer.fed .smoke-img{animation:smokeBurn 4.4s ease-out both}
+@keyframes smokeBurn{
+0%{opacity:0;transform:translateX(-50%) translateY(5px) scaleY(.45)}
+12%{opacity:.92;transform:translateX(-50%) translateY(2px) scaleY(.62)}
+55%{opacity:.8;transform:translateX(-50.6%) translateY(-4px) scaleY(.85) rotate(.5deg)}
+100%{opacity:0;transform:translateX(-51.6%) translateY(-13px) scaleY(1.16) rotate(1.3deg)}
+}
