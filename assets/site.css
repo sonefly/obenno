@@ -98,3 +98,4 @@ background-size:34% 100%,62% 100%,100% 100%;background-position:50% 0,50% 0,0 0;
 @keyframes basePulse{0%,to{opacity:.34}50%{opacity:.54}}
 .altar-stage{display:none!important}.censer{left:calc(50% - 3.22dvh)!important;bottom:27.3dvh!important;width:6.45dvh!important}.censer img{display:none!important}.censer:after{opacity:0!important}@media (max-width:900px){.censer{left:calc(50% - 3.03dvh)!important;bottom:25.7dvh!important;width:6.06dvh!important}}@media (max-width:560px){.censer{left:calc(50% - 2.93dvh)!important;bottom:24.96dvh!important;width:5.86dvh!important}}
 @media (max-width:560px){.altar{height:25dvh!important}.censer{left:calc(50% - 2.44dvh)!important;bottom:21.05dvh!important;width:4.89dvh!important}}
+.censer{bottom:25.7dvh!important}.ember{width:13%!important}@media (max-width:560px){.censer{bottom:20.0dvh!important}}
