@@ -1,0 +1,37 @@
+/* nav.css · 站点导航统一层 v1（全站分区 / 经文目录 / 目录折叠） */
+nav.sec-nav{margin:34px 0 0;padding:18px 0 16px;border-top:1px solid var(--hair);font-size:12.5px;line-height:1.95;color:var(--smoke)}
+nav.sec-nav p.sec-cap{margin:0 0 10px;font-size:10.5px;letter-spacing:.2em;color:var(--gold-deep);text-transform:uppercase}
+nav.sec-nav div.sec-l{display:flex;flex-wrap:wrap;gap:2px 14px;min-width:0}
+nav.sec-nav div.sec-l a{white-space:nowrap}
+nav.sec-nav div.sec-l a{border:0;color:var(--gold);opacity:.82}
+nav.sec-nav div.sec-l a:hover{opacity:1;border-bottom:1px solid var(--hair)}
+
+nav.canon-nav{margin:32px 0 0;padding:16px 0 4px;border-top:1px solid var(--hair);font-size:12.5px;line-height:1.9;color:var(--smoke)}
+nav.canon-nav p.cn-cap{margin:0 0 10px;font-size:10.5px;letter-spacing:.2em;color:var(--gold-deep)}
+nav.canon-nav div.cn-grp{display:flex;gap:12px;padding:6px 0;border-bottom:1px dotted rgba(216,178,120,.14)}
+nav.canon-nav div.cn-grp:last-child{border-bottom:0;padding-bottom:0}
+nav.canon-nav span.cn-t{flex:0 0 5.4em;font-size:10.5px;letter-spacing:.12em;color:var(--gold-deep);opacity:.9;padding-top:5px}
+nav.canon-nav div.cn-l{display:flex;flex-wrap:wrap;gap:1px 12px;flex:1 1 auto;min-width:0}
+nav.canon-nav div.cn-l a{white-space:nowrap}
+nav.canon-nav div.cn-l a{border:0;opacity:.84;color:var(--gold)}
+nav.canon-nav div.cn-l a:hover{opacity:1;border-bottom:1px solid var(--hair)}
+nav.canon-nav div.cn-l a.on{color:#f0d3a2;border-bottom:1px solid var(--gold-deep)}
+@media(max-width:560px){nav.pn{font-size:12px;gap:6px}nav.pn a{padding:6px 10px}
+nav.sec-nav div.sec-l{gap:2px 12px;font-size:12px}
+nav.canon-nav div.cn-grp{display:block}nav.canon-nav span.cn-t{display:block;padding:2px 0 1px;letter-spacing:.16em}}
+
+nav.toc .toc-x{margin:0}
+nav.toc details.toc-fold{margin:12px 0 0;border-top:1px dashed var(--hair)}
+nav.toc details.toc-fold summary{cursor:pointer;list-style:none;padding:10px 0;font-size:12px;letter-spacing:.1em;color:var(--gold);opacity:.86}
+nav.toc details.toc-fold summary::-webkit-details-marker{display:none}
+nav.toc details.toc-fold summary::before{content:"▸";margin-right:8px;color:var(--gold-deep)}
+nav.toc details.toc-fold[open] summary::before{content:"▾"}
+nav.toc details.toc-fold div.vol-grid{display:flex;flex-wrap:wrap;gap:8px;padding:2px 0 14px}
+nav.toc details.toc-fold div.vol-grid a{border:1px solid var(--hair);border-radius:999px;padding:5px 14px;font-size:13px;letter-spacing:.04em;opacity:.9}
+nav.toc details.toc-fold div.vol-grid a:hover{background:#d8b27814;border-color:var(--gold)}
+nav.toc details.toc-fold ol{padding:0 0 12px}
+nav.toc details.toc-fold summary span.en{font-size:10px;font-style:italic;letter-spacing:.06em;opacity:.55;margin-left:8px}
+@media print{nav.sec-nav,nav.canon-nav,nav.toc details.toc-fold{display:none}}
+
+/* 窄屏防溢出：经文页三段导航允许换行 */
+nav.pn{flex-wrap:wrap}
