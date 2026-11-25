@@ -129,3 +129,14 @@ background-size:34% 100%,62% 100%,100% 100%;background-position:50% 0,50% 0,0 0;
 78%{opacity:.8}
 100%{opacity:0;transform:translateX(-51.4%) translateY(-12px) scaleY(1.18) scaleX(1.06) rotate(1.1deg)}
 }
+
+/* v56 交缠烟缕：更快成形、更长时间维持 */
+.censer.fed .smoke-img{animation:smokeTwin2 4.6s ease-out both!important}
+@keyframes smokeTwin2{
+0%{opacity:0;transform:translateX(-50%) translateY(4px) scaleY(.62) scaleX(.86)}
+7%{opacity:1;transform:translateX(-50%) translateY(2px) scaleY(.92) scaleX(.95)}
+32%{opacity:.98;transform:translateX(-50%) translateY(0) scaleY(1) scaleX(1)}
+62%{opacity:.92;transform:translateX(-50.4%) translateY(-5px) scaleY(1.06) rotate(-.4deg)}
+85%{opacity:.55}
+100%{opacity:0;transform:translateX(-51.2%) translateY(-12px) scaleY(1.16) rotate(1deg)}
+}
