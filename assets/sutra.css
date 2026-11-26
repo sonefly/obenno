@@ -89,3 +89,25 @@ nav.toc .pin-list .rg{opacity:.45;font-size:11px;margin-left:6px}
 
 nav.all a.on{color:#f0d3a2;border-bottom-color:var(--gold-deep)}
 .top a{text-decoration:none}
+
+/* ===== 2026-11-26 · 打印排版 v2：纸面重排 + 消除浏览器页眉页脚（左上时间戳） ===== */
+@media print{
+  @page{size:A4;margin:0}
+  html,body{background:#fff!important;color:#111!important}
+  body{margin:0!important;padding:16mm 15mm 14mm!important}
+  .top,.rd,.rd-chip,.rd-toast,nav.pn,nav.all,nav.tri,nav.toc,nav.toc-back,nav.sb-nav,nav.canon-nav,nav.sec-nav,footer,div.chant{display:none!important}
+  .wrap{width:auto!important;max-width:none!important;margin:0!important;padding:0!important}
+  header.hd{margin:0 auto 8mm!important;max-width:150mm;text-align:center;padding:0 0 5mm!important;border-bottom:.9pt solid #c8a86a}
+  header.hd h1{font-size:19pt!important;line-height:1.4!important;letter-spacing:.08em!important;margin:0!important;color:#000!important;font-weight:600}
+  header.hd .en{display:block;font-size:9.5pt!important;letter-spacing:.14em;color:#6a6a6a!important;font-style:italic;margin-top:2mm}
+  header.hd .meta,header.hd .meta-en{font-size:8pt!important;color:#7a7a7a!important;margin:2.5mm 0 0!important;line-height:1.6}
+  header.hd .lede{display:none!important}
+  div.rule{display:none!important}
+  article.text{max-width:150mm;margin:0 auto}
+  article.text p{font-size:12.5pt!important;line-height:1.95!important;margin:0 0 .52em!important;color:#000!important;text-indent:2em;orphans:2;widows:2}
+  article.text p.first:first-letter{font-size:1em!important;color:#000!important}
+  article.mantra li{font-size:12.5pt!important;line-height:2!important;color:#000!important}
+  h2.sec{font-size:10pt!important;letter-spacing:.12em;color:#555!important;margin:7mm 0 3mm!important;break-after:avoid}
+  blockquote.cite{max-width:150mm;margin:7mm auto 0!important;padding:4mm 0 0!important;border:0!important;border-top:.4pt solid #d0d0d0!important;background:none!important;font-size:8pt!important;line-height:1.65!important;color:#5a5a5a!important;break-inside:avoid}
+  .wrap::after{content:"OBENNO  ·  www.obenno.com  ·  LIGHT YOUR OWN LAMP";display:block;text-align:center;font-size:8pt;letter-spacing:.1em;color:#9a9a9a;margin-top:9mm}
+}
