@@ -10,7 +10,7 @@
 ## 分卷页与栏目页（独立 URL，内容为纯文本，便于索引与引用）
 
 - [图录 Gallery](https://www.obenno.com/gallery.html): 六帧 AI 生成的示意图像（香篆、灯明、梵钟、经卷、莲华、菩提叶），每帧附「殿里做什么／被借来比喻什么」两段说明，六帧以极缓推近与光气微动代替视频（页面不加载 mp4，系统开启减少动态效果时静止），并声明非文物摄影、不作造像形制依据
-- [藏经 Canon](https://www.obenno.com/canon.html): 三经一咒（大悲咒、心经、往生咒）与三十一部经律论全文页索引（含《法华》《华严》），录文据 CBETA《大正藏》，拼音跟读、描红抄经、三藏十二部与阅读路径
+- [藏经 Canon](https://www.obenno.com/canon.html): 三经一咒（大悲咒、心经、往生咒）与三十四部经律论全文页索引（含《法华》《华严》），录文据 CBETA《大正藏》，拼音跟读、描红抄经、三藏十二部与阅读路径
 - [功课 Daily Practice](https://www.obenno.com/practice.html): 每日五项功课、一百零八声佛号计数、今日一偈与回向文
 - [仪轨 Rites](https://www.obenno.com/rites.html): 上香、供养、合十问讯的做法，早课与晚课各十分钟的次第，入殿问答六则
 - [次第 Path](https://www.obenno.com/path.html): 信、戒、定、慧、愿五阶十五项可自勾的实践
