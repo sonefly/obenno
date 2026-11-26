@@ -139,3 +139,17 @@ background-size:34% 100%,62% 100%,100% 100%;background-position:50% 0,50% 0,0 0;
 .censer{left:calc(50% - 3.30dvh)!important}
 @media (max-width:900px){.censer{left:calc(50% - 3.06dvh)!important}}
 @media (max-width:560px){.censer{left:calc(50% - 2.59dvh)!important}}
+
+/* ===== 2026-11-26 · 首页收束（site v59）：门楣文案、分区面板 ===== */
+.intro .inner{background:radial-gradient(ellipse 78% 66% at 50% 50%,rgba(8,5,3,.90) 0%,rgba(8,5,3,.76) 42%,rgba(8,5,3,.34) 68%,rgba(8,5,3,0) 84%);border-radius:6px}
+.intro .site-name{margin:0 0 18px;letter-spacing:.3em;text-indent:.3em;text-shadow:0 1px 4px rgba(6,3,1,.95)}
+.intro .enter{margin:0 0 10px;text-shadow:0 2px 6px rgba(6,3,1,.95)}
+.intro .enter-en{margin:-2px 0 18px;letter-spacing:.28em;text-indent:.28em;opacity:.94;text-shadow:0 1px 3px rgba(6,3,1,.92)}
+.intro .hint{margin-top:6px;letter-spacing:.26em;text-indent:.26em;text-shadow:0 1px 3px rgba(6,3,1,.92)}
+.intro .hint-en{margin-top:7px;letter-spacing:.18em;text-indent:.18em;opacity:.82;text-shadow:0 1px 3px rgba(6,3,1,.9)}
+.intro .koan{margin-top:28px;max-width:32em}
+.intro .koan-txt{line-height:2.05}
+.intro .silent{margin-top:12px}
+.vol-nav{padding:12px 14px 13px;border-radius:3px;border-color:rgba(216,178,120,.22);background:linear-gradient(180deg,rgba(10,6,3,.74),rgba(6,4,3,.84));-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);box-shadow:0 8px 26px rgba(0,0,0,.45)}
+.vol-nav a{line-height:1.8;letter-spacing:.06em}
+.vol-nav .vol-cap{letter-spacing:.24em;opacity:.95}

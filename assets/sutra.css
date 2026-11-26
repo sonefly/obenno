@@ -95,7 +95,7 @@ nav.all a.on{color:#f0d3a2;border-bottom-color:var(--gold-deep)}
   @page{size:A4;margin:0}
   html,body{background:#fff!important;color:#111!important}
   body{margin:0!important;padding:16mm 15mm 14mm!important}
-  .top,.rd,.rd-chip,.rd-toast,nav.pn,nav.all,nav.tri,nav.toc,nav.toc-back,nav.sb-nav,nav.canon-nav,nav.sec-nav,footer,div.chant{display:none!important}
+  body .top,.rd,.rd-chip,.rd-toast,nav.pn,nav.all,nav.tri,nav.toc,nav.toc-back,nav.sb-nav,nav.canon-nav,nav.sec-nav,footer,div.chant{display:none!important}
   .wrap{width:auto!important;max-width:none!important;margin:0!important;padding:0!important}
   header.hd{margin:0 auto 8mm!important;max-width:150mm;text-align:center;padding:0 0 5mm!important;border-bottom:.9pt solid #c8a86a}
   header.hd h1{font-size:19pt!important;line-height:1.4!important;letter-spacing:.08em!important;margin:0!important;color:#000!important;font-weight:600}
@@ -109,6 +109,62 @@ nav.all a.on{color:#f0d3a2;border-bottom-color:var(--gold-deep)}
   article.text p.first:first-letter{font-size:1em!important;color:#000!important;float:none!important}
   article.mantra li{font-size:12.5pt!important;line-height:2!important;color:#000!important}
   h2.sec{font-size:10pt!important;letter-spacing:.12em;color:#555!important;margin:7mm 0 3mm!important;break-after:avoid}
+  article.mantra li span,article.mantra li:first-child span,article.mantra li:nth-child(7) span{color:#000!important}
+  article.mantra li i{color:#888!important;opacity:1!important;font-size:8pt!important}
+  article.mantra li{line-height:1.85!important}
   blockquote.cite{max-width:150mm;margin:7mm auto 0!important;padding:4mm 0 0!important;border:0!important;border-top:.4pt solid #d0d0d0!important;background:none!important;font-size:8pt!important;line-height:1.65!important;color:#5a5a5a!important;break-inside:avoid}
+  nav.toc.toc-body details.toc-fold{display:block!important;margin:0!important;border:0!important}
+  nav.toc.toc-body details.toc-fold summary{display:none!important}
+  nav.toc.toc-body{display:block!important;border:0!important;background:none!important;padding:0!important;margin:0 0 4mm!important}
+  nav.toc.toc-body .toc-cap{color:#555!important}
+  nav.toc.toc-body,nav.toc.toc-body li,nav.toc.toc-body a,nav.toc.toc-body a i,nav.toc.toc-body span{color:#111!important}
+  nav.toc.toc-body a{opacity:1!important}
+  nav.toc.toc-body ol{grid-template-columns:repeat(3,1fr)!important;gap:1mm 6mm!important}
+  nav.toc.toc-body ol a,nav.toc.toc-body ol a i{color:#111!important;opacity:1!important}
   .wrap::after{content:"OBENNO  ·  www.obenno.com  ·  LIGHT YOUR OWN LAMP";display:block;text-align:center;font-size:8pt;letter-spacing:.1em;color:#9a9a9a;margin-top:9mm}
+}
+/* ===== 2026-11-26 · 阅读页精修 + 描红格纸（sutra v42） ===== */
+header.hd{padding:54px 0 20px}
+header.hd h1{letter-spacing:.08em;margin:0 0 8px}
+header.hd .en{opacity:.56;margin-bottom:14px}
+header.hd .meta{margin:0;letter-spacing:.08em}
+header.hd .meta-en{margin:3px 0 0;opacity:.55}
+header.hd .lede{max-width:33rem;margin-top:18px;font-size:14px;line-height:1.95}
+article.text p{line-height:2;margin:0 0 .78em;letter-spacing:.02em;text-align:justify;text-justify:inter-ideograph}
+.rd{margin:10px 0 24px;gap:7px}
+.rd-n{letter-spacing:.1em}
+.rd-b{padding:6px 13px;transition:background .18s ease,border-color .18s ease}
+nav.tri{gap:8px 10px;margin-top:26px}
+blockquote.cite{padding:15px 18px;border-left-width:2px;font-size:12.5px;line-height:1.95}
+@media(max-width:560px){
+  .rd-n{flex:0 0 100%;margin:0 0 2px}
+  header.hd{padding:40px 0 16px}
+  article.text p{letter-spacing:.01em}
+  .wrap{padding:0 18px 56px}
+}
+
+/* 描红抄经：格纸 */
+article.grids{margin:4px 0 0}
+p.cm-tip{margin:0 0 26px;font-size:13px;line-height:1.95;color:var(--smoke);opacity:.82}
+p.cm-tip .cm-tip-en{display:block;margin-top:6px;font-size:10.5px;font-style:italic;letter-spacing:.06em;color:var(--gold-deep);opacity:.9}
+h2.sec.cm-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;margin:38px 0 16px;padding-left:11px;border-left:2px solid var(--gold-deep);font-size:14.5px;letter-spacing:.12em;color:#eddcba;opacity:1;font-weight:400}
+h2.sec.cm-h i{font-style:normal;font-size:10.5px;letter-spacing:.1em;color:var(--gold-deep)}
+h2.sec.cm-h em{margin-left:auto;font-style:normal;font-size:10.5px;letter-spacing:.06em;color:var(--gold-deep);opacity:.85}
+.zg{margin:0 0 10px}
+article.grids .zr{display:flex;border-left:1px solid rgba(216,178,120,.14);border-top:1px solid rgba(216,178,120,.14)}
+.zc{position:relative;flex:0 0 calc(100% / 15);min-width:0;aspect-ratio:1/1;border-right:1px solid rgba(216,178,120,.14);border-bottom:1px solid rgba(216,178,120,.14);display:grid;place-items:center}
+.zc b{font-weight:300;font-size:clamp(14px,3.1vw,27px);line-height:1;letter-spacing:0;color:rgba(216,178,120,.30)}
+body.cm-blank .zc b{opacity:0}
+@media print{
+  article.grids{margin:0}
+  p.cm-tip{font-size:8.5pt;color:#666!important;margin:0 0 4mm;line-height:1.7}
+  p.cm-tip .cm-tip-en{display:none}
+  h2.sec.cm-h{font-size:10.5pt!important;color:#000!important;border-left:1.2pt solid #b99a63!important;margin:5mm 0 3mm!important;letter-spacing:.1em;break-after:avoid}
+  h2.sec.cm-h i,h2.sec.cm-h em{color:#666!important}
+  article.grids .zr{display:grid!important;width:max-content;grid-template-columns:repeat(15,11.6mm);grid-auto-rows:11.6mm;border-left:.25pt solid #d5d0c7;border-top:.25pt solid #d5d0c7;break-inside:avoid}
+  article.grids .zc{flex:none!important;aspect-ratio:auto!important;height:11.6mm;border-right:.3pt solid #c9c4bb;border-bottom:.3pt solid #c9c4bb}
+  .zc:before{content:"";position:absolute;left:50%;top:9%;bottom:9%;width:0;border-left:.25pt dashed #f1ede6;transform:translateX(-50%)}
+  .zc:after{content:"";position:absolute;top:50%;left:9%;right:9%;height:0;border-top:.25pt dashed #f1ede6;transform:translateY(-50%)}
+  article.grids .zc b{font-size:14pt;color:#d3ccc1!important;line-height:1}
+  body.cm-blank .zc b{display:none}
 }

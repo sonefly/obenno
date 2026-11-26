@@ -77,3 +77,18 @@ ul.howto-list{margin:6px 0 28px;padding-left:1.15em;font-size:13.5px;line-height
 ul.howto-list li{margin:0 0 7px}
 ul.howto-list b{color:var(--gold);font-weight:400}
 ul.howto-list code{font-family:inherit;opacity:.75;border-bottom:1px dotted var(--hair);padding:0 1px}
+
+/* ===== 2026-11-26 · 导航层（nav v5）：可读性与手感 ===== */
+.top{padding:13px 20px;background:#060403f2}
+.top a.tb-home{letter-spacing:.06em;opacity:1}
+.top nav.tb-crumb{opacity:.8;letter-spacing:.06em}
+.top a.tb-search{padding:4px 12px;letter-spacing:.08em;transition:background .18s ease,border-color .18s ease}
+nav.pg-toc{padding:14px 16px;background:#d8b2780a}
+nav.sec-nav,nav.canon-nav{margin-top:36px}
+nav.sec-nav div.sec-l,nav.canon-nav div.cn-l{gap:3px 15px}
+nav.canon-nav div.cn-grp{padding:7px 0}
+nav.tri a,nav.pn a{transition:border-color .18s ease,background .18s ease}
+@media(max-width:560px){
+  .top{padding:11px 15px}
+  nav.canon-nav div.cn-grp{padding:8px 0}
+}
