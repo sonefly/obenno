@@ -118,3 +118,24 @@ background-size:34% 100%,62% 100%,100% 100%;background-position:50% 0,50% 0,0 0;
 
 /* v54 烟缕图需要显式解除 .censer img 的隐藏 */
 .censer .smoke-img{display:block!important}
+
+/* ===== v58 · 右上「关于」避让声音开关 / 手机端「全站分区」不压底栏 / 烟缕落在炉口正中 ===== */
+
+/* 1) 「关于」小印：从声音开关正下方让出，既不盖喇叭，也不侵入竖排分卷索引 */
+.corner-seal{top:70px;right:calc(clamp(12px,3vw,26px) + 22px)}
+@media (max-width:520px){.corner-seal{top:68px;right:34px}}
+
+/* 2) 手机端「全站分区」：收成贴着底栏上方的一条横向滑动索引，不再遮挡导航栏 */
+@media (max-width:900px){
+  .vol-nav{position:fixed;left:8px;right:8px;bottom:calc(43px + env(safe-area-inset-bottom));display:flex;flex-wrap:nowrap;align-items:center;gap:0;margin:0;padding:2px 10px;border:1px solid rgba(216,178,120,.22);background:linear-gradient(180deg,#0a0705cc,#050403e6);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);font-size:10.5px;line-height:1.55;letter-spacing:.03em;opacity:.82;pointer-events:auto;z-index:12;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;-ms-overflow-style:none}
+  .vol-nav::-webkit-scrollbar{display:none}
+  .vol-nav .vol-cap{display:none}
+  .vol-nav a{flex:none;white-space:nowrap;padding:0 8px}
+  .vol-nav a+a{border-left:1px solid rgba(216,178,120,.14)}
+  .controls{bottom:calc(68px + env(safe-area-inset-bottom))}
+}
+
+/* 3) 香炉对位：整体右移约 1dvh，使烟缕自炉口正中升起，不再贴着炉沿 */
+.censer{left:calc(50% - 3.30dvh)!important}
+@media (max-width:900px){.censer{left:calc(50% - 3.06dvh)!important}}
+@media (max-width:560px){.censer{left:calc(50% - 2.59dvh)!important}}
