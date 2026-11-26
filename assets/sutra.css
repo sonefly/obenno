@@ -105,7 +105,8 @@ nav.all a.on{color:#f0d3a2;border-bottom-color:var(--gold-deep)}
   div.rule{display:none!important}
   article.text{max-width:150mm;margin:0 auto}
   article.text p{font-size:12.5pt!important;line-height:1.95!important;margin:0 0 .52em!important;color:#000!important;text-indent:2em;orphans:2;widows:2}
-  article.text p.first:first-letter{font-size:1em!important;color:#000!important}
+  article.text p.first{text-indent:2em!important}
+  article.text p.first:first-letter{font-size:1em!important;color:#000!important;float:none!important}
   article.mantra li{font-size:12.5pt!important;line-height:2!important;color:#000!important}
   h2.sec{font-size:10pt!important;letter-spacing:.12em;color:#555!important;margin:7mm 0 3mm!important;break-after:avoid}
   blockquote.cite{max-width:150mm;margin:7mm auto 0!important;padding:4mm 0 0!important;border:0!important;border-top:.4pt solid #d0d0d0!important;background:none!important;font-size:8pt!important;line-height:1.65!important;color:#5a5a5a!important;break-inside:avoid}
