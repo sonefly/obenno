@@ -97,3 +97,10 @@ nav.tri a,nav.pn a{transition:border-color .18s ease,background .18s ease}
 footer.site-foot::after{content:"";display:block;width:56px;height:56px;margin:28px auto 0;background:url("/assets/icon-192.png") center/contain no-repeat;opacity:.7}
 @media(max-width:560px){footer.site-foot::after{width:46px;height:46px;margin:22px auto 0}}
 @media print{footer.site-foot::after{display:none!important}}
+
+/* 语言切换 v7：统一页头的 EN / 中 胶囊，任意内页一键过语言 */
+.top{grid-template-columns:auto 1fr auto auto!important}
+.top a.tb-lang{flex:0 0 auto;display:inline-flex;align-items:center;border:1px solid var(--hair);border-radius:999px;padding:3px 10px;font-size:11px;letter-spacing:.1em;opacity:.72;white-space:nowrap;border-bottom:1px solid var(--hair)}
+.top a.tb-lang:hover{opacity:1;background:#d8b27814;border-color:var(--gold);text-decoration:none}
+@media(max-width:560px){.top a.tb-lang{padding:3px 8px;font-size:10.5px;letter-spacing:.06em}}
+@media print{.top a.tb-lang{display:none}}

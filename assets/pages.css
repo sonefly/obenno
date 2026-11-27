@@ -80,3 +80,41 @@ footer.site-foot{padding:36px 24px 64px}
   body .top,footer,.more,.cta,.doc .updated{display:none!important}
   main::after{content:"OBENNO  ·  www.obenno.com  ·  LIGHT YOUR OWN LAMP";display:block;text-align:center;font-size:8pt;letter-spacing:.1em;color:#9a9a9a;margin-top:10mm}
 }
+
+/* 英文版排版 v6：拉丁字族、字距、断词与行宽；中文页不受影响 */
+html[lang="en"] body{font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Times New Roman",serif;font-size:17.5px;line-height:1.74;letter-spacing:0}
+html[lang="en"] main{max-width:632px}
+html[lang="en"] p{margin-bottom:18px;hyphens:auto;-webkit-hyphens:auto;text-wrap:pretty}
+html[lang="en"] .lead{font-size:19px;line-height:1.62}
+html[lang="en"] h2{margin-top:42px}
+html[lang="en"] .doc h2{font-size:14px;letter-spacing:.16em}
+html[lang="en"] .doc li{line-height:1.7}
+html[lang="en"] .kv th{font-size:12px;letter-spacing:.04em}
+html[lang="en"] .kv td{font-size:13.5px;line-height:1.65}
+html[lang="en"] .note{font-size:13.5px;line-height:1.7}
+/* 起始三入口（英文首页） */
+nav.start-here{display:block;margin:8px 0 30px}
+nav.start-here a{display:flex;gap:14px;align-items:baseline;border:1px solid var(--hair);border-bottom:0;padding:11px 14px;background:#d8b27808}
+nav.start-here a:first-child{border-radius:2px 2px 0 0}
+nav.start-here a:last-child{border-bottom:1px solid var(--hair);border-radius:0 0 2px 2px}
+nav.start-here a:hover{background:#d8b27814;border-color:var(--gold);text-decoration:none}
+nav.start-here b{flex:0 0 6.6em;font-weight:400;color:var(--gold);font-size:14px;letter-spacing:.06em}
+nav.start-here span{flex:1 1 auto;font-size:12px;line-height:1.55;color:var(--smoke);opacity:.72}
+@media(max-width:640px){nav.start-here a{display:block;padding:11px 13px}nav.start-here b{display:block;margin-bottom:3px}}
+/* 英文页页头语言入口 */
+html[lang="en"] .top a.tb-lang{border:1px solid var(--hair);border-radius:999px;padding:3px 10px;font-size:11px;letter-spacing:.1em;color:var(--gold);opacity:.75}
+html[lang="en"] .top a.tb-lang:hover{opacity:1;border-color:var(--gold)}
+/* 指南页：编号小节与对照表 */
+html[lang="en"] .doc h2{counter-increment:guide}
+html[lang="en"] .guide-table{width:100%;border-collapse:collapse;margin:4px 0 22px;font-size:13.5px;line-height:1.6}
+html[lang="en"] .guide-table tr{border-bottom:1px solid var(--hair)}
+html[lang="en"] .guide-table th,.guide-table td{padding:9px 10px 9px 0;vertical-align:top;text-align:left}
+html[lang="en"] .guide-table th{width:22%;font-weight:400;color:var(--gold);font-size:12.5px;letter-spacing:.06em}
+html[lang="en"] .guide-table td.cn{width:14%;color:var(--smoke);opacity:.9;font-family:var(--serif)}
+html[lang="en"] .guide-table td{color:var(--smoke);opacity:.86}
+@media(max-width:600px){html[lang="en"] .guide-table th{width:30%}html[lang="en"] .guide-table td.cn{display:none}}
+
+/* 英文页页头：flex 三件（品牌 · 返回 · 中），不被中文页 grid 规则影响 */
+html[lang="en"] .top{display:flex!important;grid-template-columns:none!important;justify-content:space-between!important;align-items:center;gap:12px}
+html[lang="en"] .top .back{margin-left:auto}
+html[lang="en"] .top a.tb-lang{margin-left:2px}

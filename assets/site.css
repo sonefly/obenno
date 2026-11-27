@@ -184,3 +184,8 @@ footer.foot-gate span{opacity:.9}
   footer.foot-gate i{display:none}
   footer.foot-gate span{flex:0 0 100%;margin-top:5px;letter-spacing:.1em}
 }
+
+/* 首屏英文入口 v63 */
+.hall-lang{position:absolute;top:14px;right:16px;z-index:18;display:inline-block;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#d8b276;border:1px solid rgba(216,178,120,.34);border-radius:999px;padding:5px 12px;background:#0a0705c4;text-decoration:none;opacity:.82;transition:opacity .2s ease,border-color .2s ease}
+.hall-lang:hover{opacity:1;border-color:#d8b276;text-decoration:none}
+@media(max-width:560px){.hall-lang{top:10px;right:12px;font-size:9.5px;padding:4px 10px;letter-spacing:.08em}}

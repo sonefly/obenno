@@ -17,7 +17,7 @@
   applySize(); applyWidth();
   /* 节数 */
   var nEl=document.getElementById('rdN');
-  if(nEl) nEl.textContent='共 '+ps.length+' 节';
+  if(nEl) nEl.textContent='共 '+ps.length+' 节 / '+ps.length+' sections';
   if(rd) rd.setAttribute('data-rd-n',ps.length);
   /* 引用 */
   function artName(){
@@ -34,12 +34,12 @@
     t.textContent=msg; t.classList.add('on'); clearTimeout(t._h); t._h=setTimeout(function(){t.classList.remove('on')},1800);
   }
   function copyText(txt){
-    if(navigator.clipboard&&navigator.clipboard.writeText){ return navigator.clipboard.writeText(txt).then(function(){toast('已复制此节引用')},function(){fallback(txt)}) }
+    if(navigator.clipboard&&navigator.clipboard.writeText){ return navigator.clipboard.writeText(txt).then(function(){toast('已复制此节引用 · citation copied')},function(){fallback(txt)}) }
     fallback(txt);
   }
   function fallback(txt){
     var ta=document.createElement('textarea');ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();
-    try{document.execCommand('copy');toast('已复制此节引用')}catch(e){toast('复制失败，请手动选择')}
+    try{document.execCommand('copy');toast('已复制此节引用 · citation copied')}catch(e){toast('复制失败，请手动选择 · copy failed')}
     document.body.removeChild(ta);
   }
   for(var i=0;i<ps.length;i++){
@@ -75,7 +75,7 @@
   var saved=null; try{saved=JSON.parse(localStorage.getItem(KEY)||'null')}catch(e){}
   if(saved&&saved.p>0.04&&saved.p<0.96&&(!location.hash)){
     var chip=document.createElement('button'); chip.type='button'; chip.className='rd-chip';
-    chip.textContent='继续上次 · 第'+((saved.i||0)+1)+'节';
+    chip.textContent='继续上次 Resume · 第'+((saved.i||0)+1)+'节';
     chip.onclick=function(){ var t=ps[saved.i]; if(t) t.scrollIntoView({block:'start'}); chip.remove(); };
     var bar=document.getElementById('rd'); if(bar){bar.appendChild(chip)}else{document.body.appendChild(chip)}
     setTimeout(function(){try{chip.remove()}catch(e){}},12000);
