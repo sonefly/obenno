@@ -1,7 +1,7 @@
 {
   "name": "梵音殿 OBENNO · 汉传佛典全文",
   "short_name": "梵音殿",
-  "description": "汉传佛典全文阅读：经藏总目、每日功课与经文描红。底本依 CBETA 大正藏，免费、无账号、无广告。",
+  "description": "汉传佛典全文阅读：经藏总目、每日功课与经文描红。底本依 CBETA 大正藏。",
   "lang": "zh-Hans",
   "start_url": "/",
   "scope": "/",
