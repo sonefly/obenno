@@ -92,3 +92,8 @@ nav.tri a,nav.pn a{transition:border-color .18s ease,background .18s ease}
   .top{padding:11px 15px}
   nav.canon-nav div.cn-grp{padding:8px 0}
 }
+
+/* ===== 2026-11-27 · 页脚徽记（nav v6） ===== */
+footer.site-foot::after{content:"";display:block;width:56px;height:56px;margin:28px auto 0;background:url("/assets/icon-192.png") center/contain no-repeat;opacity:.7}
+@media(max-width:560px){footer.site-foot::after{width:46px;height:46px;margin:22px auto 0}}
+@media print{footer.site-foot::after{display:none!important}}
