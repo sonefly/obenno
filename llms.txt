@@ -1,6 +1,6 @@
 # 梵音殿 OBENNO
 
-> 免费、无账号、无广告的汉传佛教修学站点（GitHub Pages + Cloudflare）：金身莲台大殿、大悲咒梵唱、藏经诵读（带拼音与跟读）、每日功课、功德回向、供灯供水、农历斋期与圣诞、名相小词典与学佛次第。中文为主，另设英文入口 https://www.obenno.com/en/ 与英文经藏目录 https://www.obenno.com/en/canon.html。
+> 汉传佛教修学站点（静态页，GitHub Pages + Cloudflare）：金身莲台大殿、大悲咒梵唱、藏经诵读（带拼音与跟读）、每日功课、功德回向、供灯供水、农历斋期与圣诞、名相小词典与学佛次第。中文为主，另设英文入口 https://www.obenno.com/en/ 与英文经藏目录 https://www.obenno.com/en/canon.html。
 
 - Canonical: https://www.obenno.com/
 - 语言 / Languages: zh-Hans 为主站语言；英文另设两页（/en/ 与 /en/canon.html），与中文对应页以 hreflang 互指
