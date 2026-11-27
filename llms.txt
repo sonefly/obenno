@@ -69,7 +69,7 @@
 ## 站点信息页（About / Privacy / License）
 
 - [关于本站 About](https://www.obenno.com/about.html): 站点性质、底本与文本处理原则（CBETA《大正藏》、标点、字形、注音、校勘从略）、编辑与发布原则、已知局限、技术与无障碍、更正渠道
-- [隐私与 Cookie Privacy](https://www.obenno.com/privacy.html): 无账号无画像、localStorage 键名与用途、Microsoft Clarity 匿名统计与关闭方式、第三方请求与服务器日志
+- [隐私与 Cookie Privacy](https://www.obenno.com/privacy.html): localStorage 键名与用途、Microsoft Clarity 匿名统计与关闭方式、第三方请求与服务器日志
 - [授权 License](https://www.obenno.com/LICENSE): CBETA 录文依其授权非商业流通、自撰文字 CC BY-NC 4.0、代码 MIT
 
 ## 引用说明
@@ -85,4 +85,4 @@
 - 经文录文以 CBETA《大正藏》为底本；CBETA 的校勘、标点、分段成果权利归 CBETA，依其授权可免费流通、引用，**不得用于商业用途**；引用请注明 CBETA 与册号（如 `CBETA, T30, no. 1564`）
 - 本站自撰文字（纲要、史略、名相释义、栏目说明）为 CC BY-NC 4.0：可转载改编，须署名「梵音殿 OBENNO」并链回原页，不得商用
 - `app.js`、`sw.js`、各 CSS 代码为 MIT 许可；佛像、殿门等图像与大悲咒录音仅授权在本站及镜像内浏览播放
-- 本站不设账号，也无付费墙：无订阅、无会员、无广告、无商品、无付费收录；殿内一只功德箱为自愿随喜，不设金额梯度、无对价，不供亦可照常阅读全部经文
+- 殿内一只功德箱为自愿随喜，不设金额梯度、无对价，不供亦可照常阅读全部经文；本站不接受付费收录
