@@ -14,13 +14,13 @@
 <meta property="og:url" content="https://www.obenno.com/search.html">
 <meta property="og:site_name" content="梵音殿 OBENNO">
 
-<link rel="stylesheet" href="/assets/sutra.css?v=43"><link rel="stylesheet" href="/assets/nav.css?v=6">
+<link rel="stylesheet" href="/assets/sutra.css?v=44"><link rel="stylesheet" href="/assets/nav.css?v=7">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"梵音殿 OBENNO","url":"https://www.obenno.com/","inLanguage":"zh-Hans","potentialAction":{"@type":"SearchAction","target":"https://www.obenno.com/search.html?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
 <link rel="alternate" type="application/rss+xml" title="梵音殿 OBENNO · 更新" href="/feed.xml">
 <link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png"><link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png"><link rel="icon" type="image/png" sizes="64x64" href="/assets/favicon-64.png"><link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png"><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest">
 </head>
 <body>
-<div class="top"><a class="tb-home" href="/">← 梵音殿</a><nav class="tb-crumb" aria-label="位置"><a href="/">大殿</a><i>›</i><em>检索</em></nav><a class="tb-search" href="/search.html">检索</a></div>
+<div class="top"><a class="tb-home" href="/">← 梵音殿</a><nav class="tb-crumb" aria-label="位置"><a href="/">大殿</a><i>›</i><em>检索</em></nav><a class="tb-search" href="/search.html">检索</a><a class="tb-lang" href="/en/" hreflang="en" aria-label="English edition · 英文版">EN</a></div>
 <div class="wrap">
 <header class="hd">
 <h1>全站检索</h1>
@@ -32,10 +32,11 @@
 <div class="rule"></div>
 <form class="srch" id="sf" role="search" onsubmit="return false">
 <label class="srch-l" for="q">检索词</label>
-<input class="srch-i" id="q" type="search" name="q" autocomplete="off" placeholder="例如：应无所住 · 观自在 · 一即一切" aria-describedby="srchHint">
+<input class="srch-i" id="q" type="search" name="q" autocomplete="off" placeholder="例如：应无所住 · 观自在 / e.g. Diamond, Heart, T08n0235" aria-describedby="srchHint">
 <span class="srch-s" id="srchStat">索引未载入</span>
 </form>
 <p class="srch-hint" id="srchHint">支持空格分词（「色 空」两词同节命中优先）。同音字不替换，异体字依 CBETA 原文。名相释条见 <a href="/glossary.html">名相</a>。</p>
+<p class="srch-hint srch-hint-en">English titles and Taishō numbers (Diamond, T08n0235) return the text itself; the full-text index is Chinese characters only.</p>
 <div class="srch-out" id="out" aria-live="polite"></div>
 <nav class="pn"><a href="/canon.html">← 藏经总目</a><a href="/">回殿内检索</a><a href="/glossary.html">名相 →</a></nav>
 <nav class="sec-nav sec-out" aria-label="全站分区"><p class="sec-cap">全站分区 · SECTIONS</p><div class="sec-l"><a href="/canon.html">藏经</a><a href="/practice.html">功课</a><a href="/rites.html">仪轨</a><a href="/path.html">次第</a><a href="/temple.html">寺院</a><a href="/offerings.html">供养</a><a href="/almanac.html">历数</a><a href="/glossary.html">名相</a><a href="/basics.html">纲要</a><a href="/history.html">史略</a><a href="/masters.html">译经师</a><a href="/pilgrimage.html">祖庭</a><a href="/precepts.html">戒律</a><a href="/search.html">检索</a><a href="/gallery.html">图录</a><a href="/en/">英文</a></div></nav><footer class="site-foot">
@@ -67,17 +68,39 @@
 .hit mark{background:rgba(216,178,120,.28);color:#ffe9c0;border-radius:2px}
 .hit-c{appearance:none;background:none;border:0;border-bottom:1px dashed var(--hair);color:var(--gold);font:inherit;font-size:11.5px;padding:0;margin-top:8px;cursor:pointer;opacity:.8}
 .empty{font-size:13px;color:var(--smoke);opacity:.65;padding:18px 0}
+.tb-cap{margin:18px 0 8px;font-size:10.5px;letter-spacing:.2em;color:var(--gold-deep);text-transform:uppercase}
+.tb-list{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px}
+.tb-it{display:block;min-width:200px;flex:1 1 240px;border:1px solid var(--hair);border-radius:2px;padding:10px 13px;background:#d8b27808}
+.tb-it:hover{background:#d8b27814;border-color:var(--gold);text-decoration:none}
+.tb-it b{display:block;font-weight:400;font-size:13.5px;color:var(--gold);letter-spacing:.02em}
+.tb-it span{display:block;margin-top:3px;font-size:11.5px;color:var(--smoke);opacity:.66}
+.en-empty{display:block;margin-top:6px;font-size:12px;font-style:normal;opacity:.66}
 </style>
 <script>
-var IDX=null,LOADING=false,TIMER=null,META={};
+var IDX=null,TITLES=null,LOADING=false,TIMER=null,META={},P=null;
 function norm(t){return (t||'').replace(/[\s\u3000]/g,'').toLowerCase()}
 function load(){
-  if(IDX||LOADING) return Promise.resolve();
-  LOADING=true; var st=document.getElementById('srchStat'); st.textContent='载入索引…';
-  return fetch('/assets/search-index.json').then(function(r){return r.json()}).then(function(d){
-    META=d.meta||{}; IDX=d.items.map(function(x){return {u:x[0],s:x[1],t:x[2],n:norm(x[2])}});
-    st.textContent='索引 '+IDX.length+' 节 · 已载入';
-  }).catch(function(){st.textContent='索引载入失败，可稍后再试或回殿内检索';LOADING=false;throw 0});
+  if(IDX) return Promise.resolve();
+  if(P) return P;
+  var st=document.getElementById('srchStat'); st.textContent='载入索引… / loading index';
+  P=Promise.all([
+    fetch('/assets/search-index.json').then(function(r){return r.json()}),
+    fetch('/assets/titles-en.json').then(function(r){return r.json()}).catch(function(){return {}})
+  ]).then(function(a){
+    var d=a[0]; META=d.meta||{}; TITLES=a[1]||{};
+    IDX=d.items.map(function(x){return {u:x[0],s:x[1],t:x[2],n:norm(x[2])}});
+    st.textContent='索引 '+IDX.length+' 节 / '+IDX.length+' sections';
+  }).catch(function(){P=null;st.textContent='索引载入失败，可稍后再试或回殿内检索 / index failed to load';throw 0});
+  return P;
+}
+function titleHits(q){
+  var tb=[],seen={};
+  if(TITLES){ for(var u in TITLES){ var ti=TITLES[u];
+    var hay=((ti.en||'').toLowerCase().replace(/[\s\u3000]/g,'')+'|'+((ti.t||'').toLowerCase()));
+    if(hay.indexOf(q)<0) continue;
+    var key=(ti.en||'')+(ti.t||''); if(seen[key]) continue; seen[key]=1; tb.push(u);
+  } }
+  return tb;
 }
 function hl(t,qs){
   var s=t.replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c]});
@@ -86,10 +109,18 @@ function hl(t,qs){
 }
 function run(q){
   var out=document.getElementById('out'); q=norm(q);
-  if(!q){out.innerHTML='';document.getElementById('srchStat').textContent='索引 '+(IDX?IDX.length:0)+' 节';return}
+  if(!q){out.innerHTML='';document.getElementById('srchStat').textContent='索引 '+(IDX?IDX.length:0)+' 节 / '+(IDX?IDX.length:0)+' sections';return}
   load().then(function(){
     var qs=q.split(/[，,。;；、]/).join(' ').split(' ').filter(Boolean);
     if(!qs.length) qs=[q];
+    var tb=titleHits(q), tbh='';
+    if(tb.length){
+      tbh='<p class="tb-cap">文本 · TEXTS</p><div class="tb-list">';
+      for(var x=0;x<tb.length&&x<10;x++){ var u=tb[x], ti=TITLES[u];
+        tbh+='<a class="tb-it" href="'+u+'"><b>'+(ti.en||'').replace(/[&<>]/g,'')+'</b><span>《'+(META[u]||'').replace(/[&<>]/g,'')+'》'+(ti.t?' · '+ti.t:'')+'</span></a>';
+      }
+      tbh+='</div>';
+    }
     var hits=[];
     for(var i=0;i<IDX.length;i++){
       var it=IDX[i], ok=true, sc=0;
@@ -97,9 +128,10 @@ function run(q){
       if(ok) hits.push({it:it,sc:sc});
     }
     hits.sort(function(a,b){return b.sc-a.sc});
-    document.getElementById('srchStat').textContent='命中 '+hits.length+' 节'+(hits.length>60?'（显示前 60）':'');
-    if(!hits.length){out.innerHTML='<p class="empty">此词在三十四篇经咒中未见。可换更短的词，或查 <a href="/glossary.html">名相</a>。</p>';return}
-    var h='';
+    document.getElementById('srchStat').textContent='命中 '+hits.length+' 节'+(hits.length>60?'（显示前 60）':'')+(tb.length?' · 文本 '+(tb.length>10?'10+':tb.length):'');
+    if(!hits.length){
+      out.innerHTML=tbh+(tb.length?'<p class="empty">正文检索只匹配中文原文：上列按英文题名或大正藏号命中的文本，可直接点入。英文检索词不会命中汉字。<a href="/en/guide.html#finding">See the English guide</a></p>':'<p class="empty">此词在三十四篇经咒中未见。可换更短的词，或查 <a href="/glossary.html">名相</a>。<br><span class="en-empty">No match in the Chinese text. Try a shorter Chinese word, or a title from the <a href="/en/canon.html">English canon index</a>.</span></p>');return}
+    var h=tbh;
     for(var k=0;k<hits.length&&k<60;k++){
       var hh=hits[k].it;
       h+='<div class="hit"><div class="hit-h"><span>'+((META[hh.u]||hh.u).replace(/[&<>]/g,''))+' · 第 '+hh.s+' 节</span><span>'+(hh.u.indexOf('hy-')>0?'卷页':'经页')+'</span></div>'+
@@ -118,7 +150,7 @@ document.getElementById('out').addEventListener('click',function(e){
   var u=b.getAttribute('data-u'), s=b.getAttribute('data-s'), nm=b.getAttribute('data-n');
   var idx=IDX&&IDX.filter(function(x){return x.u===u&&x.s==+s})[0];
   var txt='《'+(META[u]||'')+'》第'+s+'节「'+nm+'」：'+(idx?idx.t.slice(0,40)+'…':'')+' https://www.obenno.com'+u+'#'+s;
-  var done=function(){b.textContent='已复制';setTimeout(function(){b.textContent='复制此节引用'},1400)};
+  var done=function(){b.textContent='已复制 Copied';setTimeout(function(){b.textContent='复制引用 Copy'},1400)};
   if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(done,function(){})}
 });
 var init=new URLSearchParams(location.search).get('q');

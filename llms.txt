@@ -1,11 +1,12 @@
 # 梵音殿 OBENNO
 
-> 汉传佛教修学站点（静态页，GitHub Pages + Cloudflare）：金身莲台大殿、大悲咒梵唱、藏经诵读（带拼音与跟读）、每日功课、功德回向、供灯供水、农历斋期与圣诞、名相小词典与学佛次第。中文为主，另设英文入口 https://www.obenno.com/en/ 与英文经藏目录 https://www.obenno.com/en/canon.html。
+> 汉传佛教修学站点（静态页，GitHub Pages + Cloudflare）：金身莲台大殿、大悲咒梵唱、藏经诵读（带拼音与跟读）、每日功课、功德回向、供灯供水、农历斋期与圣诞、名相小词典与学佛次第。中文为主，另设英文入口 https://www.obenno.com/en/、英文经藏目录 https://www.obenno.com/en/canon.html 与英文使用指南 https://www.obenno.com/en/guide.html。
 
 - Canonical: https://www.obenno.com/
-- 语言 / Languages: zh-Hans 为主站语言；英文另设两页（/en/ 与 /en/canon.html），与中文对应页以 hreflang 互指
-- 站点性质: 首页为全屏交互大殿，另有 10 个分卷页、1 个图录页与 34 个全文经页与 1 个检索页，共 134 个独立 URL（法华 1 页、华严 81 页）（静态 HTML，分别共用 assets/pages.css 与 assets/sutra.css）；无登录；仅用 Microsoft Clarity 做匿名访问统计（会写入统计 Cookie），不做画像、不做广告投放
+- 语言 / Languages: zh-Hans 为主站语言；英文另设三页（/en/、/en/canon.html、/en/guide.html），与中文对应页以 hreflang 互指；全站内页页头均设 EN / 中 语言入口
+- 站点性质: 首页为全屏交互大殿，另有 10 个分卷页、1 个图录页与 34 个全文经页与 1 个检索页，共 136 个独立 URL（法华 1 页、华严 81 页）（静态 HTML，分别共用 assets/pages.css 与 assets/sutra.css）；无登录；仅用 Microsoft Clarity 做匿名访问统计（会写入统计 Cookie），不做画像、不做广告投放
 - 站点地图: https://www.obenno.com/sitemap.xml
+- 检索: /search.html 支持中文原文全文检索，并接受英文题名（Diamond、Heart）与大正藏号（T08n0235）直接定位到文本；索引见 assets/search-index.json 与 assets/titles-en.json
 
 ## 分卷页与栏目页（独立 URL，内容为纯文本，便于索引与引用）
 
