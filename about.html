@@ -34,10 +34,11 @@
 html,body{overflow-x:clip}
 .top,main,footer{position:relative;z-index:1}
 .wm-emblem{position:fixed;inset:0;z-index:0;
-background:url("/assets/icon-512.png") center / contain no-repeat;opacity:.06;
+background:url("/assets/icon-512.png") center / contain no-repeat;opacity:.05;
 filter:sepia(.3) saturate(.8) brightness(1.06);mix-blend-mode:screen;pointer-events:none;
 -webkit-mask-image:radial-gradient(circle at 50% 50%,#000 50%,rgba(0,0,0,.35) 72%,transparent 90%);
 mask-image:radial-gradient(circle at 50% 50%,#000 50%,rgba(0,0,0,.35) 72%,transparent 90%)}
+@media(max-width:560px){.wm-emblem{opacity:.044}}
 @media print{.wm-emblem{display:none!important}}
 </style>
 </head>
