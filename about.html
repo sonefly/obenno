@@ -30,16 +30,14 @@
 </script>
 <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "zh32wbcuxz");</script><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png"><link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png"><link rel="icon" type="image/png" sizes="64x64" href="/assets/favicon-64.png"><link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png"><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest">
 <style>
-/* 关于本站 · 徽记水印：只作纸面暗纹，不压正文、不参与交互、打印不出 */
+/* 关于本站 · 徽记水印：固定纸纹，不随手势滚动；正放、不倾斜；不进正文层；打印不出 */
 html,body{overflow-x:clip}
-main{position:relative}
-main>*{position:relative;z-index:1}
-.wm-emblem{position:absolute;top:-34px;right:0;width:clamp(170px,40vw,320px);aspect-ratio:1;
-background:url("/assets/icon-512.png") center/contain no-repeat;opacity:.075;
-filter:sepia(.34) saturate(.82) brightness(1.04);mix-blend-mode:screen;pointer-events:none;z-index:0;
-transform:rotate(-6deg);-webkit-mask-image:radial-gradient(circle at 50% 50%,#000 44%,transparent 76%);
-mask-image:radial-gradient(circle at 50% 50%,#000 44%,transparent 76%)}
-@media(max-width:560px){.wm-emblem{width:54vw;top:-20px;right:0;opacity:.062;transform:rotate(-4deg)}}
+.top,main,footer{position:relative;z-index:1}
+.wm-emblem{position:fixed;inset:0;z-index:0;
+background:url("/assets/icon-512.png") center / contain no-repeat;opacity:.06;
+filter:sepia(.3) saturate(.8) brightness(1.06);mix-blend-mode:screen;pointer-events:none;
+-webkit-mask-image:radial-gradient(circle at 50% 50%,#000 50%,rgba(0,0,0,.35) 72%,transparent 90%);
+mask-image:radial-gradient(circle at 50% 50%,#000 50%,rgba(0,0,0,.35) 72%,transparent 90%)}
 @media print{.wm-emblem{display:none!important}}
 </style>
 </head>
