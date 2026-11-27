@@ -21,7 +21,7 @@
 <meta name="color-scheme" content="dark">
 
 
-<link rel="stylesheet" href="/assets/pages.css?v=5"><link rel="stylesheet" href="/assets/nav.css?v=6">
+<link rel="stylesheet" href="/assets/pages.css?v=6"><link rel="stylesheet" href="/assets/nav.css?v=7">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[{"@type":"AboutPage","@id":"https://www.obenno.com/en/#webpage","url":"https://www.obenno.com/en/","name":"About this site · 梵音殿 OBENNO","description":"Sources, editorial rules, licensing and privacy of a Chinese Buddhist text reading room.","inLanguage":"en","isPartOf":{"@id":"https://www.obenno.com/#website"},"publisher":{"@type":"Organization","name":"梵音殿 OBENNO","url":"https://www.obenno.com/"},"isAccessibleForFree":true,"dateModified":"2026-11-22"}]}
 </script>
@@ -43,11 +43,18 @@ mask-image:radial-gradient(circle at 50% 50%,#000 50%,rgba(0,0,0,.35) 72%,transp
 <div class="top">
   <a class="brand" href="https://www.obenno.com/">梵音殿 OBENNO</a>
   <a class="back" href="https://www.obenno.com/">Enter the hall · 回大殿</a>
+  <a class="tb-lang" href="https://www.obenno.com/" hreflang="zh-Hans" aria-label="中文版 Chinese edition">中</a>
 </div>
 <main>
 <div class="wm-emblem" aria-hidden="true"></div>
 <h1>About this site <em>梵音殿 OBENNO</em></h1>
 <p class="lead">A quiet reading room for Mahāyāna Buddhist texts — sources stated, rules written down, nothing to sign up for.</p>
+
+<nav class="start-here" aria-label="Start here">
+<a href="/en/guide.html"><b>Guide</b><span>Labelled toolbar, section numbers, citation — explained line by line.</span></a>
+<a href="/en/canon.html"><b>The Canon</b><span>34 texts with English titles, baskets, fascicles and Taishō numbers.</span></a>
+<a href="/sutra/xj.html"><b>Heart Sūtra</b><span>A first read: 260 characters, one short page.</span></a>
+</nav>
 
 <div class="doc">
 <p>OBENNO (梵音殿, "the Hall of the Pure Voice") is a small, independent, non-commercial site for reading Chinese Buddhist scripture, with a few aids around it: a recitation player, a daily practice page, a glossary and two short essays. It is a static site.</p>
@@ -81,7 +88,7 @@ mask-image:radial-gradient(circle at 50% 50%,#000 50%,rgba(0,0,0,.35) 72%,transp
 <h2>Licensing</h2>
 <p>Scripture itself is public domain; CBETA's editorial work (collation, punctuation, paragraphing, line numbers) remains CBETA's and is used under its terms — free circulation and citation, <b>not for commercial use</b>, with attribution (e.g. <b>CBETA, T30, no. 1564</b>). The site's own prose (outline, history, glossary entries, page notes) is <b>CC BY-NC 4.0</b>: reuse with credit and a link back, no commercial use. Code (<b>app.js</b>, <b>sw.js</b>, the three stylesheets) is <b>MIT</b>. Images and the chant recording are licensed for display on this site and its mirrors only.</p>
 
-<h2>Privacy in brief</h2>
+<h2 id="privacy">Privacy in brief</h2>
 <p>Personal data is not collected, and reading needs no sign-in. Reading preferences, practice counts and your last position in a text are kept in your own browser's local storage. Two disclosed counters exist: Microsoft Clarity for anonymous page analytics, and a self-hosted greeting counter on the home page that resolves a province/city, hashes the IP for same-day de-duplication and discards it after two days. Both are blockable without losing any function. Full detail is on the <a href="/privacy.html">privacy page</a> (Chinese).</p>
 
 <h2>Corrections and contact</h2>
@@ -95,13 +102,14 @@ mask-image:radial-gradient(circle at 50% 50%,#000 50%,rgba(0,0,0,.35) 72%,transp
 <li><a href="/history.html">History</a> — from the Buddha's community to the modern period, with our base-text note</li>
 <li><a href="/glossary.html">Glossary</a> — 83 terms, and full-text search across the canon</li>
 </ul>
-<p class="note">Reader controls (type size, line width, pinyin toggle, single-line repeat, citation and print) are described on the Chinese pages; the labels are short and the icons self-explanatory.</p>
+<p class="note">The toolbar on every text page is labelled in Chinese: the <a href="/en/guide.html#controls">guide</a> translates each button and explains the citation, printing and tracing behaviour.</p>
 <p class="updated">Last updated: <time datetime="2026-11-22">22 November 2026</time></p>
 </div>
 </main>
 <footer class="site-foot">
 <nav class="foot-nav" aria-label="Site information">
 <a href="/en/">About<span>This page</span></a>
+<a href="/en/guide.html">Guide<span>使用指南</span></a>
 <a href="/privacy.html">Privacy<span>隐私</span></a>
 <a href="/LICENSE">License<span>授权</span></a>
 <a href="/sitemap.xml">Sitemap<span>地图</span></a>
