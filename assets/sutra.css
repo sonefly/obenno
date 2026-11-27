@@ -94,9 +94,9 @@ nav.all a.on{color:#f0d3a2;border-bottom-color:var(--gold-deep)}
 @media print{
   @page{size:A4;margin:0}
   html,body{background:#fff!important;color:#111!important}
-  body{margin:0!important;padding:16mm 15mm 14mm!important}
+  body{margin:0!important;padding:0!important}
   body .top,.rd,.rd-chip,.rd-toast,nav.pn,nav.all,nav.tri,nav.toc,nav.toc-back,nav.sb-nav,nav.canon-nav,nav.sec-nav,footer,div.chant{display:none!important}
-  .wrap{width:auto!important;max-width:none!important;margin:0!important;padding:0!important}
+  .wrap{width:auto!important;max-width:none!important;margin:0!important;padding:16mm 15mm 14mm!important;background:none!important;box-decoration-break:clone;-webkit-box-decoration-break:clone}
   header.hd{margin:0 auto 8mm!important;max-width:150mm;text-align:center;padding:0 0 5mm!important;border-bottom:.9pt solid #c8a86a}
   header.hd h1{font-size:19pt!important;line-height:1.4!important;letter-spacing:.08em!important;margin:0!important;color:#000!important;font-weight:600}
   header.hd .en{display:block;font-size:9.5pt!important;letter-spacing:.14em;color:#6a6a6a!important;font-style:italic;margin-top:2mm}
