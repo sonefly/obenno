@@ -36,7 +36,6 @@
 <span class="srch-s" id="srchStat">索引未载入</span>
 </form>
 <p class="srch-hint" id="srchHint">支持空格分词（「色 空」两词同节命中优先）。同音字不替换，异体字依 CBETA 原文。名相释条见 <a href="/glossary.html">名相</a>。</p>
-<p class="srch-hint srch-hint-en">English titles and Taishō numbers (Diamond, T08n0235) return the text itself; the full-text index is Chinese characters only.</p>
 <div class="srch-out" id="out" aria-live="polite"></div>
 <nav class="pn"><a href="/canon.html">← 藏经总目</a><a href="/">回殿内检索</a><a href="/glossary.html">名相 →</a></nav>
 <nav class="sec-nav sec-out" aria-label="全站分区"><p class="sec-cap">全站分区 · SECTIONS</p><div class="sec-l"><a href="/canon.html">藏经</a><a href="/practice.html">功课</a><a href="/rites.html">仪轨</a><a href="/path.html">次第</a><a href="/temple.html">寺院</a><a href="/offerings.html">供养</a><a href="/almanac.html">历数</a><a href="/glossary.html">名相</a><a href="/basics.html">纲要</a><a href="/history.html">史略</a><a href="/masters.html">译经师</a><a href="/pilgrimage.html">祖庭</a><a href="/precepts.html">戒律</a><a href="/search.html">检索</a><a href="/gallery.html">图录</a><a href="/en/">英文</a></div></nav><footer class="site-foot">
@@ -72,8 +71,8 @@
 .tb-list{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px}
 .tb-it{display:block;min-width:200px;flex:1 1 240px;border:1px solid var(--hair);border-radius:2px;padding:10px 13px;background:#d8b27808}
 .tb-it:hover{background:#d8b27814;border-color:var(--gold);text-decoration:none}
-.tb-it b{display:block;font-weight:400;font-size:13.5px;color:var(--gold);letter-spacing:.02em}
-.tb-it span{display:block;margin-top:3px;font-size:11.5px;color:var(--smoke);opacity:.66}
+.tb-it b{display:block;font-weight:400;font-size:14px;color:#e9d7ae;letter-spacing:.02em}
+.tb-it span{display:block;margin-top:4px;font-size:12px;color:var(--smoke);opacity:.78}
 .en-empty{display:block;margin-top:6px;font-size:12px;font-style:normal;opacity:.66}
 </style>
 <script>
@@ -130,7 +129,7 @@ function run(q){
     hits.sort(function(a,b){return b.sc-a.sc});
     document.getElementById('srchStat').textContent='命中 '+hits.length+' 节'+(hits.length>60?'（显示前 60）':'')+(tb.length?' · 文本 '+(tb.length>10?'10+':tb.length):'');
     if(!hits.length){
-      out.innerHTML=tbh+(tb.length?'<p class="empty">正文检索只匹配中文原文：上列按英文题名或大正藏号命中的文本，可直接点入。英文检索词不会命中汉字。<a href="/en/guide.html#finding">See the English guide</a></p>':'<p class="empty">此词在三十四篇经咒中未见。可换更短的词，或查 <a href="/glossary.html">名相</a>。<br><span class="en-empty">No match in the Chinese text. Try a shorter Chinese word, or a title from the <a href="/en/canon.html">English canon index</a>.</span></p>');return}
+      out.innerHTML=tbh+(tb.length?'<p class="empty">题名与大正藏号命中的文本列于上方，点入即达；正文索引为汉字原文，英文词不参与正文匹配。<a href="/en/guide.html#finding">How finding works</a></p>':'<p class="empty">此词在三十四篇经咒中未见。可换更短的词，或查 <a href="/glossary.html">名相</a>。<br><span class="en-empty">No match in the Chinese text. Try a shorter Chinese word, or a title from the <a href="/en/canon.html">English canon index</a>.</span></p>');return}
     var h=tbh;
     for(var k=0;k<hits.length&&k<60;k++){
       var hh=hits[k].it;
